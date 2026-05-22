@@ -107,6 +107,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.post("/api/stripe", express.raw({ type: "application/json" }), stripeWebhook);
 
 const port = process.env.PORT || 5000;
 
