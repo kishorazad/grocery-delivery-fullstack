@@ -73,3 +73,32 @@ export const login = async (req: Request, res: Response) => {
 
     res.json({ user: userData, token });
 };
+export const sendOtp = async (req: Request, res: Response) => {
+    try {
+
+        const { email } = req.body;
+
+        if (!email) {
+            return res.status(400).json({
+                success: false,
+                message: "Email is required"
+            });
+        }
+
+        console.log("OTP REQUEST:", email);
+
+        return res.json({
+            success: true,
+            message: "OTP sent successfully"
+        });
+
+    } catch (error: any) {
+
+        console.log(error);
+
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
