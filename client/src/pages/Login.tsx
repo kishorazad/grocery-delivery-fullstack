@@ -75,10 +75,10 @@ const Login = () => {
 
             setLoading(true);
 
-            const { data } = await axios.post(
-                "http://localhost:5000/api/auth/send-otp",
-                { email }
-            );
+           const { data } = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}/api/auth/send-otp`,
+    { email }
+);
 
             if (data.success) {
 
@@ -105,13 +105,13 @@ const Login = () => {
 
             setLoading(true);
 
-            const { data } = await axios.post(
-                "http://localhost:5000/api/auth/verify-otp",
-                {
-                    email,
-                    otp,
-                }
-            );
+           const { data } = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}/api/auth/verify-otp`,
+    {
+        email,
+        otp,
+    }
+);
 
             if (data.success) {
 
