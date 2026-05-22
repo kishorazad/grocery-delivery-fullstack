@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import nodemailer from "nodemailer";
+const otpStore: Record<string, string> = {};
 
 // Generate JWT token
 const generateToken = (id: string) => {
@@ -74,18 +76,67 @@ export const login = async (req: Request, res: Response) => {
     res.json({ user: userData, token });
 };
 export const sendOtp = async (req: Request, res: Response) => {
+
     try {
 
         const { email } = req.body;
 
         if (!email) {
+
             return res.status(400).json({
                 success: false,
                 message: "Email is required"
             });
         }
 
-        console.log("OTP REQUEST:", email);
+        // Generate OTP
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+        // Save OTP
+        otpStore[email] = otp;
+
+        // Create transporter
+        const transporter = nodemailer.createTransport({
+
+            host: "smtp-relay.brevo.com",
+
+            port: 587,
+
+            secure: false,
+
+            auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
+            },
+        });
+
+        // Send email
+        await transporter.sendMail({
+
+            from: process.env.SENDER_EMAIL,
+
+            to: email,
+
+            subject: "Your OTP Code",
+
+            html: `
+                <div style="font-family: Arial; padding: 20px;">
+
+                    <h2>PillNow Login OTP</h2>
+
+                    <h1 style="color: green;">
+                        ${otp}
+                    </h1>
+
+                    <p>
+                        Use this OTP to login.
+                    </p>
+
+                </div>
+            `,
+        });
+
+        console.log("OTP SENT:", otp);
 
         return res.json({
             success: true,
@@ -94,7 +145,7 @@ export const sendOtp = async (req: Request, res: Response) => {
 
     } catch (error: any) {
 
-        console.log(error);
+        console.log("OTP MAIL ERROR:", error);
 
         return res.status(500).json({
             success: false,
@@ -118,7 +169,7 @@ export const verifyOtp = async (req: Request, res: Response) => {
         }
 
         // TEST OTP
-        if (otp !== "123456") {
+        if (otpStore[email] !== otp) {
 
             return res.status(400).json({
                 success: false,
