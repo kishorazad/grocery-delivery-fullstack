@@ -37,7 +37,7 @@ const Products = () => {
 
             const { data } = await api.get(`/products?${params.toString()}`);
             setProducts(data.products);
-            setTotalPages(data.pages);
+           setTotalPages(data.pages || 1);
         } catch (error: any) {
             toast.error(error?.response?.data?.message || error?.message);
         } finally {
