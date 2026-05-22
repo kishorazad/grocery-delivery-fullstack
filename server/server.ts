@@ -103,8 +103,10 @@ app.use(cors({
         "http://localhost:5173",
         "https://grocery-delivery-fullstack-chi.vercel.app"
     ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-}));
+}));;
 
 app.use(express.json());
 app.post("/api/stripe", express.raw({ type: "application/json" }), stripeWebhook);
