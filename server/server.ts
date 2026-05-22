@@ -98,7 +98,11 @@ app.get("/api/test-mail", async (req: Request, res: Response) => {
 app.post("/api/stripe", express.raw({ type: "application/json" }), stripeWebhook);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    credentials: true,
+}));
+
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
