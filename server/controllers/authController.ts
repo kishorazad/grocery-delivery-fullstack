@@ -102,3 +102,69 @@ export const sendOtp = async (req: Request, res: Response) => {
         });
     }
 };
+// Verify OTP
+export const verifyOtp = async (req: Request, res: Response) => {
+
+    try {
+
+        const { email, otp } = req.body;
+
+        if (!email || !otp) {
+
+            return res.status(400).json({
+                success: false,
+                message: "Email and OTP required"
+            });
+        }
+
+        // TEST OTP
+        if (otp !== "123456") {
+
+            return res.status(400).json({
+                success: false,
+                message: "Invalid OTP"
+            });
+        }
+
+        let user = await prisma.user.findUnique({
+            where: {
+                email: email.toLowerCase()
+            }
+        });
+
+        // Create user if not exists
+        if (!user) {
+
+            user = await prisma.user.create({
+                data: {
+                    name: email.split("@")[0],
+                    email: email.toLowerCase(),
+                    password: await bcrypt.hash("otp-user", 10)
+                }
+            });
+        }
+
+        const token = generateToken(user.id);
+
+        const userData: any = { ...user };
+
+        delete userData.password;
+
+        userData.isAdmin = getAdminStatus(userData.email);
+
+        return res.json({
+            success: true,
+            token,
+            user: userData
+        });
+
+    } catch (error: any) {
+
+        console.log(error);
+
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
