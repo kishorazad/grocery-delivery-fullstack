@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { createTransport } from "nodemailer";
+import sendEmail from "../utils/nodemailer.js";
 const otpStore: Record<string, string> = {};
 
 // Generate JWT token
@@ -111,29 +111,20 @@ export const sendOtp = async (req: Request, res: Response) => {
         });
 
         // Send email
-        await transporter.sendMail({
-
-           from: `"PillNow" <${process.env.SENDER_EMAIL}>`,
-
+        await sendEmail({
             to: email,
-
             subject: "Your OTP Code",
-
-            html: `
+            body: `
                 <div style="font-family: Arial; padding: 20px;">
 
                     <h2>PillNow Login OTP</h2>
 
                     <h1 style="color: green;">
                         ${otp}
-                    </h1>
-
-                    <p>
-                        Use this OTP to login.
-                    </p>
-
-                </div>
-            `,
+ <p>Use this OTP to login.</p>
+        </div>
+            
+            `
         });
 
         console.log("OTP SENT:", otp);

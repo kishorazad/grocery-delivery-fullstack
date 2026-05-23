@@ -4,10 +4,24 @@ const transporter = createTransport({
     host: "smtp-relay.brevo.com",
     port: 587,
     secure: false,
+
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
     },
+});
+
+// Verify SMTP connection
+transporter.verify((error, success) => {
+
+    if (error) {
+
+        console.log("SMTP ERROR:", error);
+
+    } else {
+
+        console.log("SMTP CONNECTED");
+    }
 });
 
 const sendEmail = async ({
@@ -21,9 +35,13 @@ const sendEmail = async ({
 }) => {
 
     const response = await transporter.sendMail({
+
         from: `"PillNow" <${process.env.SENDER_EMAIL}>`,
+
         to,
+
         subject,
+
         html: body,
     });
 
