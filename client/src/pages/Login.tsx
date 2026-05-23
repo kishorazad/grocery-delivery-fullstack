@@ -157,12 +157,11 @@ const Login = () => {
                 <div className="relative text-center px-12">
 
                     <h2 className="text-4xl font-semibold text-white mb-4">
-                        Welcome back to Instacart
+                        Welcome back to PillNow
                     </h2>
 
                     <p className="text-white/60 font-serif text-xl max-w-sm mx-auto">
-                        Fresh groceries and organic produce,
-                        delivered to your doorstep.
+                       Medicines and healthcare delivered to your doorstep
                     </p>
 
                 </div>
@@ -187,7 +186,7 @@ const Login = () => {
                             <BikeIcon className="size-8 text-app-green" />
 
                             <span className="text-2xl font-semibold text-app-green">
-                                Instacart
+                                PillNow
                             </span>
 
                         </Link>
