@@ -5,7 +5,7 @@ const transporter = createTransport({
 
     host: "smtp-relay.brevo.com",
 
-    port: 465,
+    port: 587,
 
     secure: true,
 
