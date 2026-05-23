@@ -338,21 +338,21 @@ export const heroBanners = [
     {
         id: 1,
         title: "Banner 1",
-        image: "/client/src/assets/banner1.png",
+        image: "/banners/banner1.png",
     },
     {
         id: 2,
         title: "Banner 2",
-        image: "/client/src/assets/banner2.png",
+        image: "/banners/banner2.png",
     },
     {
         id: 3,
         title: "Banner 3",
-        image: "/client/src/assets/banner3.png",
+        image: "/banners/banner3.png",
     },
     {
         id: 4,
         title: "Banner 4",
-        image: "/client/src/assets/banner4.png",
+        image: "/banners/banner4.png",
     },
 ];
