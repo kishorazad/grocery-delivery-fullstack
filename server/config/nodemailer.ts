@@ -1,25 +1,12 @@
-import nodemailer from "nodemailer";
+import SibApiV3Sdk from "sib-api-v3-sdk";
 
-const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
+const client = SibApiV3Sdk.ApiClient.instance;
 
-    port: 2525,
+const apiKey = client.authentications["api-key"];
 
-    secure: false,
+apiKey.apiKey = process.env.BREVO_API_KEY!;
 
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
-
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-
-    tls: {
-        rejectUnauthorized: false,
-    },
-});
+const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
 const sendEmail = async ({
     to,
@@ -31,11 +18,20 @@ const sendEmail = async ({
     body: string;
 }) => {
 
-    return transporter.sendMail({
-        from: `"PillNow" <${process.env.SENDER_EMAIL}>`,
-        to,
+    return await tranEmailApi.sendTransacEmail({
+        sender: {
+            email: process.env.SENDER_EMAIL!,
+            name: "PillNow",
+        },
+
+        to: [
+            {
+                email: to,
+            },
+        ],
+
         subject,
-        html: body,
+        htmlContent: body,
     });
 
 };
