@@ -1,12 +1,4 @@
-import SibApiV3Sdk from "sib-api-v3-sdk";
-
-const client = SibApiV3Sdk.ApiClient.instance;
-
-const apiKey = client.authentications["api-key"];
-
-apiKey.apiKey = process.env.BREVO_API_KEY as string;
-
-const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
+import axios from "axios";
 
 const sendEmail = async ({
     to,
@@ -18,23 +10,34 @@ const sendEmail = async ({
     body: string;
 }) => {
 
-    await tranEmailApi.sendTransacEmail({
-        sender: {
-            email: process.env.SENDER_EMAIL as string,
-            name: "PillNow",
-        },
-
-        to: [
-            {
-                email: to,
+    const response = await axios.post(
+        "https://api.brevo.com/v3/smtp/email",
+        {
+            sender: {
+                name: "PillNow",
+                email: process.env.SENDER_EMAIL,
             },
-        ],
 
-        subject,
+            to: [
+                {
+                    email: to,
+                },
+            ],
 
-        htmlContent: body,
-    });
+            subject,
 
+            htmlContent: body,
+        },
+        {
+            headers: {
+                accept: "application/json",
+                "api-key": process.env.BREVO_API_KEY,
+                "content-type": "application/json",
+            },
+        }
+    );
+
+    return response.data;
 };
 
 export default sendEmail;
