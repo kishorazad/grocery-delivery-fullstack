@@ -93,25 +93,9 @@ export const sendOtp = async (req: Request, res: Response) => {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
         // Save OTP
-        otpStore[email] = otp;
+       otpStore[email] = otp;
 
-        // Create transporter
-        const transporter = createTransport({
-
-            host: "smtp-relay.brevo.com",
-
-            port: 587,
-
-            secure: false,
-
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-        });
-
-        // Send email
-        await sendEmail({
+await sendEmail({
             to: email,
             subject: "Your OTP Code",
             body: `
@@ -144,6 +128,7 @@ export const sendOtp = async (req: Request, res: Response) => {
         });
     }
 };
+
 // Verify OTP
 export const verifyOtp = async (req: Request, res: Response) => {
 
