@@ -1,12 +1,12 @@
 import SibApiV3Sdk from "sib-api-v3-sdk";
 
-const defaultClient = SibApiV3Sdk.ApiClient.instance;
+const client = SibApiV3Sdk.ApiClient.instance;
 
-const apiKey = defaultClient.authentications["api-key"];
+const apiKey = client.authentications["api-key"];
 
 apiKey.apiKey = process.env.BREVO_API_KEY as string;
 
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
 const sendEmail = async ({
     to,
@@ -18,24 +18,22 @@ const sendEmail = async ({
     body: string;
 }) => {
 
-    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-
-    sendSmtpEmail.sender = {
-        email: process.env.SENDER_EMAIL as string,
-        name: "PillNow",
-    };
-
-    sendSmtpEmail.to = [
-        {
-            email: to,
+    await tranEmailApi.sendTransacEmail({
+        sender: {
+            email: process.env.SENDER_EMAIL as string,
+            name: "PillNow",
         },
-    ];
 
-    sendSmtpEmail.subject = subject;
+        to: [
+            {
+                email: to,
+            },
+        ],
 
-    sendSmtpEmail.htmlContent = body;
+        subject,
 
-    return await apiInstance.sendTransacEmail(sendSmtpEmail);
+        htmlContent: body,
+    });
 
 };
 
