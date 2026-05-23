@@ -32,6 +32,7 @@ export default function AdminDashboard() {
               { label: "Total Users", value: stats.totalUsers, icon: UsersIcon },
               { label: "Total Products", value: stats.totalProducts, icon: PackageIcon },
               { label: "Out of Stock", value: stats.outOfStock, icon: AlertTriangleIcon },
+              
           ]
         : [];
 
@@ -53,6 +54,73 @@ export default function AdminDashboard() {
                     </div>
                 ))}
             </div>
+            {/* Import Medicines */}
+<div className="bg-white rounded-2xl border border-app-border p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+
+    <div className="flex items-start gap-4">
+
+        <div
+            className="
+                size-14
+                rounded-2xl
+                bg-green-100
+                text-green-600
+                flex-center
+                shrink-0
+            "
+        >
+            <UploadCloudIcon className="size-7" />
+        </div>
+
+        <div>
+
+            <h2
+                className="
+                    text-xl
+                    font-semibold
+                    text-zinc-900
+                "
+            >
+                Import Medicines
+            </h2>
+
+            <p
+                className="
+                    text-sm
+                    text-zinc-500
+                    mt-1
+                "
+            >
+                Upload Excel or CSV medicine
+                database directly into PillNow
+            </p>
+
+        </div>
+    </div>
+
+    <Link
+        to="/admin/import-medicines"
+        className="
+            bg-green-600
+            hover:bg-green-700
+            text-white
+            px-6
+            py-3
+            rounded-xl
+            text-sm
+            font-medium
+            transition
+            flex
+            items-center
+            gap-2
+            shrink-0
+        "
+    >
+        <UploadCloudIcon className="size-4" />
+        Upload Medicines
+    </Link>
+
+</div>
 
             {/* Recent Orders */}
             <div className="bg-white rounded-2xl border border-app-border overflow-hidden">

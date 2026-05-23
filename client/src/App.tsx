@@ -18,10 +18,13 @@ import AdminProducts from "./pages/admin/AdminProducts";
 import AdminProductForm from "./pages/admin/AdminProductForm";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AdminDeliveryPartners from "./pages/admin/AdminDeliveryPartners";
+import ImportMedicines from "./pages/admin/ImportMedicines";
+    
 import DeliveryLogin from "./pages/delivery/DeliveryLogin";
 import DeliveryLayout from "./pages/delivery/DeliveryLayout";
 import DeliveryDashboard from "./pages/delivery/DeliveryDashboard";
 
+    
 const App = () => {
     return (
         <>
@@ -50,6 +53,10 @@ const App = () => {
                     <Route path="products" element={<AdminProducts />} />
                     <Route path="products/new" element={<AdminProductForm />} />
                     <Route path="products/:id/edit" element={<AdminProductForm />} />
+                    <Route
+    path="import-medicines"
+    element={<ImportMedicines />}
+/>
                     <Route path="orders" element={<AdminOrders />} />
                     <Route path="delivery-partners" element={<AdminDeliveryPartners />} />
                 </Route>

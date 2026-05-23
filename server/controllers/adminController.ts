@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
+import * as XLSX from "xlsx";
+import fs from "fs";
+import slugify from "slugify";
 
 // get admin dashboard data
 export const getAdminStats = async (req: Request, res: Response) => {
@@ -100,4 +103,150 @@ export const assignDeliveryPartner = async (req: Request, res: Response) => {
     });
 
     res.json({ order });
+};
+export const importMedicines = async (
+    req: Request,
+    res: Response
+) => {
+
+    try {
+
+        if (!req.file) {
+
+            res.status(400).json({
+                success: false,
+                message: "No file uploaded",
+            });
+
+            return;
+        }
+
+        const workbook = XLSX.readFile(req.file.path);
+
+        const sheetName = workbook.SheetNames[0];
+
+        const sheet = workbook.Sheets[sheetName];
+
+        const medicines: any[] =
+            XLSX.utils.sheet_to_json(sheet);
+
+        console.log(
+            `Found ${medicines.length} medicines`
+        );
+
+        for (const item of medicines) {
+
+            const imageUrls = item["Image URL"]
+                ? item["Image URL"]
+                      .split("|")
+                      .map((url: string) => url.trim())
+                : [];
+
+            await prisma.product.create({
+
+                data: {
+
+                    name:
+                        item["Product Name"] ||
+                        "Medicine",
+
+                    slug:
+                        slugify(
+                            item["Product Name"] ||
+                                "medicine",
+                            {
+                                lower: true,
+                                strict: true,
+                            }
+                        ) +
+                        "-" +
+                        Math.floor(
+                            Math.random() * 100000
+                        ),
+
+                    description:
+                        item["description"] || "",
+
+                    composition:
+                        item["short_composition1"] ||
+                        "",
+
+                    medicineType:
+                        item["Product Form"] || "",
+
+                    manufacturer:
+                        item["Marketer"] || "",
+
+                    primaryUse:
+                        item["primary_use"] || "",
+
+                    price:
+                        Number(item["MRP"] || 0),
+
+                    originalPrice:
+                        Number(item["MRP"] || 0),
+
+                    image:
+                        imageUrls[0] || "",
+
+                    imageUrls,
+
+                    category:
+                        item["type"] || "medicine",
+
+                    prescriptionRequired:
+                        String(
+                            item[
+                                "prescription_required"
+                            ]
+                        ).toLowerCase() === "yes",
+
+                    stock: 100,
+
+                    rating: 4.5,
+
+                    reviewCount: 10,
+
+                    productForm:
+                        item["Product Form"] || "",
+
+                    packaging:
+                        item["Pack Size"] || "",
+
+                    safetyAdvice:
+                        item["safety_advise"] || "",
+
+                    sideEffects:
+                        item["common_side_effect"] ||
+                        "",
+
+                    howToUse:
+                        item["How to use"] || "",
+
+                    storage:
+                        item["storage"] || "",
+
+                    howItWorks:
+                        item["How it works"] || "",
+                },
+            });
+        }
+
+        fs.unlinkSync(req.file.path);
+
+        res.json({
+            success: true,
+            message:
+                "Medicines imported successfully",
+        });
+
+    } catch (error: any) {
+
+        console.log(error);
+
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
 };

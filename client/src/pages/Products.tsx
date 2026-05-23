@@ -17,7 +17,7 @@ const Products = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
     const category = searchParams.get("category") || "";
-    const organic = searchParams.get("organic") || "";
+    const search = searchParams.get("search") || "";
     const sort = searchParams.get("sort") || "";
     const page = Number(searchParams.get("page")) || 1;
     const minPrice = searchParams.get("minPrice") || "";
@@ -28,13 +28,12 @@ const Products = () => {
         try {
             const params = new URLSearchParams();
             if (category) params.set("category", category);
-            if (organic) params.set("organic", organic);
             if (sort) params.set("sort", sort);
             if (sort) params.set("sort", sort);
             if (maxPrice) params.set("maxPrice", maxPrice);
             params.set("page", String(page));
             params.set("limit", "12");
-
+if (search) params.set("search", search);
             const { data } = await api.get(`/products?${params.toString()}`);
             setProducts(data.products);
            setTotalPages(data.pages || 1);
@@ -61,11 +60,11 @@ const Products = () => {
     const clearFilters = () => setSearchParams({});
 
     const activeCategory = categoriesData.find((c) => c.slug === category);
-    const hasFilters = category || organic || minPrice || maxPrice;
+    const hasFilters = category || minPrice || maxPrice;
 
     useEffect(() => {
         fetchProducts();
-    }, [category, organic, sort, page, minPrice, maxPrice]);
+    }, [category, sort, page, minPrice, maxPrice]);
 
     return (
         <div className="min-h-screen bg-app-cream">
@@ -83,17 +82,26 @@ const Products = () => {
                     {/* Sidebar - Desktop */}
                     <aside className="hidden lg:block w-64 shrink-0">
                         <div className="bg-white rounded-2xl p-4 sticky top-24">
-                            <FilterPanel categories={categoriesData} category={category} organic={organic} minPrice={minPrice} maxPrice={maxPrice} updateFilter={updateFilter} clearFilters={clearFilters} hasFilters={hasFilters} />
+                            <FilterPanel categories={categoriesData} category={category} minPrice={minPrice} maxPrice={maxPrice} updateFilter={updateFilter} clearFilters={clearFilters} hasFilters={hasFilters} />
                         </div>
                     </aside>
 
                     {/* Main Content */}
                     <main className="flex-1">
+                        <div className="mb-5">
+    <input
+        type="text"
+        placeholder="Search medicines..."
+        value={search}
+        onChange={(e) => updateFilter("search", e.target.value)}
+        className="w-full md:w-80 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-green-600"
+    />
+</div>
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
-                            <div>
-                                <h1 className="text-2xl font-semibold text-app-green">{activeCategory ? activeCategory.name : "All Products"}</h1>
-                                <p className="text-sm text-app-text-light mt-0.5">{products.length} products found</p>
+                            <div><h1 className="text-2xl font-bold text-slate-800">
+                                {activeCategory ? activeCategory.name : "All Products"}</h1>
+                                <p className="text-sm text-slate-500 mt-1">{products.length} products found</p>
                             </div>
 
                             <div className="flex flex-col lg:items-center gap-3">
@@ -105,7 +113,7 @@ const Products = () => {
                                 {/* Sort */}
                                 <div className="relative">
                                     <select value={sort} onChange={(e) => updateFilter("sort", e.target.value)} className="appearance-none pl-3 pr-8 py-2 text-sm bg-white rounded-xl border border-app-border focus:border-app-green outline-none cursor-pointer">
-                                        <option value="">Newest</option>
+                                       <option value="">Latest Medicines</option>
                                         <option value="price_asc">Price: Low → High</option>
                                         <option value="price_desc">Price: High → Low</option>
                                         <option value="rating">Top Rated</option>
@@ -121,8 +129,8 @@ const Products = () => {
                             <Loading />
                         ) : products.length === 0 ? (
                             <div className="text-center py-16">
-                                <p className="text-lg font-semibold text-app-green mb-2">No products found</p>
-                                <p className="text-sm text-app-text-light mb-4">Try adjusting your filters or search terms</p>
+                                <p className="text-lg font-semibold text-app-green mb-2">No medicines found</p>
+                                <p className="text-sm text-app-text-light mb-4">Try searching another medicine or healthcare product</p>
                                 <button onClick={clearFilters} className="px-5 py-2 text-sm font-medium bg-app-green text-white rounded-xl hover:bg-app-green-light transition-colors">
                                     Clear Filters
                                 </button>
@@ -141,7 +149,7 @@ const Products = () => {
                                             updateFilter("page", String(i + 1));
                                             scrollTo(0, 0);
                                         }}
-                                        className={`size-9 rounded-lg text-sm font-medium transition-colors ${page === i + 1 ? "bg-app-green text-white" : "bg-white text-app-text-light hover:bg-app-cream"}`}
+                                        className={`size-9 rounded-lg text-sm font-medium transition-colors ${page === i + 1 ? "bg-app-green text-white" : "bg-white text-app-text-light hover:bg-slate-50"}`}
                                     >
                                         {i + 1}
                                     </button>

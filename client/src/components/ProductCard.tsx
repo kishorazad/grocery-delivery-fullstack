@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../types";
-import { Plus, Star } from "lucide-react";
+
+import {
+    Plus,
+    Star,
+    ShieldCheck,
+} from "lucide-react";
+
 import { useCart } from "../context/CartContext";
 
 interface Props {
@@ -8,48 +14,203 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
-    const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
+
+    const currency =
+        import.meta.env.VITE_CURRENCY_SYMBOL || "₹";
 
     const { addToCart } = useCart();
+
     const navigate = useNavigate();
 
+    const discount =
+        product.originalPrice &&
+        product.originalPrice > product.price
+            ? Math.round(
+                  ((product.originalPrice - product.price) /
+                      product.originalPrice) *
+                      100
+              )
+            : 0;
+
     return (
-        <div className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-md transition-all duration-300 group animate-fade-in cursor-pointer" onClick={() => navigate(`/products/${product.id}`)}>
+        <div
+            onClick={() =>
+                navigate(`/products/${product.slug || product.id}`)
+            }
+            className="
+                bg-white
+                rounded-2xl
+                border
+                border-slate-200
+                overflow-hidden
+                hover:shadow-xl
+                hover:-translate-y-1
+                transition-all
+                duration-300
+                cursor-pointer
+                group
+            "
+        >
             {/* Image */}
-            <div className="relative aspect-square overflow-hidden">
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover p-4 group-hover:p-2 transition-all duration-300" />
+            <div className="relative bg-slate-50 aspect-square overflow-hidden">
 
-                {/* Badges */}
-                <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">{product.discount > 0 && <span className="px-2 py-0.5 text-[10px] font-semibold uppercase bg-app-orange text-white rounded-full">{product.discount}% OFF</span>}</div>
-            </div>
+                <img
+                    src={product.image}
+                    alt={product.name}
+                    loading="lazy"
+                    className="
+                        w-full
+                        h-full
+                        object-contain
+                        p-4
+                        group-hover:scale-105
+                        transition-transform
+                        duration-300
+                    "
+                />
 
-            {/* Info */}
-            <div className="p-3.5 text-zinc-700">
-                <h3 className="text-sm leading-snug mb-1.5 line-clamp-2">{product.name}</h3>
-
-                {/* Rating */}
-                {product.rating > 0 && (
-                    <div className="flex items-center gap-1 mb-2">
-                        <Star className="size-3 text-app-warning fill-app-warning" />
-                        <span className="text-xs font-medium text-app-text">{product.rating}</span>
-                        <span className="text-xs text-app-text-light">({product.reviewCount})</span>
+                {/* Discount Badge */}
+                {discount > 0 && (
+                    <div className="absolute top-3 left-3">
+                        <span
+                            className="
+                                bg-green-600
+                                text-white
+                                text-[10px]
+                                font-bold
+                                px-2
+                                py-1
+                                rounded-full
+                            "
+                        >
+                            {discount}% OFF
+                        </span>
                     </div>
                 )}
 
-                {/* Price + Add */}
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 truncate">
-                        <span className="text-base font-medium">
-                            {currency}
-                            {product.price.toFixed(1)}
+                {/* Prescription Badge */}
+                {product.prescriptionRequired && (
+                    <div className="absolute top-3 right-3">
+                        <span
+                            className="
+                                bg-red-100
+                                text-red-600
+                                text-[10px]
+                                font-semibold
+                                px-2
+                                py-1
+                                rounded-full
+                            "
+                        >
+                            Rx Required
                         </span>
-                        <span className="text-xs text-app-text-light block">/{product.unit}</span>
-                        {product.originalPrice > product.price && (
-                            <span className="text-xs text-app-text-light line-through ml-1.5">
+                    </div>
+                )}
+            </div>
+
+            {/* Content */}
+            <div className="p-4">
+
+                {/* Medicine Name */}
+                <h3
+                    className="
+                        text-sm
+                        font-semibold
+                        text-slate-800
+                        line-clamp-2
+                        min-h-[40px]
+                    "
+                >
+                    {product.name}
+                </h3>
+
+                {/* Composition */}
+                {product.composition && (
+                    <p
+                        className="
+                            text-xs
+                            text-slate-500
+                            mt-1
+                            line-clamp-1
+                        "
+                    >
+                        {product.composition}
+                    </p>
+                )}
+
+                {/* Manufacturer */}
+                {product.manufacturer && (
+                    <p
+                        className="
+                            text-xs
+                            text-slate-400
+                            mt-1
+                            line-clamp-1
+                        "
+                    >
+                        {product.manufacturer}
+                    </p>
+                )}
+
+                {/* Rating */}
+                <div className="flex items-center gap-1 mt-3">
+
+                    <Star className="size-3.5 fill-yellow-400 text-yellow-400" />
+
+                    <span className="text-xs font-medium text-slate-700">
+                        {product.rating || 4.5}
+                    </span>
+
+                    <span className="text-xs text-slate-400">
+                        ({product.reviewCount || 10})
+                    </span>
+
+                </div>
+
+                {/* Safety */}
+                <div className="flex items-center gap-1 mt-2 text-green-600">
+
+                    <ShieldCheck className="size-3.5" />
+
+                    <span className="text-[11px] font-medium">
+                        Genuine Medicine
+                    </span>
+
+                </div>
+
+                {/* Price + Cart */}
+                <div className="flex items-center justify-between mt-4">
+
+                    <div>
+
+                        <div className="flex items-center gap-2">
+
+                            <span className="text-lg font-bold text-slate-900">
                                 {currency}
-                                {product.originalPrice.toFixed(1)}
+                                {product.price}
                             </span>
-                        )}
+
+                            {product.originalPrice &&
+                                product.originalPrice >
+                                    product.price && (
+                                    <span
+                                        className="
+                                            text-sm
+                                            text-slate-400
+                                            line-through
+                                        "
+                                    >
+                                        {currency}
+                                        {product.originalPrice}
+                                    </span>
+                                )}
+
+                        </div>
+
+                        <p className="text-[11px] text-slate-400 mt-0.5">
+                            Inclusive of all taxes
+                        </p>
+
                     </div>
 
                     <button
@@ -57,10 +218,23 @@ const ProductCard = ({ product }: Props) => {
                             e.stopPropagation();
                             addToCart(product);
                         }}
-                        className="size-7 rounded-full bg-app-orange text-white flex-center shrink-0 hover:bg-app-orange-dark transition-colors active:scale-95"
+                        className="
+                            size-10
+                            rounded-full
+                            bg-green-600
+                            text-white
+                            flex
+                            items-center
+                            justify-center
+                            hover:bg-green-700
+                            transition-all
+                            active:scale-95
+                            shadow-md
+                        "
                     >
-                        <Plus className="size-3.5" />
+                        <Plus className="size-5" />
                     </button>
+
                 </div>
             </div>
         </div>

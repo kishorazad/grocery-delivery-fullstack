@@ -37,20 +37,42 @@ model Address {
 }
 
 model Product {
-    id            String   @id @default(uuid())
-    name          String
-    description   String?  @default("")
-    price         Float
-    originalPrice Float?   @default(0)
-    image         String
-    category      String
-    unit          String?  @default("piece")
-    stock         Int?     @default(0)
-    isOrganic     Boolean? @default(false)
-    rating        Float?   @default(0)
-    reviewCount   Int?     @default(0)
-    createdAt     DateTime @default(now())
-    updatedAt     DateTime @updatedAt
+    id                    String   @id @default(uuid())
+
+    name                  String
+    slug                  String?   @unique
+
+    description           String?  @default("")
+    composition           String?  @default("")
+    medicineType          String?  @default("")
+    manufacturer          String?  @default("")
+    primaryUse            String?  @default("")
+
+    price                 Float
+    originalPrice         Float?   @default(0)
+
+    image                 String
+    imageUrls             String[]
+
+    category              String
+
+    prescriptionRequired  Boolean? @default(false)
+
+    stock                 Int?     @default(0)
+
+    rating                Float?   @default(0)
+    reviewCount           Int?     @default(0)
+
+    productForm           String?  @default("")
+    packaging             String?  @default("")
+    safetyAdvice          String?  @default("")
+    sideEffects           String?  @default("")
+    howToUse              String?  @default("")
+    storage               String?  @default("")
+    howItWorks            String?  @default("")
+
+    createdAt             DateTime @default(now())
+    updatedAt             DateTime @updatedAt
 }
 
 model Order {
