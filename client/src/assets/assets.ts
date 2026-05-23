@@ -7,10 +7,7 @@ import dairy_eggs from "./dairy_eggs.png";
 
 import personal_care from "./personal_care.png";
 import baby_care from "./baby_care.png";
-import devices from "./devices.png";
-import diabetes from "./diabetes.png";
-import medicines from "./medicines.png";
-import wellness from "./wellness.png";
+
 
 export const assets = {
     delivery_truck,
@@ -18,12 +15,11 @@ export const assets = {
 };
 
 export const categoriesData = [
-   { slug: "medicines", name: "Medicines", image: medicines },
-{ slug: "wellness", name: "Wellness", image: wellness },
+
 { slug: "personal-care", name: "Personal Care", image: personal_care },
-{ slug: "diabetes-care", name: "Diabetes Care", image: diabetes },
+
 { slug: "baby-care", name: "Baby Care", image: baby_care },
-{ slug: "health-devices", name: "Health Devices", image: devices },
+
     { slug: "dairy-eggs", name: "Dairy & Eggs", image: dairy_eggs },
 ];
 
