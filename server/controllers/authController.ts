@@ -2,7 +2,9 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import sendEmail from "../utils/nodemailer.js";
+
+import sendEmail from "../config/nodemailer.js";
+
 const otpStore: Record<string, string> = {};
 
 // Generate JWT token
