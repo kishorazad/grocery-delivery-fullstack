@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
+import { createTransport } from "nodemailer";
 const otpStore: Record<string, string> = {};
 
 // Generate JWT token
@@ -96,7 +96,7 @@ export const sendOtp = async (req: Request, res: Response) => {
         otpStore[email] = otp;
 
         // Create transporter
-        const transporter = nodemailer.createTransport({
+        const transporter = createTransport({
 
             host: "smtp-relay.brevo.com",
 
@@ -113,7 +113,7 @@ export const sendOtp = async (req: Request, res: Response) => {
         // Send email
         await transporter.sendMail({
 
-            from: process.env.SENDER_EMAIL,
+           from: `"PillNow" <${process.env.SENDER_EMAIL}>`,
 
             to: email,
 
