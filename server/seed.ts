@@ -178,7 +178,7 @@ const seedDB = async () => {
                 price: 70,
                 originalPrice: 76,
                 image: "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/qt1ypzsoqni12ghf2ryp.png",
-        
+        category: "beverages",
                 stock: 100,
            
                 rating: 4.5,
