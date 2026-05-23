@@ -299,9 +299,9 @@ const seedDB = async () => {
                 originalPrice: 30,
                 image: "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/kdbfytxisrjymgy0ubhk.png",
                 category: "fruits-vegetables",
-                unit: "1kg",
+              
                 stock: 100,
-                isOrganic: true,
+               
                 rating: 4.5,
                 reviewCount: 12,
             },
@@ -312,9 +312,9 @@ const seedDB = async () => {
                 originalPrice: 40,
                 image: "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/tzibj2ntsnbn4e0u5kwv.png",
                 category: "fruits-vegetables",
-                unit: "500g",
+                
                 stock: 100,
-                isOrganic: true,
+               
                 rating: 4.5,
                 reviewCount: 12,
             },
@@ -325,9 +325,9 @@ const seedDB = async () => {
                 originalPrice: 140,
                 image: "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/gek3mmiig3lixlkpxks8.png",
                 category: "dairy-eggs",
-                unit: "200g",
+               
                 stock: 100,
-                isOrganic: false,
+             
                 rating: 4.5,
                 reviewCount: 12,
             },
@@ -338,9 +338,9 @@ const seedDB = async () => {
                 originalPrice: 60,
                 image: "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/ooamzy497lhsj2gjuwby.png",
                 category: "dairy-eggs",
-                unit: "1L",
+                
                 stock: 100,
-                isOrganic: false,
+               
                 rating: 4.5,
                 reviewCount: 12,
             },
