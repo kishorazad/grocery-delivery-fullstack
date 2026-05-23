@@ -1,11 +1,8 @@
-import { createTransport } from "nodemailer";
+import nodemailer from "nodemailer";
 
-const transporter = createTransport({
-
+const transporter = nodemailer.createTransport({
     host: "smtp-relay.brevo.com",
-
     port: 587,
-
     secure: false,
 
     auth: {
@@ -13,6 +10,9 @@ const transporter = createTransport({
         pass: process.env.SMTP_PASS,
     },
 
+    tls: {
+        rejectUnauthorized: false,
+    },
 });
 
 const sendEmail = async ({
@@ -26,13 +26,9 @@ const sendEmail = async ({
 }) => {
 
     return transporter.sendMail({
-
         from: `"PillNow" <${process.env.SENDER_EMAIL}>`,
-
         to,
-
         subject,
-
         html: body,
     });
 
