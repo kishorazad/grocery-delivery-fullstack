@@ -11,19 +11,6 @@ const transporter = createTransport({
     },
 });
 
-// Verify SMTP connection
-transporter.verify((error, success) => {
-
-    if (error) {
-
-        console.log("SMTP ERROR:", error);
-
-    } else {
-
-        console.log("SMTP CONNECTED");
-    }
-});
-
 const sendEmail = async ({
     to,
     subject,
@@ -34,18 +21,13 @@ const sendEmail = async ({
     body: string;
 }) => {
 
-    const response = await transporter.sendMail({
-
+    return transporter.sendMail({
         from: `"PillNow" <${process.env.SENDER_EMAIL}>`,
-
         to,
-
         subject,
-
         html: body,
     });
 
-    return response;
 };
 
 export default sendEmail;
