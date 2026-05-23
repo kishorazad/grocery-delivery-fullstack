@@ -120,7 +120,7 @@ export const sendOtp = async (req: Request, res: Response) => {
                     <h2>PillNow Login OTP</h2>
 
                     <h1 style="color: green;">
-                        ${otp}
+                        ${otp}  </h1>
  <p>Use this OTP to login.</p>
         </div>
             
