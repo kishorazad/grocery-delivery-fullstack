@@ -100,6 +100,8 @@ app.post("/api/stripe", express.raw({ type: "application/json" }), stripeWebhook
 // Middleware
 app.use(cors({
     origin: [
+        "https://www.pillnow.in",
+        "https://pillnow.in",
         "http://localhost:5173",
         "https://grocery-delivery-fullstack-chi.vercel.app"
     ],
