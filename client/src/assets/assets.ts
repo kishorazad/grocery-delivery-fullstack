@@ -333,22 +333,21 @@ export const dummyAddressData = [
     { label: "Home", address: "123 Main St ", city: "New York ", state: "NY", zip: "10001", isDefault: true, lat: 40.7128, lng: -74.006, id: "69d3652df9a340288f1a0f8c" },
     { label: "Work", address: "456 Market St ", city: "New York ", state: "NY", zip: "10002", isDefault: false, lat: 40.7128, lng: -74.006, id: "69d3652df9a340288f1a0f8d" },
 ];
-
 export const heroBanners = [
     {
         id: 1,
         title: "Banner 1",
-        image: "client/public/banners/banner1.png",
+        image: "/banners/banner1.png",
     },
     {
         id: 2,
         title: "Banner 2",
-        image: "client/public/banners/banner2.png",
+        image: "/banners/banner2.png",
     },
     {
         id: 3,
         title: "Banner 3",
-        image: "client/public/banners/banner3.png",
+        image: "/banners/banner3.png",
     },
     {
         id: 4,
