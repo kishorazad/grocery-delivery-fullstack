@@ -19,15 +19,12 @@ export const assets = {
 };
 
 export const categoriesData = [
-    { slug: "fruits-vegetables", name: "Fruits & Vegetables", image: fruits_vegetables },
-    { slug: "personal-care", name: "Personal Care", image: personal_care },
-    { slug: "pantry-staples", name: "Pantry Staples", image: pantry_staples },
-    { slug: "bakery", name: "Bakery", image: bakery },
-    { slug: "beverages", name: "Beverages", image: drinks },
-    { slug: "meat-seafood", name: "Meat & Seafood", image: meat_seafood },
-    { slug: "snacks", name: "Snacks", image: snacks },
-    { slug: "frozen-foods", name: "Frozen Foods", image: frozen_foods },
-    { slug: "baby-care", name: "Baby Care", image: baby_care },
+   { slug: "medicines", name: "Medicines", image: medicines },
+{ slug: "wellness", name: "Wellness", image: wellness },
+{ slug: "personal-care", name: "Personal Care", image: personal_care },
+{ slug: "diabetes-care", name: "Diabetes Care", image: diabetes },
+{ slug: "baby-care", name: "Baby Care", image: baby_care },
+{ slug: "health-devices", name: "Health Devices", image: devices },
     { slug: "dairy-eggs", name: "Dairy & Eggs", image: dairy_eggs },
 ];
 
@@ -52,7 +49,7 @@ export const appPromoBannerData = {
 export const footerData = {
     brand: {
         name: "Instacart",
-        description: "Bringing fresh, organic groceries straight from local farms to your doorstep. Nourish your home with Earth's finest.",
+        description: "Delivering medicines, healthcare essentials, and wellness products quickly and safely to your doorstep.",
         socials: [
             { icon: SiFacebook, link: "#" },
             { icon: SiX, link: "#" },
@@ -82,9 +79,9 @@ export const footerData = {
     ],
 
     contact: [
-        { icon: MapPinIcon, text: "123 Green Valley Rd, Portland" },
-        { icon: PhoneIcon, text: "+1 (111) 123-4567" },
-        { icon: MailIcon, text: "hello@example.com" },
+        { icon: MapPinIcon, text: "Bengalaru" },
+        { icon: PhoneIcon, text: "91 8770762307" },
+        { icon: MailIcon, text: "support@pillnow.com" },
     ],
 
     bottom: {
