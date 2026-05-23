@@ -1,6 +1,4 @@
-import { ArrowRightIcon, LeafIcon } from "lucide-react";
-import { heroSectionData } from "../../assets/assets";
-import { Link } from "react-router-dom";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import { heroBanners } from "../../assets/assets";
