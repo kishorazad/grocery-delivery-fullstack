@@ -45,6 +45,53 @@ export default function AdminProducts() {
             <div className="bg-white rounded-2xl shadow-sm border border-app-border overflow-hidden">
                 <div className="px-6 py-5 border-b border-app-border flex items-center justify-between gap-4 flex-wrap">
                     <h2 className="text-xl font-semibold text-zinc-900">Products</h2>
+                   
+                    {/* Bulk Upload Button */}
+    <label className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-colors font-medium text-sm cursor-pointer">
+        📁 Bulk Upload
+
+        <input
+            type="file"
+            accept=".csv,.xlsx,.xls,.json"
+            className="hidden"
+            onChange={async (e) => {
+                const file = e.target.files?.[0];
+
+                if (!file) return;
+
+                const formData = new FormData();
+                formData.append("file", file);
+
+                try {
+                    const token = localStorage.getItem("token");
+
+                    const response = await fetch(
+                        `${import.meta.env.VITE_API_URL}/api/admin/import-medicines`,
+                        {
+                            method: "POST",
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                            body: formData,
+                        }
+                    );
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.message || "Upload failed");
+                    }
+
+                    toast.success("Products imported successfully");
+
+                    fetchProducts();
+
+                } catch (error: any) {
+                    toast.error(error.message || "Upload failed");
+                }
+            }}
+        />
+    </label>
                     <Link to="/admin/products/new" className="flex items-center gap-2 px-4 py-2 bg-app-green text-white rounded-xl hover:bg-green-950 transition-colors font-medium text-sm">
                         <PlusIcon className="size-4" /> Add Product
                     </Link>

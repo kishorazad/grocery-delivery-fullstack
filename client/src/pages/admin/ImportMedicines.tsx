@@ -8,3 +8,4 @@ const ImportMedicines = () => {
 };
 
 export default ImportMedicines;
+

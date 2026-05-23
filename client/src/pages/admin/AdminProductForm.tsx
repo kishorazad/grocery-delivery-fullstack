@@ -159,28 +159,8 @@ export default function AdminProductForm() {
                                     className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all"
                                 />
                             </div>
-                            <div>
-                                <label className="block text-sm font-medium text-zinc-700 mb-2">Unit</label>
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="e.g., kg, piece, liter"
-                                    value={formData.unit}
-                                    onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
-                                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-zinc-700 mb-2">Stock</label>
-                                <input
-                                    required
-                                    type="number"
-                                    min="0"
-                                    value={formData.stock}
-                                    onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
-                                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all"
-                                />
-                            </div>
+                            
+                           
                             <div className="md:col-span-2">
                                 <label className="block text-sm font-medium text-zinc-700 mb-2">Product Image</label>
                                 <div className="flex items-center gap-4">
@@ -207,13 +187,7 @@ export default function AdminProductForm() {
                                     className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all resize-none"
                                 />
                             </div>
-                            <div className="flex items-center gap-3">
-                                <label htmlFor="isOrganic" className="text-sm font-medium text-zinc-700 cursor-pointer">
-                                    Organic
-                                </label>
-                                <input type="checkbox" id="isOrganic" checked={formData.isOrganic} onChange={(e) => setFormData({ ...formData, isOrganic: e.target.checked })} className="size-5 text-app-green rounded border-zinc-300 focus:ring-app-green cursor-pointer" />
-                            </div>
-                        </div>
+                          
 
                         <div className="pt-6 border-t border-app-border flex justify-end">
                             <button disabled={saving} type="submit" className="px-6 py-2.5 bg-app-orange text-white font-medium rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50">
