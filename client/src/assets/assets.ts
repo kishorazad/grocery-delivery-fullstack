@@ -2,16 +2,15 @@ import { TruckIcon, LeafIcon, ClockIcon, ShieldCheckIcon, MapPinIcon, PhoneIcon,
 import { SiFacebook, SiX, SiInstagram } from "@icons-pack/react-simple-icons";
 import hero_bg from "./hero_bg.jpeg";
 import delivery_truck from "./delivery_truck.svg";
-import fruits_vegetables from "./fruits_vegetables.png";
+
 import dairy_eggs from "./dairy_eggs.png";
-import bakery from "./bakery.png";
-import drinks from "./drinks.png";
-import pantry_staples from "./pantry_staples.png";
-import snacks from "./snacks.png";
-import frozen_foods from "./frozen_foods.png";
+
 import personal_care from "./personal_care.png";
 import baby_care from "./baby_care.png";
-import meat_seafood from "./meat_seafood.png";
+import devices from "./devices.png";
+import diabetes from "./diabetes.png";
+import medicines from "./medicines.png";
+import wellness from "./wellness.png";
 
 export const assets = {
     delivery_truck,
