@@ -1,0 +1,13 @@
+import express from "express";
+import auth from "../middleware/auth.js";
+import admin from "../middleware/admin.js";
+import { assignDeliveryPartner, createDeliveryPartner, getAdminStats, getDeliveryPartners, importMedicines, updateDeliveryPartner } from "../controllers/adminController.js";
+import upload from "../middleware/upload.js";
+const adminRouter = express.Router();
+adminRouter.get("/stats", auth, admin, getAdminStats);
+adminRouter.get("/delivery-partners", auth, admin, getDeliveryPartners);
+adminRouter.post("/delivery-partners", auth, admin, upload.single("image"), createDeliveryPartner);
+adminRouter.put("/delivery-partners/:id", auth, admin, upload.single("image"), updateDeliveryPartner);
+adminRouter.put("/orders/:id/assign", auth, admin, assignDeliveryPartner);
+adminRouter.post("/import-medicines", auth, admin, upload.single("file"), importMedicines);
+export default adminRouter;

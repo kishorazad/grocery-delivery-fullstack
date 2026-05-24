@@ -113,21 +113,24 @@ export const importMedicines = async (
 
         if (!req.file) {
 
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "No file uploaded",
             });
-
-            return;
         }
 
-       const workbook = XLSX.read(req.file.buffer, {
-    type: "buffer",
-});
+        const workbook = XLSX.read(
+            req.file.buffer,
+            {
+                type: "buffer",
+            }
+        );
 
-        const sheetName = workbook.SheetNames[0];
+        const sheetName =
+            workbook.SheetNames[0];
 
-        const sheet = workbook.Sheets[sheetName];
+        const sheet =
+            workbook.Sheets[sheetName];
 
         const medicines: any[] =
             XLSX.utils.sheet_to_json(sheet);
@@ -136,108 +139,162 @@ export const importMedicines = async (
             `Found ${medicines.length} medicines`
         );
 
+        let successCount = 0;
+
         for (const item of medicines) {
 
-            const imageUrls = item["Image URL"]
-                ? item["Image URL"]
-                      .split("|")
-                      .map((url: string) => url.trim())
-                : [];
+            const imageUrls =
+                item["Image URL"]
+                    ? item["Image URL"]
+                          .split("|")
+                          .map((url: string) =>
+                              url.trim()
+                          )
+                    : [];
 
-            await prisma.product.create({
+            try {
 
-                data: {
+                const product =
+                    await prisma.product.create({
 
-                    name:
-                        item["Product Name"] ||
-                        "Medicine",
+                        data: {
 
-                    slug:
-                        slugify(
-                            item["Product Name"] ||
+                            name:
+                                item[
+                                    "Product Name"
+                                ] || "Medicine",
+
+                            slug:
+                                slugify(
+                                    item[
+                                        "Product Name"
+                                    ] || "medicine",
+                                    {
+                                        lower: true,
+                                        strict: true,
+                                    }
+                                ) +
+                                "-" +
+                                Math.floor(
+                                    Math.random() *
+                                        100000
+                                ),
+
+                            description:
+                                item[
+                                    "description"
+                                ] || "",
+
+                            composition:
+                                item[
+                                    "short_composition1"
+                                ] || "",
+
+                            medicineType:
+                                item[
+                                    "Product Form"
+                                ] || "",
+
+                            manufacturer:
+                                item["Marketer"] ||
+                                "",
+
+                            primaryUse:
+                                item[
+                                    "primary_use"
+                                ] || "",
+
+                            price:
+                                Number(
+                                    item["MRP"]
+                                ) || 0,
+
+                            originalPrice:
+                                Number(
+                                    item["MRP"]
+                                ) || 0,
+
+                            image:
+                                imageUrls[0] ||
+                                "https://via.placeholder.com/300",
+
+                            imageUrls,
+
+                            category:
+                                item["type"] ||
                                 "medicine",
-                            {
-                                lower: true,
-                                strict: true,
-                            }
-                        ) +
-                        "-" +
-                        Math.floor(
-                            Math.random() * 100000
-                        ),
 
-                    description:
-                        item["description"] || "",
+                            prescriptionRequired:
+                                String(
+                                    item[
+                                        "prescription_required"
+                                    ]
+                                ).toLowerCase() ===
+                                "yes",
 
-                    composition:
-                        item["short_composition1"] ||
-                        "",
+                            stock: 100,
 
-                    medicineType:
-                        item["Product Form"] || "",
+                            rating: 4.5,
 
-                    manufacturer:
-                        item["Marketer"] || "",
+                            reviewCount: 10,
 
-                    primaryUse:
-                        item["primary_use"] || "",
+                            productForm:
+                                item[
+                                    "Product Form"
+                                ] || "",
 
-                    price:
-                        Number(item["MRP"] || 0),
+                            packaging:
+                                item[
+                                    "Pack Size"
+                                ] || "",
 
-                    originalPrice:
-                        Number(item["MRP"] || 0),
+                            safetyAdvice:
+                                item[
+                                    "safety_advise"
+                                ] || "",
 
-                    image:
-                        imageUrls[0] || "",
+                            sideEffects:
+                                item[
+                                    "common_side_effect"
+                                ] || "",
 
-                    imageUrls,
+                            howToUse:
+                                item[
+                                    "How to use"
+                                ] || "",
 
-                    category:
-                        item["type"] || "medicine",
+                            storage:
+                                item["storage"] ||
+                                "",
 
-                    prescriptionRequired:
-                        String(
-                            item[
-                                "prescription_required"
-                            ]
-                        ).toLowerCase() === "yes",
+                            howItWorks:
+                                item[
+                                    "How it works"
+                                ] || "",
+                        },
+                    });
 
-                    stock: 100,
+                successCount++;
 
-                    rating: 4.5,
+                console.log(
+                    "CREATED:",
+                    product.name
+                );
 
-                    reviewCount: 10,
+            } catch (err) {
 
-                    productForm:
-                        item["Product Form"] || "",
+                console.log(
+                    "FAILED PRODUCT:",
+                    item["Product Name"]
+                );
 
-                    packaging:
-                        item["Pack Size"] || "",
-
-                    safetyAdvice:
-                        item["safety_advise"] || "",
-
-                    sideEffects:
-                        item["common_side_effect"] ||
-                        "",
-
-                    howToUse:
-                        item["How to use"] || "",
-
-                    storage:
-                        item["storage"] || "",
-
-                    howItWorks:
-                        item["How it works"] || "",
-                },
-            });
+                console.log(err);
+            }
         }
 
-     
-
-        res.json({
+        return res.json({
             success: true,
+            count: successCount,
             message:
                 "Medicines imported successfully",
         });
@@ -246,7 +303,7 @@ export const importMedicines = async (
 
         console.log(error);
 
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             message: error.message,
         });
