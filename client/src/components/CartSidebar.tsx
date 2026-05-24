@@ -48,7 +48,7 @@ const CartSidebar = () => {
                                     <h4 className="text-sm font-semibold truncate">{item.product.name}</h4>
                                     <p className="text-xs text-app-text-light">
                                         {currency}
-                                        {item.product.price.toFixed(2)} / {item.product.unit}
+                                        {item.product.price.toFixed(2)} 
                                     </p>
                                     <div className="flex items-center justify-between mt-2">
                                         <div className="flex items-center gap-1.5">
