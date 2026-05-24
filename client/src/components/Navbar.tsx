@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, BikeIcon, ChevronDownIcon, LogOutIcon, MapPinIcon, MenuIcon, PackageIcon, SearchIcon, ShieldIcon, ShoppingCartIcon, UserIcon, XIcon } from "lucide-react";
+import { ArrowUpRightIcon, LogOutIcon, MapPinIcon, MenuIcon, PackageIcon, SearchIcon, ShieldIcon, ShoppingCartIcon, UserIcon, XIcon } from "lucide-react";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
@@ -29,9 +29,14 @@ const Navbar = () => {
         <nav className="bg-white sticky top-0 z-50 border-b border-app-border">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 gap-4">
                 {/* Logo */}
-                <Link to="/" className="flex items-center gap-2 text-[22px] font-medium shrink-0">
-                    <BikeIcon size={24} /> Instacart
-                </Link>
+                {/* Logo */}
+<Link to="/" className="flex items-center shrink-0">
+    <img
+        src="/pillnow-logo.png"
+        alt="PillNow"
+        className="h-8 w-auto object-contain"
+    />
+</Link>
 
                 <div className="w-full flex items-center justify-end gap-4 lg:gap-10">
                     {/* Nav Links - Desktop */}

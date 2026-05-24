@@ -37,13 +37,13 @@ export const heroSectionData = {
 export const deliveryPartnerLoginImage = "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=200";
 
 export const appPromoBannerData = {
-    title: "Get fresh groceries in minutes",
-    description: "Download the Instacart app for exclusive deals, real-time tracking, and the freshest selection delivered right to your door.",
+    title: "Get medicines in minutes",
+    description: "Download the PillNow app for exclusive deals, real-time tracking, and the fastest selection delivered right to your door.",
 };
 
 export const footerData = {
     brand: {
-        name: "Instacart",
+        name: "pillnow",
         description: "Delivering medicines, healthcare essentials, and wellness products quickly and safely to your doorstep.",
         socials: [
             { icon: SiFacebook, link: "#" },
