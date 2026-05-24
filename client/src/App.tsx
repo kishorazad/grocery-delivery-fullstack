@@ -53,6 +53,7 @@ const App = () => {
                     <Route path="products" element={<AdminProducts />} />
                     <Route path="products/new" element={<AdminProductForm />} />
                     <Route path="products/:id/edit" element={<AdminProductForm />} />
+                    <Route path="products/:slug" element={<ProductPage />} />
                     <Route
     path="import-medicines"
     element={<ImportMedicines />}

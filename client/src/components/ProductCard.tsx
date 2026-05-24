@@ -35,7 +35,7 @@ const ProductCard = ({ product }: Props) => {
     return (
         <div
             onClick={() =>
-                navigate(`/products/${product.slug || product.id}`)
+                navigate(`/products/${product.slug}`)
             }
             className="
                 bg-white

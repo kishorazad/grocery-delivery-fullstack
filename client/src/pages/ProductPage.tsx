@@ -10,7 +10,7 @@ import api from "../config/api";
 
 const ProductPage = () => {
     const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
-    const { id } = useParams();
+    const { slug } = useParams();
     const navigate = useNavigate();
     const { items, addToCart, updateQuantity, removeFromCart } = useCart();
 
@@ -24,17 +24,17 @@ const ProductPage = () => {
         setLocalQuantity(1);
         window.scrollTo(0, 0);
 
-        api.get(`/products/${id}`)
+       api.get(`/products/${slug}`)
             .then(({ data }) => {
                 setProduct(data.product);
                 return api.get(`/products?category=${data.product.category}`);
             })
             .then(({ data }) => {
-                setRelatedProducts(data.products.filter((p: Product) => p.id !== id));
+                setRelatedProducts(data.products.filter((p: Product) => p.slug !== slug));
             })
             .catch(() => navigate("/products"))
             .finally(() => setLoading(false));
-    }, [id, navigate]);
+    }, [slug, navigate]);
 
     if (loading) return <Loading />;
     if (!product) return null;
