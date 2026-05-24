@@ -29,24 +29,52 @@ export interface Category {
 }
 
 export interface Product {
+
     id: string;
+
     name: string;
-     slug?: string;
-    description: string;
-    composition?: string;
-       manufacturer?: string;
-         prescriptionRequired?: boolean;
-    price: number;
-    originalPrice: number;
+
+    slug: string;
+
     image: string;
+
+    imageUrls?: string[];
+
     category: string;
-    
+
+    description: string;
+
+    composition?: string;
+
+    manufacturer?: string;
+
+    medicineType?: string;
+
+    howToUse?: string;
+
+    howItWorks?: string;
+
+    storage?: string;
+
+    prescriptionRequired?: boolean;
+
+    safetyAdvice?: string;
+
+    price: number;
+
+    originalPrice: number;
+
     stock: number;
- 
+
     rating: number;
+
     reviewCount: number;
+
     discount: number;
-    createdAt: string;
+
+    createdAt?: string;
+
+    updatedAt?: string;
 }
 
 export interface CartItem {
