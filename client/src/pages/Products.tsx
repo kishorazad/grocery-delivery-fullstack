@@ -174,7 +174,7 @@ if (search) params.set("search", search);
                         </div>
 
                         <div className="p-4">
-                            <FilterPanel categories={categoriesData} category={category} organic={organic} minPrice={minPrice} maxPrice={maxPrice} updateFilter={updateFilter} clearFilters={clearFilters} hasFilters={hasFilters} />
+                            <FilterPanel categories={categoriesData} category={category}  minPrice={minPrice} maxPrice={maxPrice} updateFilter={updateFilter} clearFilters={clearFilters} hasFilters={hasFilters} />
                         </div>
                     </div>
                 </>

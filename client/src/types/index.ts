@@ -31,14 +31,18 @@ export interface Category {
 export interface Product {
     id: string;
     name: string;
+     slug?: string;
     description: string;
+    composition?: string;
+       manufacturer?: string;
+         prescriptionRequired?: boolean;
     price: number;
     originalPrice: number;
     image: string;
     category: string;
-    unit: string;
+    
     stock: number;
-    isOrganic: boolean;
+ 
     rating: number;
     reviewCount: number;
     discount: number;

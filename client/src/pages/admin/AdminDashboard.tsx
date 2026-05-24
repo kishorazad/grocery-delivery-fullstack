@@ -4,6 +4,7 @@ import { PackageIcon, UsersIcon, ShoppingBagIcon, AlertTriangleIcon } from "luci
 import Loading from "../../components/Loading";
 import { statusColors } from "../../assets/assets";
 import api from "../../config/api";
+import { UploadCloudIcon } from "lucide-react";
 
 interface Stats {
     totalOrders: number;
