@@ -37,8 +37,7 @@ const ProductCard = ({ product }: Props) => {
             onClick={() =>
                 navigate(
     `/products/${
-        product.slug || product.id
-    }`
+        product.slug}`
 )
             }
             className="
