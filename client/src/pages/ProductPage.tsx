@@ -91,10 +91,10 @@ const ProductPage = () => {
                             <img src={product.image} alt={product.name} className="max-h-[360px] w-auto object-contain" />
 
                             <div className="absolute top-5 left-5 flex flex-wrap gap-1.5">
-                                {product.isOrganic && (
+                                {product.manufacturer && (
                                     <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-app-green text-white rounded-full">
                                         <LeafIcon className="w-3 h-3" />
-                                        Organic
+                                        {product.manufacturer}
                                     </span>
                                 )}
                                 {product.discount > 0 && <span className="px-2.5 py-1 text-xs font-semibold bg-app-orange text-white rounded-full">{product.discount}% OFF</span>}
