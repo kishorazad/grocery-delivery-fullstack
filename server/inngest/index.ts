@@ -5,7 +5,7 @@ import sendEmail from "../config/nodemailer.js";
 const LOW_STOCK_THRESHOLD = 10;
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "grocery-delivery" });
+export const inngest = new Inngest({ id: "pillnow-delivery" });
 
 // Low Stock Alert to Admin Email
 const checkLowStock = inngest.createFunction({ id: "check-low-stock", name: "Low Stock Alert", triggers: [{ event: "inventory/stock.updated" }] }, async ({ event, step }) => {
@@ -36,7 +36,9 @@ const checkLowStock = inngest.createFunction({ id: "check-low-stock", name: "Low
                                 ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width: 64px; height: 64px; border-radius: 12px; object-fit: cover;" />` : ""}
                                 <div>
                                     <h3 style="margin: 0 0 4px; font-size: 18px; color: #111827;">${product.name}</h3>
-                                    <p style="margin: 0; font-size: 14px; color: #6b7280;">${product.category} • ${product.unit}</p>
+                                    <p style="margin: 0; font-size: 14px; color: #6b7280;">
+    ${product.manufacturer || "PillNow Healthcare"}
+</p>
                                 </div>
                             </div>
                             <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 16px; text-align: center;">
