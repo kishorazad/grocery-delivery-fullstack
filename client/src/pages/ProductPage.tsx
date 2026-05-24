@@ -3,13 +3,13 @@ import { useCart } from "../context/CartContext";
 import { useEffect, useState } from "react";
 import type { Product } from "../types";
 import Loading from "../components/Loading";
-import { ArrowLeftIcon, ArrowRightIcon, HomeIcon, LeafIcon, MinusIcon, PlusIcon, ShoppingCartIcon, StarIcon } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon, HomeIcon, MinusIcon, PlusIcon } from "lucide-react";
 import DummyReviewsSection from "../assets/DummyReviewsSection";
 import ProductCard from "../components/ProductCard";
 import api from "../config/api";
 
 const ProductPage = () => {
-    const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
+   
     const { slug } = useParams();
     const navigate = useNavigate();
     const { items, addToCart, updateQuantity, removeFromCart } = useCart();
