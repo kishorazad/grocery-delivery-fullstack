@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import * as XLSX from "xlsx";
-import fs from "fs";
+
 import slugify from "slugify";
 
 // get admin dashboard data
@@ -121,7 +121,9 @@ export const importMedicines = async (
             return;
         }
 
-        const workbook = XLSX.readFile(req.file.path);
+       const workbook = XLSX.read(req.file.buffer, {
+    type: "buffer",
+});
 
         const sheetName = workbook.SheetNames[0];
 
@@ -232,7 +234,7 @@ export const importMedicines = async (
             });
         }
 
-        fs.unlinkSync(req.file.path);
+     
 
         res.json({
             success: true,
