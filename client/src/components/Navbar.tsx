@@ -43,13 +43,58 @@ const Navbar = () => {
                         </Link>
                     </div>
                     {/* Search */}
-                    <form onSubmit={handleSearch} className="hidden sm:flex flex-1 max-w-sm text-xs sm:text-sm">
-                        <div className="relative w-full">
-                            <SearchIcon className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-zinc-500" />
-                            <input type="text" placeholder="Search for medicine..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full pl-8 p-2 bg-orange-50 rounded-full ring ring-app-orange/15 focus:ring-app-orange/30" />
-                        </div>
-                    </form>
+                    {/* Search */}
+<form
+    onSubmit={handleSearch}
+    className="hidden sm:flex flex-1 max-w-2xl"
+>
+    <div className="flex items-center w-full bg-white border-2 border-orange-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+        
+        {/* Search Icon */}
+        <div className="px-4 text-orange-500">
+            <SearchIcon className="size-5" />
+        </div>
 
+        {/* Input */}
+        <input
+            type="text"
+            placeholder="Search for Medicines and Healthcare products"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex-1 py-3 text-sm outline-none bg-transparent text-zinc-800 placeholder:text-zinc-400"
+        />
+
+        {/* Search Button */}
+        <button
+            type="submit"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-sm font-medium transition-all"
+        >
+            Search
+        </button>
+    </div>
+</form>
+
+{/* Mobile Search */}
+<div className="sm:hidden px-4 pb-3">
+    <form onSubmit={handleSearch}>
+        <div className="flex items-center bg-white border border-orange-200 rounded-xl overflow-hidden">
+            <input
+                type="text"
+                placeholder="Search medicines..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="flex-1 px-4 py-2 text-sm outline-none"
+            />
+
+            <button
+                type="submit"
+                className="bg-orange-500 px-4 py-2 text-white"
+            >
+                <SearchIcon className="size-4" />
+            </button>
+        </div>
+    </form>
+</div>
                     {/* Right Actions */}
                     <div className="flex items-center gap-3">
                         {/* Cart */}

@@ -128,26 +128,231 @@ const ProductPage = () => {
                 <div className="bg-white/50 rounded-2xl overflow-hidden">
                     <div className="grid md:grid-cols-2 gap-0">
                         {/* left side - Image */}
-                        <div className="relative flex-center p-8 md:p-12 min-h-[320px] md:min-h-[480px]">
-                            <img src={product.image} alt={product.name} className="max-h-[360px] w-auto object-contain" />
+                        <div className="grid lg:grid-cols-[240px_1fr] gap-6">
 
-                            <div className="absolute top-5 left-5 flex flex-wrap gap-1.5">
-                                {product.manufacturer && (
-                                    <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-app-green text-white rounded-full">
-                                        <LeafIcon className="w-3 h-3" />
-                                        {product.manufacturer}
-                                    </span>
-                                )}
-                                {product.discount > 0 && <span className="px-2.5 py-1 text-xs font-semibold bg-app-orange text-white rounded-full">{product.discount}% OFF</span>}
-                            </div>
-                        </div>
+    {/* LEFT SIDEBAR */}
+
+    <aside className="hidden lg:block sticky top-24 h-fit bg-white rounded-2xl border border-app-border p-5">
+
+        <h3 className="font-semibold text-lg mb-4 text-app-green">
+            Quick Links
+        </h3>
+
+        <div className="space-y-3 text-sm">
+
+            <a href="#description" className="block hover:text-orange-500">
+                Description
+            </a>
+
+            <a href="#composition" className="block hover:text-orange-500">
+                Composition
+            </a>
+
+            <a href="#manufacturer" className="block hover:text-orange-500">
+                Manufacturer
+            </a>
+
+            <a href="#usage" className="block hover:text-orange-500">
+                How To Use
+            </a>
+
+            <a href="#storage" className="block hover:text-orange-500">
+                Storage
+            </a>
+
+            <a href="#reviews" className="block hover:text-orange-500">
+                Reviews
+            </a>
+        </div>
+    </aside>
+
+    {/* RIGHT CONTENT */}
+
+    <div className="bg-white rounded-2xl border border-app-border overflow-hidden">
+
+        <div className="grid md:grid-cols-2 gap-8 p-6 lg:p-10">
+
+            {/* IMAGE */}
+
+            <div className="relative">
+
+                <img
+                    src={
+                        product.image ||
+                        "https://dummyimage.com/600x400/f3f4f6/555555&text=PillNow"
+                    }
+                    alt={product.name}
+                    className="w-full rounded-2xl object-contain bg-gray-50 p-6"
+                />
+
+                {product.discount > 0 && (
+                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        {product.discount}% OFF
+                    </div>
+                )}
+            </div>
+
+            {/* CONTENT */}
+
+            <div>
+
+                <h1 className="text-3xl font-bold text-app-green mb-2">
+                    {product.name}
+                </h1>
+
+                <p className="text-gray-500 mb-4 capitalize">
+                    {product.category}
+                </p>
+
+                {/* PRICE */}
+
+                <div className="flex items-center gap-3 mb-5">
+
+                    <span className="text-4xl font-bold text-app-green">
+                        ₹{product.price}
+                    </span>
+
+                    {product.originalPrice > product.price && (
+                        <span className="line-through text-gray-400 text-lg">
+                            ₹{product.originalPrice}
+                        </span>
+                    )}
+                </div>
+
+                {/* STOCK */}
+
+                <div className="mb-5">
+
+                    {product.stock > 0 ? (
+                        <span className="text-green-600 font-medium">
+                            In Stock ({product.stock})
+                        </span>
+                    ) : (
+                        <span className="text-red-500 font-medium">
+                            Out of Stock
+                        </span>
+                    )}
+                </div>
+
+                {/* BUTTON */}
+
+                <button
+                    onClick={() => addToCart(product, 1)}
+                    className="w-full bg-orange-500 hover:bg-orange-600 transition text-white font-semibold py-4 rounded-xl"
+                >
+                    Add To Cart
+                </button>
+
+                {/* TRANSLATOR */}
+
+                <div className="mt-6">
+
+                    <button className="border border-app-border rounded-xl px-4 py-2 text-sm hover:bg-gray-50">
+                        🌐 Translate Medicine Info
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        {/* DETAILS */}
+
+        <div className="border-t border-app-border p-6 lg:p-10 space-y-8">
+
+            <section id="description">
+
+                <h2 className="text-2xl font-semibold text-app-green mb-3">
+                    Description
+                </h2>
+
+                <p className="text-gray-600 leading-relaxed">
+                    {product.description}
+                </p>
+            </section>
+
+            {product.composition && (
+
+                <section id="composition">
+
+                    <h2 className="text-2xl font-semibold text-app-green mb-3">
+                        Composition
+                    </h2>
+
+                    <p className="text-gray-600">
+                        {product.composition}
+                    </p>
+                </section>
+            )}
+
+            {product.manufacturer && (
+
+                <section id="manufacturer">
+
+                    <h2 className="text-2xl font-semibold text-app-green mb-3">
+                        Manufacturer
+                    </h2>
+
+                    <p className="text-gray-600">
+                        {product.manufacturer}
+                    </p>
+                </section>
+            )}
+
+            {product.howToUse && (
+
+                <section id="usage">
+
+                    <h2 className="text-2xl font-semibold text-app-green mb-3">
+                        How To Use
+                    </h2>
+
+                    <p className="text-gray-600">
+                        {product.howToUse}
+                    </p>
+                </section>
+            )}
+
+            {product.storage && (
+
+                <section id="storage">
+
+                    <h2 className="text-2xl font-semibold text-app-green mb-3">
+                        Storage
+                    </h2>
+
+                    <p className="text-gray-600">
+                        {product.storage}
+                    </p>
+                </section>
+            )}
+        </div>
+    </div>
+</div>
                         {/* Badges */}
 
                         {/* right side - Details */}
-                        <div className="p-6 md:p-10 flex flex-col justify-center">
-                            <span className="text-xs font-medium text-app-text-light tracking-wider mb-2 capitalize">{categoryLabel}</span>
+                       <div className="bg-white rounded-2xl border border-app-border overflow-hidden">
 
-                            <h1 className="text-2xl md:text-3xl font-semibold text-app-green mb-3">{product.name}</h1>
+        <div className="grid md:grid-cols-2 gap-8 p-6 lg:p-10">
+
+            {/* IMAGE */}
+
+            <div className="relative">
+
+                <img
+                    src={
+                        product.image ||
+                        "https://dummyimage.com/600x400/f3f4f6/555555&text=PillNow"
+                    }
+                    alt={product.name}
+                    className="w-full rounded-2xl object-contain bg-gray-50 p-6"
+                />
+
+                {product.discount > 0 && (
+                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        {product.discount}% OFF
+                    </div>
+                )}
+            </div>
 
                             {/* Rating */}
                             {product.rating > 0 && (
@@ -277,7 +482,34 @@ const ProductPage = () => {
 </div>
                             {/* Stock */}
 
-                            <div className="mb-6">{product.stock > 0 ? <span className="text-sm text-app-success font-medium">✓ In Stock ({product.stock} available)</span> : <span className="text-sm text-app-error font-medium">Out of Stock</span>}</div>
+                             {/* CONTENT */}
+
+            <div>
+
+                <h1 className="text-3xl font-bold text-app-green mb-2">
+                    {product.name}
+                </h1>
+
+                <p className="text-gray-500 mb-4 capitalize">
+                    {product.category}
+                </p>
+
+                {/* PRICE */}
+
+                <div className="flex items-center gap-3 mb-5">
+
+                    <span className="text-4xl font-bold text-app-green">
+                        ₹{product.price}
+                    </span>
+
+                    {product.originalPrice > product.price && (
+                        <span className="line-through text-gray-400 text-lg">
+                            ₹{product.originalPrice}
+                        </span>
+                    )}
+                </div>
+
+                {/* STOCK */}
 
                             {/* Quantity + Add to Cart */}
                             <div className="flex items-center gap-3">
