@@ -8,7 +8,9 @@ import toast from "react-hot-toast";
 
 export default function AdminProducts() {
     const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
-
+const API_URL =
+    import.meta.env.VITE_API_URL ||
+    "https://grocery-delivery-fullstack-xrcw.onrender.com";
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -66,7 +68,7 @@ export default function AdminProducts() {
                     const token = localStorage.getItem("token");
 
                     const response = await fetch(
-                        `${import.meta.env.VITE_API_URL}/api/admin/import-medicines`,
+                        `${API_URL}/api/admin/import-medicines`,
                         {
                             method: "POST",
                             headers: {
