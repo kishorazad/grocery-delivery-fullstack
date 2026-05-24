@@ -20,21 +20,62 @@ const ProductPage = () => {
     const [localQuantity, setLocalQuantity] = useState(1);
 
     useEffect(() => {
-        setLoading(true);
-        setLocalQuantity(1);
-        window.scrollTo(0, 0);
 
-       api.get(`/products/${slug}`)
-            .then(({ data }) => {
-                setProduct(data.product);
-                return api.get(`/products?category=${data.product.category}`);
-            })
-            .then(({ data }) => {
-                setRelatedProducts(data.products.filter((p: Product) => p.slug !== slug));
-            })
-            .catch(() => navigate("/products"))
-            .finally(() => setLoading(false));
-    }, [slug, navigate]);
+    if (!slug) {
+        navigate("/products");
+        return;
+    }
+
+    setLoading(true);
+
+    setLocalQuantity(1);
+
+    window.scrollTo(0, 0);
+
+    const fetchProduct = async () => {
+
+        try {
+
+            const { data } =
+                await api.get(
+                    `/products/${slug}`
+                );
+
+            if (!data.product) {
+                navigate("/products");
+                return;
+            }
+
+            setProduct(data.product);
+
+            const related =
+                await api.get(
+                    `/products?category=${data.product.category}`
+                );
+
+            setRelatedProducts(
+
+                related.data.products.filter(
+                    (p: Product) =>
+                        p.slug !== slug
+                )
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            navigate("/products");
+
+        } finally {
+
+            setLoading(false);
+        }
+    };
+
+    fetchProduct();
+
+}, [slug]);
 
     if (loading) return <Loading />;
     if (!product) return null;
@@ -139,8 +180,101 @@ const ProductPage = () => {
                             </div>
 
                             {/* Description */}
-                            <p className="text-sm text-app-text-light leading-relaxed mb-6">{product.description}</p>
+                            {/* Description */}
 
+<div className="mb-6">
+
+    <h3 className="text-lg font-semibold text-app-green mb-2">
+        Product Description
+    </h3>
+
+    <p className="text-sm text-app-text-light leading-relaxed">
+        {product.description || "No description available"}
+    </p>
+</div>
+
+{/* Medicine Details */}
+
+<div className="space-y-4 mb-8">
+
+    {product.manufacturer && (
+        <div>
+            <h4 className="font-semibold text-app-green">
+                Manufacturer
+            </h4>
+
+            <p className="text-sm text-app-text-light">
+                {product.manufacturer}
+            </p>
+        </div>
+    )}
+
+    {product.composition && (
+        <div>
+            <h4 className="font-semibold text-app-green">
+                Salt Composition
+            </h4>
+
+            <p className="text-sm text-app-text-light">
+                {product.composition}
+            </p>
+        </div>
+    )}
+
+    {product.medicineType && (
+        <div>
+            <h4 className="font-semibold text-app-green">
+                Medicine Type
+            </h4>
+
+            <p className="text-sm text-app-text-light capitalize">
+                {product.medicineType}
+            </p>
+        </div>
+    )}
+
+    {product.howToUse && (
+        <div>
+            <h4 className="font-semibold text-app-green">
+                How To Use
+            </h4>
+
+            <p className="text-sm text-app-text-light">
+                {product.howToUse}
+            </p>
+        </div>
+    )}
+
+    {product.howItWorks && (
+        <div>
+            <h4 className="font-semibold text-app-green">
+                How It Works
+            </h4>
+
+            <p className="text-sm text-app-text-light">
+                {product.howItWorks}
+            </p>
+        </div>
+    )}
+
+    {product.storage && (
+        <div>
+            <h4 className="font-semibold text-app-green">
+                Storage
+            </h4>
+
+            <p className="text-sm text-app-text-light">
+                {product.storage}
+            </p>
+        </div>
+    )}
+
+    {product.prescriptionRequired && (
+        <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-600 text-xs font-semibold">
+            Prescription Required
+        </div>
+    )}
+</div>
                             {/* Stock */}
 
                             <div className="mb-6">{product.stock > 0 ? <span className="text-sm text-app-success font-medium">✓ In Stock ({product.stock} available)</span> : <span className="text-sm text-app-error font-medium">Out of Stock</span>}</div>
