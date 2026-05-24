@@ -134,6 +134,7 @@ export const importMedicines = async (
 
         const medicines: any[] =
             XLSX.utils.sheet_to_json(sheet);
+            console.log(medicines[0]);
 
         console.log(
             `Found ${medicines.length} medicines`
@@ -151,7 +152,7 @@ export const importMedicines = async (
                               url.trim()
                           )
                     : [];
-
+console.log(item);
             try {
 
                 const product =
