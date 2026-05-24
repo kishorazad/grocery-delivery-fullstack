@@ -64,7 +64,7 @@ if (search) params.set("search", search);
 
     useEffect(() => {
         fetchProducts();
-    }, [category, sort, page, minPrice, maxPrice]);
+    }, [category, sort, page, minPrice, maxPrice,search]);
 
     return (
         <div className="min-h-screen bg-app-cream">
@@ -136,7 +136,12 @@ if (search) params.set("search", search);
                                 </button>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8">{products.map((product) => product.stock > 0 && <ProductCard key={product.id} product={product} />)}</div>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8">{products.map((product) => (
+    <ProductCard
+        key={product.id}
+        product={product}
+    />
+))}</div>
                         )}
 
                         {/* Pagination */}
