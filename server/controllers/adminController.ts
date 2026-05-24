@@ -206,14 +206,20 @@ console.log(item);
                                 ] || "",
 
                             price:
-                                Number(
-                                    item["MRP"]
-                                ) || 0,
+    parseFloat(
+        String(item["MRP"])
+            .replace("₹", "")
+            .replace(",", "")
+            .trim()
+    ) || 0,
 
-                            originalPrice:
-                                Number(
-                                    item["MRP"]
-                                ) || 0,
+originalPrice:
+    parseFloat(
+        String(item["MRP"])
+            .replace("₹", "")
+            .replace(",", "")
+            .trim()
+    ) || 0,
 
                             image:
                                 imageUrls[0] ||
@@ -233,8 +239,13 @@ console.log(item);
                                 ).toLowerCase() ===
                                 "yes",
 
-                            stock: 100,
-
+                       stock:
+    Number(
+        item["Qty"] ||
+        item["qty"] ||
+        item["Stock"] ||
+        item["stock"]
+    ) || 100,
                             rating: 4.5,
 
                             reviewCount: 10,
