@@ -29,56 +29,49 @@ export interface Category {
 }
 
 export interface Product {
-
     id: string;
-
     name: string;
-
     slug: string;
 
-    image: string;
-
-    imageUrls?: string[];
-
-    category: string;
-
-    description: string;
-
+    description?: string;
     composition?: string;
-
     manufacturer?: string;
 
     medicineType?: string;
 
-    howToUse?: string;
+    sideEffects?: string;
+    safetyAdvice?: string;
+
+    benefits?: string;
+
+    interaction?: string;
+
+    qna?: string;
+
+    factBox?: string;
 
     howItWorks?: string;
 
+    howToUse?: string;
+
     storage?: string;
 
-    prescriptionRequired?: boolean;
-
-    safetyAdvice?: string;
-
     price: number;
-
     originalPrice: number;
+
+    image: string;
+
+    category: string;
 
     stock: number;
 
-    rating: number;
+    prescriptionRequired?: boolean;
 
-    reviewCount: number;
+    reviewCount?: number;
 
-    discount: number;
+    rating?: number;
 
-    createdAt?: string;
-
-    updatedAt?: string;
-    benefits?: string;
-interaction?: string;
-qna?: string;
-factBox?: string;
+    discount?: number;
 }
 
 export interface CartItem {
