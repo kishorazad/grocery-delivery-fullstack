@@ -47,10 +47,17 @@ export type ProductMinAggregateOutputType = {
   name: string | null
   slug: string | null
   description: string | null
+  introduction: string | null
   composition: string | null
   medicineType: string | null
   manufacturer: string | null
+  manufacturerAddress: string | null
+  marketerDetails: string | null
+  manufacturerDetails: string | null
+  countryOfOrigin: string | null
   primaryUse: string | null
+  benefits: string | null
+  useOf: string | null
   price: number | null
   originalPrice: number | null
   image: string | null
@@ -61,11 +68,24 @@ export type ProductMinAggregateOutputType = {
   reviewCount: number | null
   productForm: string | null
   packaging: string | null
+  packageInfo: string | null
   safetyAdvice: string | null
   sideEffects: string | null
   howToUse: string | null
-  storage: string | null
   howItWorks: string | null
+  storage: string | null
+  factBox: string | null
+  qna: string | null
+  interaction: string | null
+  alcoholInteraction: string | null
+  pregnancyInteraction: string | null
+  lactationInteraction: string | null
+  drivingInteraction: string | null
+  kidneyInteraction: string | null
+  liverInteraction: string | null
+  ifMiss: string | null
+  expiration: string | null
+  reference: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -75,10 +95,17 @@ export type ProductMaxAggregateOutputType = {
   name: string | null
   slug: string | null
   description: string | null
+  introduction: string | null
   composition: string | null
   medicineType: string | null
   manufacturer: string | null
+  manufacturerAddress: string | null
+  marketerDetails: string | null
+  manufacturerDetails: string | null
+  countryOfOrigin: string | null
   primaryUse: string | null
+  benefits: string | null
+  useOf: string | null
   price: number | null
   originalPrice: number | null
   image: string | null
@@ -89,11 +116,24 @@ export type ProductMaxAggregateOutputType = {
   reviewCount: number | null
   productForm: string | null
   packaging: string | null
+  packageInfo: string | null
   safetyAdvice: string | null
   sideEffects: string | null
   howToUse: string | null
-  storage: string | null
   howItWorks: string | null
+  storage: string | null
+  factBox: string | null
+  qna: string | null
+  interaction: string | null
+  alcoholInteraction: string | null
+  pregnancyInteraction: string | null
+  lactationInteraction: string | null
+  drivingInteraction: string | null
+  kidneyInteraction: string | null
+  liverInteraction: string | null
+  ifMiss: string | null
+  expiration: string | null
+  reference: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -103,10 +143,17 @@ export type ProductCountAggregateOutputType = {
   name: number
   slug: number
   description: number
+  introduction: number
   composition: number
   medicineType: number
   manufacturer: number
+  manufacturerAddress: number
+  marketerDetails: number
+  manufacturerDetails: number
+  countryOfOrigin: number
   primaryUse: number
+  benefits: number
+  useOf: number
   price: number
   originalPrice: number
   image: number
@@ -118,11 +165,24 @@ export type ProductCountAggregateOutputType = {
   reviewCount: number
   productForm: number
   packaging: number
+  packageInfo: number
   safetyAdvice: number
   sideEffects: number
   howToUse: number
-  storage: number
   howItWorks: number
+  storage: number
+  factBox: number
+  qna: number
+  interaction: number
+  alcoholInteraction: number
+  pregnancyInteraction: number
+  lactationInteraction: number
+  drivingInteraction: number
+  kidneyInteraction: number
+  liverInteraction: number
+  ifMiss: number
+  expiration: number
+  reference: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -150,10 +210,17 @@ export type ProductMinAggregateInputType = {
   name?: true
   slug?: true
   description?: true
+  introduction?: true
   composition?: true
   medicineType?: true
   manufacturer?: true
+  manufacturerAddress?: true
+  marketerDetails?: true
+  manufacturerDetails?: true
+  countryOfOrigin?: true
   primaryUse?: true
+  benefits?: true
+  useOf?: true
   price?: true
   originalPrice?: true
   image?: true
@@ -164,11 +231,24 @@ export type ProductMinAggregateInputType = {
   reviewCount?: true
   productForm?: true
   packaging?: true
+  packageInfo?: true
   safetyAdvice?: true
   sideEffects?: true
   howToUse?: true
-  storage?: true
   howItWorks?: true
+  storage?: true
+  factBox?: true
+  qna?: true
+  interaction?: true
+  alcoholInteraction?: true
+  pregnancyInteraction?: true
+  lactationInteraction?: true
+  drivingInteraction?: true
+  kidneyInteraction?: true
+  liverInteraction?: true
+  ifMiss?: true
+  expiration?: true
+  reference?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -178,10 +258,17 @@ export type ProductMaxAggregateInputType = {
   name?: true
   slug?: true
   description?: true
+  introduction?: true
   composition?: true
   medicineType?: true
   manufacturer?: true
+  manufacturerAddress?: true
+  marketerDetails?: true
+  manufacturerDetails?: true
+  countryOfOrigin?: true
   primaryUse?: true
+  benefits?: true
+  useOf?: true
   price?: true
   originalPrice?: true
   image?: true
@@ -192,11 +279,24 @@ export type ProductMaxAggregateInputType = {
   reviewCount?: true
   productForm?: true
   packaging?: true
+  packageInfo?: true
   safetyAdvice?: true
   sideEffects?: true
   howToUse?: true
-  storage?: true
   howItWorks?: true
+  storage?: true
+  factBox?: true
+  qna?: true
+  interaction?: true
+  alcoholInteraction?: true
+  pregnancyInteraction?: true
+  lactationInteraction?: true
+  drivingInteraction?: true
+  kidneyInteraction?: true
+  liverInteraction?: true
+  ifMiss?: true
+  expiration?: true
+  reference?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -206,10 +306,17 @@ export type ProductCountAggregateInputType = {
   name?: true
   slug?: true
   description?: true
+  introduction?: true
   composition?: true
   medicineType?: true
   manufacturer?: true
+  manufacturerAddress?: true
+  marketerDetails?: true
+  manufacturerDetails?: true
+  countryOfOrigin?: true
   primaryUse?: true
+  benefits?: true
+  useOf?: true
   price?: true
   originalPrice?: true
   image?: true
@@ -221,11 +328,24 @@ export type ProductCountAggregateInputType = {
   reviewCount?: true
   productForm?: true
   packaging?: true
+  packageInfo?: true
   safetyAdvice?: true
   sideEffects?: true
   howToUse?: true
-  storage?: true
   howItWorks?: true
+  storage?: true
+  factBox?: true
+  qna?: true
+  interaction?: true
+  alcoholInteraction?: true
+  pregnancyInteraction?: true
+  lactationInteraction?: true
+  drivingInteraction?: true
+  kidneyInteraction?: true
+  liverInteraction?: true
+  ifMiss?: true
+  expiration?: true
+  reference?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -320,12 +440,19 @@ export type ProductGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProductGroupByOutputType = {
   id: string
   name: string
-  slug: string | null
+  slug: string
   description: string | null
+  introduction: string | null
   composition: string | null
   medicineType: string | null
   manufacturer: string | null
+  manufacturerAddress: string | null
+  marketerDetails: string | null
+  manufacturerDetails: string | null
+  countryOfOrigin: string | null
   primaryUse: string | null
+  benefits: string | null
+  useOf: string | null
   price: number
   originalPrice: number | null
   image: string
@@ -337,11 +464,24 @@ export type ProductGroupByOutputType = {
   reviewCount: number | null
   productForm: string | null
   packaging: string | null
+  packageInfo: string | null
   safetyAdvice: string | null
   sideEffects: string | null
   howToUse: string | null
-  storage: string | null
   howItWorks: string | null
+  storage: string | null
+  factBox: string | null
+  qna: string | null
+  interaction: string | null
+  alcoholInteraction: string | null
+  pregnancyInteraction: string | null
+  lactationInteraction: string | null
+  drivingInteraction: string | null
+  kidneyInteraction: string | null
+  liverInteraction: string | null
+  ifMiss: string | null
+  expiration: string | null
+  reference: string | null
   createdAt: Date
   updatedAt: Date
   _count: ProductCountAggregateOutputType | null
@@ -372,12 +512,19 @@ export type ProductWhereInput = {
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   id?: Prisma.StringFilter<"Product"> | string
   name?: Prisma.StringFilter<"Product"> | string
-  slug?: Prisma.StringNullableFilter<"Product"> | string | null
+  slug?: Prisma.StringFilter<"Product"> | string
   description?: Prisma.StringNullableFilter<"Product"> | string | null
+  introduction?: Prisma.StringNullableFilter<"Product"> | string | null
   composition?: Prisma.StringNullableFilter<"Product"> | string | null
   medicineType?: Prisma.StringNullableFilter<"Product"> | string | null
   manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
+  manufacturerAddress?: Prisma.StringNullableFilter<"Product"> | string | null
+  marketerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
+  manufacturerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
+  countryOfOrigin?: Prisma.StringNullableFilter<"Product"> | string | null
   primaryUse?: Prisma.StringNullableFilter<"Product"> | string | null
+  benefits?: Prisma.StringNullableFilter<"Product"> | string | null
+  useOf?: Prisma.StringNullableFilter<"Product"> | string | null
   price?: Prisma.FloatFilter<"Product"> | number
   originalPrice?: Prisma.FloatNullableFilter<"Product"> | number | null
   image?: Prisma.StringFilter<"Product"> | string
@@ -389,11 +536,24 @@ export type ProductWhereInput = {
   reviewCount?: Prisma.IntNullableFilter<"Product"> | number | null
   productForm?: Prisma.StringNullableFilter<"Product"> | string | null
   packaging?: Prisma.StringNullableFilter<"Product"> | string | null
+  packageInfo?: Prisma.StringNullableFilter<"Product"> | string | null
   safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
   sideEffects?: Prisma.StringNullableFilter<"Product"> | string | null
   howToUse?: Prisma.StringNullableFilter<"Product"> | string | null
-  storage?: Prisma.StringNullableFilter<"Product"> | string | null
   howItWorks?: Prisma.StringNullableFilter<"Product"> | string | null
+  storage?: Prisma.StringNullableFilter<"Product"> | string | null
+  factBox?: Prisma.StringNullableFilter<"Product"> | string | null
+  qna?: Prisma.StringNullableFilter<"Product"> | string | null
+  interaction?: Prisma.StringNullableFilter<"Product"> | string | null
+  alcoholInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  pregnancyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  lactationInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  drivingInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  kidneyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  liverInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  ifMiss?: Prisma.StringNullableFilter<"Product"> | string | null
+  expiration?: Prisma.StringNullableFilter<"Product"> | string | null
+  reference?: Prisma.StringNullableFilter<"Product"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
 }
@@ -401,12 +561,19 @@ export type ProductWhereInput = {
 export type ProductOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrderInput | Prisma.SortOrder
+  slug?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  introduction?: Prisma.SortOrderInput | Prisma.SortOrder
   composition?: Prisma.SortOrderInput | Prisma.SortOrder
   medicineType?: Prisma.SortOrderInput | Prisma.SortOrder
   manufacturer?: Prisma.SortOrderInput | Prisma.SortOrder
+  manufacturerAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
+  manufacturerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
+  countryOfOrigin?: Prisma.SortOrderInput | Prisma.SortOrder
   primaryUse?: Prisma.SortOrderInput | Prisma.SortOrder
+  benefits?: Prisma.SortOrderInput | Prisma.SortOrder
+  useOf?: Prisma.SortOrderInput | Prisma.SortOrder
   price?: Prisma.SortOrder
   originalPrice?: Prisma.SortOrderInput | Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -418,11 +585,24 @@ export type ProductOrderByWithRelationInput = {
   reviewCount?: Prisma.SortOrderInput | Prisma.SortOrder
   productForm?: Prisma.SortOrderInput | Prisma.SortOrder
   packaging?: Prisma.SortOrderInput | Prisma.SortOrder
+  packageInfo?: Prisma.SortOrderInput | Prisma.SortOrder
   safetyAdvice?: Prisma.SortOrderInput | Prisma.SortOrder
   sideEffects?: Prisma.SortOrderInput | Prisma.SortOrder
   howToUse?: Prisma.SortOrderInput | Prisma.SortOrder
-  storage?: Prisma.SortOrderInput | Prisma.SortOrder
   howItWorks?: Prisma.SortOrderInput | Prisma.SortOrder
+  storage?: Prisma.SortOrderInput | Prisma.SortOrder
+  factBox?: Prisma.SortOrderInput | Prisma.SortOrder
+  qna?: Prisma.SortOrderInput | Prisma.SortOrder
+  interaction?: Prisma.SortOrderInput | Prisma.SortOrder
+  alcoholInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  pregnancyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  lactationInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  drivingInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  kidneyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  liverInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  ifMiss?: Prisma.SortOrderInput | Prisma.SortOrder
+  expiration?: Prisma.SortOrderInput | Prisma.SortOrder
+  reference?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -435,10 +615,17 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   name?: Prisma.StringFilter<"Product"> | string
   description?: Prisma.StringNullableFilter<"Product"> | string | null
+  introduction?: Prisma.StringNullableFilter<"Product"> | string | null
   composition?: Prisma.StringNullableFilter<"Product"> | string | null
   medicineType?: Prisma.StringNullableFilter<"Product"> | string | null
   manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
+  manufacturerAddress?: Prisma.StringNullableFilter<"Product"> | string | null
+  marketerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
+  manufacturerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
+  countryOfOrigin?: Prisma.StringNullableFilter<"Product"> | string | null
   primaryUse?: Prisma.StringNullableFilter<"Product"> | string | null
+  benefits?: Prisma.StringNullableFilter<"Product"> | string | null
+  useOf?: Prisma.StringNullableFilter<"Product"> | string | null
   price?: Prisma.FloatFilter<"Product"> | number
   originalPrice?: Prisma.FloatNullableFilter<"Product"> | number | null
   image?: Prisma.StringFilter<"Product"> | string
@@ -450,11 +637,24 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   reviewCount?: Prisma.IntNullableFilter<"Product"> | number | null
   productForm?: Prisma.StringNullableFilter<"Product"> | string | null
   packaging?: Prisma.StringNullableFilter<"Product"> | string | null
+  packageInfo?: Prisma.StringNullableFilter<"Product"> | string | null
   safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
   sideEffects?: Prisma.StringNullableFilter<"Product"> | string | null
   howToUse?: Prisma.StringNullableFilter<"Product"> | string | null
-  storage?: Prisma.StringNullableFilter<"Product"> | string | null
   howItWorks?: Prisma.StringNullableFilter<"Product"> | string | null
+  storage?: Prisma.StringNullableFilter<"Product"> | string | null
+  factBox?: Prisma.StringNullableFilter<"Product"> | string | null
+  qna?: Prisma.StringNullableFilter<"Product"> | string | null
+  interaction?: Prisma.StringNullableFilter<"Product"> | string | null
+  alcoholInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  pregnancyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  lactationInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  drivingInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  kidneyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  liverInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
+  ifMiss?: Prisma.StringNullableFilter<"Product"> | string | null
+  expiration?: Prisma.StringNullableFilter<"Product"> | string | null
+  reference?: Prisma.StringNullableFilter<"Product"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
 }, "id" | "slug">
@@ -462,12 +662,19 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
 export type ProductOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrderInput | Prisma.SortOrder
+  slug?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  introduction?: Prisma.SortOrderInput | Prisma.SortOrder
   composition?: Prisma.SortOrderInput | Prisma.SortOrder
   medicineType?: Prisma.SortOrderInput | Prisma.SortOrder
   manufacturer?: Prisma.SortOrderInput | Prisma.SortOrder
+  manufacturerAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
+  manufacturerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
+  countryOfOrigin?: Prisma.SortOrderInput | Prisma.SortOrder
   primaryUse?: Prisma.SortOrderInput | Prisma.SortOrder
+  benefits?: Prisma.SortOrderInput | Prisma.SortOrder
+  useOf?: Prisma.SortOrderInput | Prisma.SortOrder
   price?: Prisma.SortOrder
   originalPrice?: Prisma.SortOrderInput | Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -479,11 +686,24 @@ export type ProductOrderByWithAggregationInput = {
   reviewCount?: Prisma.SortOrderInput | Prisma.SortOrder
   productForm?: Prisma.SortOrderInput | Prisma.SortOrder
   packaging?: Prisma.SortOrderInput | Prisma.SortOrder
+  packageInfo?: Prisma.SortOrderInput | Prisma.SortOrder
   safetyAdvice?: Prisma.SortOrderInput | Prisma.SortOrder
   sideEffects?: Prisma.SortOrderInput | Prisma.SortOrder
   howToUse?: Prisma.SortOrderInput | Prisma.SortOrder
-  storage?: Prisma.SortOrderInput | Prisma.SortOrder
   howItWorks?: Prisma.SortOrderInput | Prisma.SortOrder
+  storage?: Prisma.SortOrderInput | Prisma.SortOrder
+  factBox?: Prisma.SortOrderInput | Prisma.SortOrder
+  qna?: Prisma.SortOrderInput | Prisma.SortOrder
+  interaction?: Prisma.SortOrderInput | Prisma.SortOrder
+  alcoholInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  pregnancyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  lactationInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  drivingInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  kidneyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  liverInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
+  ifMiss?: Prisma.SortOrderInput | Prisma.SortOrder
+  expiration?: Prisma.SortOrderInput | Prisma.SortOrder
+  reference?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProductCountOrderByAggregateInput
@@ -499,12 +719,19 @@ export type ProductScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProductScalarWhereWithAggregatesInput | Prisma.ProductScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Product"> | string
   name?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  slug?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  slug?: Prisma.StringWithAggregatesFilter<"Product"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  introduction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   composition?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   medicineType?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   manufacturer?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  manufacturerAddress?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  marketerDetails?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  manufacturerDetails?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  countryOfOrigin?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   primaryUse?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  benefits?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  useOf?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   price?: Prisma.FloatWithAggregatesFilter<"Product"> | number
   originalPrice?: Prisma.FloatNullableWithAggregatesFilter<"Product"> | number | null
   image?: Prisma.StringWithAggregatesFilter<"Product"> | string
@@ -516,11 +743,24 @@ export type ProductScalarWhereWithAggregatesInput = {
   reviewCount?: Prisma.IntNullableWithAggregatesFilter<"Product"> | number | null
   productForm?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   packaging?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  packageInfo?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   safetyAdvice?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   sideEffects?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   howToUse?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  storage?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   howItWorks?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  storage?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  factBox?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  qna?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  interaction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  alcoholInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  pregnancyInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  lactationInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  drivingInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  kidneyInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  liverInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  ifMiss?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  expiration?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  reference?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
 }
@@ -528,12 +768,19 @@ export type ProductScalarWhereWithAggregatesInput = {
 export type ProductCreateInput = {
   id?: string
   name: string
-  slug?: string | null
+  slug: string
   description?: string | null
+  introduction?: string | null
   composition?: string | null
   medicineType?: string | null
   manufacturer?: string | null
+  manufacturerAddress?: string | null
+  marketerDetails?: string | null
+  manufacturerDetails?: string | null
+  countryOfOrigin?: string | null
   primaryUse?: string | null
+  benefits?: string | null
+  useOf?: string | null
   price: number
   originalPrice?: number | null
   image: string
@@ -545,11 +792,24 @@ export type ProductCreateInput = {
   reviewCount?: number | null
   productForm?: string | null
   packaging?: string | null
+  packageInfo?: string | null
   safetyAdvice?: string | null
   sideEffects?: string | null
   howToUse?: string | null
-  storage?: string | null
   howItWorks?: string | null
+  storage?: string | null
+  factBox?: string | null
+  qna?: string | null
+  interaction?: string | null
+  alcoholInteraction?: string | null
+  pregnancyInteraction?: string | null
+  lactationInteraction?: string | null
+  drivingInteraction?: string | null
+  kidneyInteraction?: string | null
+  liverInteraction?: string | null
+  ifMiss?: string | null
+  expiration?: string | null
+  reference?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -557,12 +817,19 @@ export type ProductCreateInput = {
 export type ProductUncheckedCreateInput = {
   id?: string
   name: string
-  slug?: string | null
+  slug: string
   description?: string | null
+  introduction?: string | null
   composition?: string | null
   medicineType?: string | null
   manufacturer?: string | null
+  manufacturerAddress?: string | null
+  marketerDetails?: string | null
+  manufacturerDetails?: string | null
+  countryOfOrigin?: string | null
   primaryUse?: string | null
+  benefits?: string | null
+  useOf?: string | null
   price: number
   originalPrice?: number | null
   image: string
@@ -574,11 +841,24 @@ export type ProductUncheckedCreateInput = {
   reviewCount?: number | null
   productForm?: string | null
   packaging?: string | null
+  packageInfo?: string | null
   safetyAdvice?: string | null
   sideEffects?: string | null
   howToUse?: string | null
-  storage?: string | null
   howItWorks?: string | null
+  storage?: string | null
+  factBox?: string | null
+  qna?: string | null
+  interaction?: string | null
+  alcoholInteraction?: string | null
+  pregnancyInteraction?: string | null
+  lactationInteraction?: string | null
+  drivingInteraction?: string | null
+  kidneyInteraction?: string | null
+  liverInteraction?: string | null
+  ifMiss?: string | null
+  expiration?: string | null
+  reference?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -586,12 +866,19 @@ export type ProductUncheckedCreateInput = {
 export type ProductUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image?: Prisma.StringFieldUpdateOperationsInput | string
@@ -603,11 +890,24 @@ export type ProductUpdateInput = {
   reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -615,12 +915,19 @@ export type ProductUpdateInput = {
 export type ProductUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image?: Prisma.StringFieldUpdateOperationsInput | string
@@ -632,11 +939,24 @@ export type ProductUncheckedUpdateInput = {
   reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -644,12 +964,19 @@ export type ProductUncheckedUpdateInput = {
 export type ProductCreateManyInput = {
   id?: string
   name: string
-  slug?: string | null
+  slug: string
   description?: string | null
+  introduction?: string | null
   composition?: string | null
   medicineType?: string | null
   manufacturer?: string | null
+  manufacturerAddress?: string | null
+  marketerDetails?: string | null
+  manufacturerDetails?: string | null
+  countryOfOrigin?: string | null
   primaryUse?: string | null
+  benefits?: string | null
+  useOf?: string | null
   price: number
   originalPrice?: number | null
   image: string
@@ -661,11 +988,24 @@ export type ProductCreateManyInput = {
   reviewCount?: number | null
   productForm?: string | null
   packaging?: string | null
+  packageInfo?: string | null
   safetyAdvice?: string | null
   sideEffects?: string | null
   howToUse?: string | null
-  storage?: string | null
   howItWorks?: string | null
+  storage?: string | null
+  factBox?: string | null
+  qna?: string | null
+  interaction?: string | null
+  alcoholInteraction?: string | null
+  pregnancyInteraction?: string | null
+  lactationInteraction?: string | null
+  drivingInteraction?: string | null
+  kidneyInteraction?: string | null
+  liverInteraction?: string | null
+  ifMiss?: string | null
+  expiration?: string | null
+  reference?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -673,12 +1013,19 @@ export type ProductCreateManyInput = {
 export type ProductUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image?: Prisma.StringFieldUpdateOperationsInput | string
@@ -690,11 +1037,24 @@ export type ProductUpdateManyMutationInput = {
   reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -702,12 +1062,19 @@ export type ProductUpdateManyMutationInput = {
 export type ProductUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image?: Prisma.StringFieldUpdateOperationsInput | string
@@ -719,11 +1086,24 @@ export type ProductUncheckedUpdateManyInput = {
   reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -741,10 +1121,17 @@ export type ProductCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  introduction?: Prisma.SortOrder
   composition?: Prisma.SortOrder
   medicineType?: Prisma.SortOrder
   manufacturer?: Prisma.SortOrder
+  manufacturerAddress?: Prisma.SortOrder
+  marketerDetails?: Prisma.SortOrder
+  manufacturerDetails?: Prisma.SortOrder
+  countryOfOrigin?: Prisma.SortOrder
   primaryUse?: Prisma.SortOrder
+  benefits?: Prisma.SortOrder
+  useOf?: Prisma.SortOrder
   price?: Prisma.SortOrder
   originalPrice?: Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -756,11 +1143,24 @@ export type ProductCountOrderByAggregateInput = {
   reviewCount?: Prisma.SortOrder
   productForm?: Prisma.SortOrder
   packaging?: Prisma.SortOrder
+  packageInfo?: Prisma.SortOrder
   safetyAdvice?: Prisma.SortOrder
   sideEffects?: Prisma.SortOrder
   howToUse?: Prisma.SortOrder
-  storage?: Prisma.SortOrder
   howItWorks?: Prisma.SortOrder
+  storage?: Prisma.SortOrder
+  factBox?: Prisma.SortOrder
+  qna?: Prisma.SortOrder
+  interaction?: Prisma.SortOrder
+  alcoholInteraction?: Prisma.SortOrder
+  pregnancyInteraction?: Prisma.SortOrder
+  lactationInteraction?: Prisma.SortOrder
+  drivingInteraction?: Prisma.SortOrder
+  kidneyInteraction?: Prisma.SortOrder
+  liverInteraction?: Prisma.SortOrder
+  ifMiss?: Prisma.SortOrder
+  expiration?: Prisma.SortOrder
+  reference?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -778,10 +1178,17 @@ export type ProductMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  introduction?: Prisma.SortOrder
   composition?: Prisma.SortOrder
   medicineType?: Prisma.SortOrder
   manufacturer?: Prisma.SortOrder
+  manufacturerAddress?: Prisma.SortOrder
+  marketerDetails?: Prisma.SortOrder
+  manufacturerDetails?: Prisma.SortOrder
+  countryOfOrigin?: Prisma.SortOrder
   primaryUse?: Prisma.SortOrder
+  benefits?: Prisma.SortOrder
+  useOf?: Prisma.SortOrder
   price?: Prisma.SortOrder
   originalPrice?: Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -792,11 +1199,24 @@ export type ProductMaxOrderByAggregateInput = {
   reviewCount?: Prisma.SortOrder
   productForm?: Prisma.SortOrder
   packaging?: Prisma.SortOrder
+  packageInfo?: Prisma.SortOrder
   safetyAdvice?: Prisma.SortOrder
   sideEffects?: Prisma.SortOrder
   howToUse?: Prisma.SortOrder
-  storage?: Prisma.SortOrder
   howItWorks?: Prisma.SortOrder
+  storage?: Prisma.SortOrder
+  factBox?: Prisma.SortOrder
+  qna?: Prisma.SortOrder
+  interaction?: Prisma.SortOrder
+  alcoholInteraction?: Prisma.SortOrder
+  pregnancyInteraction?: Prisma.SortOrder
+  lactationInteraction?: Prisma.SortOrder
+  drivingInteraction?: Prisma.SortOrder
+  kidneyInteraction?: Prisma.SortOrder
+  liverInteraction?: Prisma.SortOrder
+  ifMiss?: Prisma.SortOrder
+  expiration?: Prisma.SortOrder
+  reference?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -806,10 +1226,17 @@ export type ProductMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  introduction?: Prisma.SortOrder
   composition?: Prisma.SortOrder
   medicineType?: Prisma.SortOrder
   manufacturer?: Prisma.SortOrder
+  manufacturerAddress?: Prisma.SortOrder
+  marketerDetails?: Prisma.SortOrder
+  manufacturerDetails?: Prisma.SortOrder
+  countryOfOrigin?: Prisma.SortOrder
   primaryUse?: Prisma.SortOrder
+  benefits?: Prisma.SortOrder
+  useOf?: Prisma.SortOrder
   price?: Prisma.SortOrder
   originalPrice?: Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -820,11 +1247,24 @@ export type ProductMinOrderByAggregateInput = {
   reviewCount?: Prisma.SortOrder
   productForm?: Prisma.SortOrder
   packaging?: Prisma.SortOrder
+  packageInfo?: Prisma.SortOrder
   safetyAdvice?: Prisma.SortOrder
   sideEffects?: Prisma.SortOrder
   howToUse?: Prisma.SortOrder
-  storage?: Prisma.SortOrder
   howItWorks?: Prisma.SortOrder
+  storage?: Prisma.SortOrder
+  factBox?: Prisma.SortOrder
+  qna?: Prisma.SortOrder
+  interaction?: Prisma.SortOrder
+  alcoholInteraction?: Prisma.SortOrder
+  pregnancyInteraction?: Prisma.SortOrder
+  lactationInteraction?: Prisma.SortOrder
+  drivingInteraction?: Prisma.SortOrder
+  kidneyInteraction?: Prisma.SortOrder
+  liverInteraction?: Prisma.SortOrder
+  ifMiss?: Prisma.SortOrder
+  expiration?: Prisma.SortOrder
+  reference?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -873,10 +1313,17 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name?: boolean
   slug?: boolean
   description?: boolean
+  introduction?: boolean
   composition?: boolean
   medicineType?: boolean
   manufacturer?: boolean
+  manufacturerAddress?: boolean
+  marketerDetails?: boolean
+  manufacturerDetails?: boolean
+  countryOfOrigin?: boolean
   primaryUse?: boolean
+  benefits?: boolean
+  useOf?: boolean
   price?: boolean
   originalPrice?: boolean
   image?: boolean
@@ -888,11 +1335,24 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   reviewCount?: boolean
   productForm?: boolean
   packaging?: boolean
+  packageInfo?: boolean
   safetyAdvice?: boolean
   sideEffects?: boolean
   howToUse?: boolean
-  storage?: boolean
   howItWorks?: boolean
+  storage?: boolean
+  factBox?: boolean
+  qna?: boolean
+  interaction?: boolean
+  alcoholInteraction?: boolean
+  pregnancyInteraction?: boolean
+  lactationInteraction?: boolean
+  drivingInteraction?: boolean
+  kidneyInteraction?: boolean
+  liverInteraction?: boolean
+  ifMiss?: boolean
+  expiration?: boolean
+  reference?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["product"]>
@@ -902,10 +1362,17 @@ export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   slug?: boolean
   description?: boolean
+  introduction?: boolean
   composition?: boolean
   medicineType?: boolean
   manufacturer?: boolean
+  manufacturerAddress?: boolean
+  marketerDetails?: boolean
+  manufacturerDetails?: boolean
+  countryOfOrigin?: boolean
   primaryUse?: boolean
+  benefits?: boolean
+  useOf?: boolean
   price?: boolean
   originalPrice?: boolean
   image?: boolean
@@ -917,11 +1384,24 @@ export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   reviewCount?: boolean
   productForm?: boolean
   packaging?: boolean
+  packageInfo?: boolean
   safetyAdvice?: boolean
   sideEffects?: boolean
   howToUse?: boolean
-  storage?: boolean
   howItWorks?: boolean
+  storage?: boolean
+  factBox?: boolean
+  qna?: boolean
+  interaction?: boolean
+  alcoholInteraction?: boolean
+  pregnancyInteraction?: boolean
+  lactationInteraction?: boolean
+  drivingInteraction?: boolean
+  kidneyInteraction?: boolean
+  liverInteraction?: boolean
+  ifMiss?: boolean
+  expiration?: boolean
+  reference?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["product"]>
@@ -931,10 +1411,17 @@ export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   slug?: boolean
   description?: boolean
+  introduction?: boolean
   composition?: boolean
   medicineType?: boolean
   manufacturer?: boolean
+  manufacturerAddress?: boolean
+  marketerDetails?: boolean
+  manufacturerDetails?: boolean
+  countryOfOrigin?: boolean
   primaryUse?: boolean
+  benefits?: boolean
+  useOf?: boolean
   price?: boolean
   originalPrice?: boolean
   image?: boolean
@@ -946,11 +1433,24 @@ export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   reviewCount?: boolean
   productForm?: boolean
   packaging?: boolean
+  packageInfo?: boolean
   safetyAdvice?: boolean
   sideEffects?: boolean
   howToUse?: boolean
-  storage?: boolean
   howItWorks?: boolean
+  storage?: boolean
+  factBox?: boolean
+  qna?: boolean
+  interaction?: boolean
+  alcoholInteraction?: boolean
+  pregnancyInteraction?: boolean
+  lactationInteraction?: boolean
+  drivingInteraction?: boolean
+  kidneyInteraction?: boolean
+  liverInteraction?: boolean
+  ifMiss?: boolean
+  expiration?: boolean
+  reference?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["product"]>
@@ -960,10 +1460,17 @@ export type ProductSelectScalar = {
   name?: boolean
   slug?: boolean
   description?: boolean
+  introduction?: boolean
   composition?: boolean
   medicineType?: boolean
   manufacturer?: boolean
+  manufacturerAddress?: boolean
+  marketerDetails?: boolean
+  manufacturerDetails?: boolean
+  countryOfOrigin?: boolean
   primaryUse?: boolean
+  benefits?: boolean
+  useOf?: boolean
   price?: boolean
   originalPrice?: boolean
   image?: boolean
@@ -975,16 +1482,29 @@ export type ProductSelectScalar = {
   reviewCount?: boolean
   productForm?: boolean
   packaging?: boolean
+  packageInfo?: boolean
   safetyAdvice?: boolean
   sideEffects?: boolean
   howToUse?: boolean
-  storage?: boolean
   howItWorks?: boolean
+  storage?: boolean
+  factBox?: boolean
+  qna?: boolean
+  interaction?: boolean
+  alcoholInteraction?: boolean
+  pregnancyInteraction?: boolean
+  lactationInteraction?: boolean
+  drivingInteraction?: boolean
+  kidneyInteraction?: boolean
+  liverInteraction?: boolean
+  ifMiss?: boolean
+  expiration?: boolean
+  reference?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "composition" | "medicineType" | "manufacturer" | "primaryUse" | "price" | "originalPrice" | "image" | "imageUrls" | "category" | "prescriptionRequired" | "stock" | "rating" | "reviewCount" | "productForm" | "packaging" | "safetyAdvice" | "sideEffects" | "howToUse" | "storage" | "howItWorks" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
+export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "introduction" | "composition" | "medicineType" | "manufacturer" | "manufacturerAddress" | "marketerDetails" | "manufacturerDetails" | "countryOfOrigin" | "primaryUse" | "benefits" | "useOf" | "price" | "originalPrice" | "image" | "imageUrls" | "category" | "prescriptionRequired" | "stock" | "rating" | "reviewCount" | "productForm" | "packaging" | "packageInfo" | "safetyAdvice" | "sideEffects" | "howToUse" | "howItWorks" | "storage" | "factBox" | "qna" | "interaction" | "alcoholInteraction" | "pregnancyInteraction" | "lactationInteraction" | "drivingInteraction" | "kidneyInteraction" | "liverInteraction" | "ifMiss" | "expiration" | "reference" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
 
 export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Product"
@@ -992,12 +1512,19 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    slug: string | null
+    slug: string
     description: string | null
+    introduction: string | null
     composition: string | null
     medicineType: string | null
     manufacturer: string | null
+    manufacturerAddress: string | null
+    marketerDetails: string | null
+    manufacturerDetails: string | null
+    countryOfOrigin: string | null
     primaryUse: string | null
+    benefits: string | null
+    useOf: string | null
     price: number
     originalPrice: number | null
     image: string
@@ -1009,11 +1536,24 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     reviewCount: number | null
     productForm: string | null
     packaging: string | null
+    packageInfo: string | null
     safetyAdvice: string | null
     sideEffects: string | null
     howToUse: string | null
-    storage: string | null
     howItWorks: string | null
+    storage: string | null
+    factBox: string | null
+    qna: string | null
+    interaction: string | null
+    alcoholInteraction: string | null
+    pregnancyInteraction: string | null
+    lactationInteraction: string | null
+    drivingInteraction: string | null
+    kidneyInteraction: string | null
+    liverInteraction: string | null
+    ifMiss: string | null
+    expiration: string | null
+    reference: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["product"]>
@@ -1443,10 +1983,17 @@ export interface ProductFieldRefs {
   readonly name: Prisma.FieldRef<"Product", 'String'>
   readonly slug: Prisma.FieldRef<"Product", 'String'>
   readonly description: Prisma.FieldRef<"Product", 'String'>
+  readonly introduction: Prisma.FieldRef<"Product", 'String'>
   readonly composition: Prisma.FieldRef<"Product", 'String'>
   readonly medicineType: Prisma.FieldRef<"Product", 'String'>
   readonly manufacturer: Prisma.FieldRef<"Product", 'String'>
+  readonly manufacturerAddress: Prisma.FieldRef<"Product", 'String'>
+  readonly marketerDetails: Prisma.FieldRef<"Product", 'String'>
+  readonly manufacturerDetails: Prisma.FieldRef<"Product", 'String'>
+  readonly countryOfOrigin: Prisma.FieldRef<"Product", 'String'>
   readonly primaryUse: Prisma.FieldRef<"Product", 'String'>
+  readonly benefits: Prisma.FieldRef<"Product", 'String'>
+  readonly useOf: Prisma.FieldRef<"Product", 'String'>
   readonly price: Prisma.FieldRef<"Product", 'Float'>
   readonly originalPrice: Prisma.FieldRef<"Product", 'Float'>
   readonly image: Prisma.FieldRef<"Product", 'String'>
@@ -1458,11 +2005,24 @@ export interface ProductFieldRefs {
   readonly reviewCount: Prisma.FieldRef<"Product", 'Int'>
   readonly productForm: Prisma.FieldRef<"Product", 'String'>
   readonly packaging: Prisma.FieldRef<"Product", 'String'>
+  readonly packageInfo: Prisma.FieldRef<"Product", 'String'>
   readonly safetyAdvice: Prisma.FieldRef<"Product", 'String'>
   readonly sideEffects: Prisma.FieldRef<"Product", 'String'>
   readonly howToUse: Prisma.FieldRef<"Product", 'String'>
-  readonly storage: Prisma.FieldRef<"Product", 'String'>
   readonly howItWorks: Prisma.FieldRef<"Product", 'String'>
+  readonly storage: Prisma.FieldRef<"Product", 'String'>
+  readonly factBox: Prisma.FieldRef<"Product", 'String'>
+  readonly qna: Prisma.FieldRef<"Product", 'String'>
+  readonly interaction: Prisma.FieldRef<"Product", 'String'>
+  readonly alcoholInteraction: Prisma.FieldRef<"Product", 'String'>
+  readonly pregnancyInteraction: Prisma.FieldRef<"Product", 'String'>
+  readonly lactationInteraction: Prisma.FieldRef<"Product", 'String'>
+  readonly drivingInteraction: Prisma.FieldRef<"Product", 'String'>
+  readonly kidneyInteraction: Prisma.FieldRef<"Product", 'String'>
+  readonly liverInteraction: Prisma.FieldRef<"Product", 'String'>
+  readonly ifMiss: Prisma.FieldRef<"Product", 'String'>
+  readonly expiration: Prisma.FieldRef<"Product", 'String'>
+  readonly reference: Prisma.FieldRef<"Product", 'String'>
   readonly createdAt: Prisma.FieldRef<"Product", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Product", 'DateTime'>
 }

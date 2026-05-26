@@ -37,16 +37,29 @@ model Address {
 }
 
 model Product {
+
     id                    String   @id @default(uuid())
 
     name                  String
-    slug                  String?   @unique
+    slug                  String   @unique
 
     description           String?  @default("")
+    introduction          String?  @default("")
+
     composition           String?  @default("")
     medicineType          String?  @default("")
+
     manufacturer          String?  @default("")
+    manufacturerAddress   String?  @default("")
+
+    marketerDetails       String?  @default("")
+    manufacturerDetails   String?  @default("")
+
+    countryOfOrigin       String?  @default("")
+
     primaryUse            String?  @default("")
+    benefits              String?  @default("")
+    useOf                 String?  @default("")
 
     price                 Float
     originalPrice         Float?   @default(0)
@@ -65,11 +78,32 @@ model Product {
 
     productForm           String?  @default("")
     packaging             String?  @default("")
+    packageInfo           String?  @default("")
+
     safetyAdvice          String?  @default("")
     sideEffects           String?  @default("")
+
     howToUse              String?  @default("")
-    storage               String?  @default("")
     howItWorks            String?  @default("")
+
+    storage               String?  @default("")
+
+    factBox               String?  @default("")
+    qna                   String?  @default("")
+
+    interaction           String?  @default("")
+
+    alcoholInteraction    String?  @default("")
+    pregnancyInteraction  String?  @default("")
+    lactationInteraction  String?  @default("")
+    drivingInteraction    String?  @default("")
+    kidneyInteraction     String?  @default("")
+    liverInteraction      String?  @default("")
+
+    ifMiss                String?  @default("")
+
+    expiration            String?  @default("")
+    reference             String?  @default("")
 
     createdAt             DateTime @default(now())
     updatedAt             DateTime @updatedAt
