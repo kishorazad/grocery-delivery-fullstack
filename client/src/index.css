@@ -138,3 +138,44 @@ swiper-pagination-bullet {
   background: #22c55e !important;
   opacity: 1;
 }
+
+:root {
+  --primary: #FF7A00;
+  --primary-light: #FFF4E8;
+  --text-dark: #1F2937;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container-responsive {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
