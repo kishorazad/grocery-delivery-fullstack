@@ -75,6 +75,10 @@ export interface Product {
     createdAt?: string;
 
     updatedAt?: string;
+    benefits?: string;
+interaction?: string;
+qna?: string;
+factBox?: string;
 }
 
 export interface CartItem {

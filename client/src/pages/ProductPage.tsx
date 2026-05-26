@@ -160,6 +160,25 @@ const ProductPage = () => {
                     Storage
                 </a>
 
+                <a href="#benefits" className="block hover:text-orange-500 transition">
+    Benefits
+</a>
+
+<a href="#side-effects" className="block hover:text-orange-500 transition">
+    Side Effects
+</a>
+
+<a href="#safety-advice" className="block hover:text-orange-500 transition">
+    Safety Advice
+</a>
+
+<a href="#interactions" className="block hover:text-orange-500 transition">
+    Interactions
+</a>
+ <a href="#faq" className="block hover:text-orange-500 transition">
+    FAQs
+</a>
+
                 <a href="#reviews" className="block hover:text-orange-500 transition">
                     Reviews
                 </a>
@@ -209,12 +228,12 @@ const ProductPage = () => {
                     <div className="flex items-center gap-3 mb-5">
 
                         <span className="text-4xl font-bold text-app-green">
-                            ₹{product.price}
+                          ₹{Number(product.price || 0).toFixed(2)}
                         </span>
 
                         {product.originalPrice > product.price && (
                             <span className="text-lg line-through text-gray-400">
-                                ₹{product.originalPrice}
+                               ₹{Number(product.originalPrice || 0).toFixed(2)}
                             </span>
                         )}
                     </div>
@@ -295,6 +314,21 @@ const ProductPage = () => {
                     </p>
                 </section>
 
+{product.benefits && (
+
+<section id="benefits">
+
+    <h2 className="text-2xl font-semibold text-app-green mb-3">
+        Benefits
+    </h2>
+
+    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+        {product.benefits}
+    </p>
+
+</section>
+
+)}
                 {product.composition && (
 
                     <section id="composition">
@@ -336,7 +370,21 @@ const ProductPage = () => {
                         </p>
                     </section>
                 )}
+{product.sideEffects && (
 
+<section id="side-effects">
+
+    <h2 className="text-2xl font-semibold text-app-green mb-3">
+        Side Effects
+    </h2>
+
+    <p className="text-gray-600 whitespace-pre-line">
+        {product.sideEffects}
+    </p>
+
+</section>
+
+)}
                 {product.howItWorks && (
 
                     <section>
@@ -350,6 +398,36 @@ const ProductPage = () => {
                         </p>
                     </section>
                 )}
+                {product.interaction && (
+
+<section id="interactions">
+
+    <h2 className="text-2xl font-semibold text-app-green mb-3">
+        Drug Interactions
+    </h2>
+
+    <p className="text-gray-600 whitespace-pre-line">
+        {product.interaction}
+    </p>
+
+</section>
+
+)}
+                {product.safetyAdvice && (
+
+<section id="safety-advice">
+
+    <h2 className="text-2xl font-semibold text-app-green mb-3">
+        Safety Advice
+    </h2>
+
+    <p className="text-gray-600 whitespace-pre-line">
+        {product.safetyAdvice}
+    </p>
+
+</section>
+
+)}
 
                 {product.storage && (
 
@@ -372,6 +450,22 @@ const ProductPage = () => {
                     </div>
                 )}
             </div>
+
+            {product.qna && (
+
+<section id="faq" className="px-6 lg:px-10 pb-10">
+
+    <h2 className="text-2xl font-semibold text-app-green mb-4">
+        Frequently Asked Questions
+    </h2>
+
+    <div className="text-gray-600 leading-relaxed whitespace-pre-line">
+        {product.qna}
+    </div>
+
+</section>
+
+)}
 
             {/* REVIEWS */}
 

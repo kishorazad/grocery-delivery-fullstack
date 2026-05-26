@@ -206,20 +206,18 @@ console.log(item);
                                 ] || "",
 
                             price:
-    parseFloat(
-        String(item["MRP"])
-            .replace("₹", "")
-            .replace(",", "")
-            .trim()
-    ) || 0,
+    Number(
+        item["MRP"] ||
+        item["Price"] ||
+        0
+    ),
 
 originalPrice:
-    parseFloat(
-        String(item["MRP"])
-            .replace("₹", "")
-            .replace(",", "")
-            .trim()
-    ) || 0,
+    Number(
+        item["MRP"] ||
+        item["Price"] ||
+        0
+    ),
 
                             image:
                                 imageUrls[0] ||
