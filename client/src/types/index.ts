@@ -67,11 +67,11 @@ export interface Product {
 
     prescriptionRequired?: boolean;
 
-    reviewCount?: number;
+    reviewCount: number;
 
-    rating?: number;
+    rating: number;
 
-    discount?: number;
+    discount: number;
 }
 
 export interface CartItem {
