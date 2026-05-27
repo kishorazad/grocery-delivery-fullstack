@@ -28,34 +28,61 @@ const Navbar = () => {
     return (
         <nav className="
 sticky top-0 z-50
-bg-white/95
+bg-white/90
+supports-[backdrop-filter]:bg-white/75
 backdrop-blur-md
 border-b border-orange-100
 shadow-sm
 ">
             <div className="
-max-w-7xl
+max-w-[1400px]
 mx-auto
 px-3 md:px-6 lg:px-8
 flex items-center
 justify-between
 gap-3 md:gap-6
-h-16 md:h-[72px]
+min-h-[64px] md:min-h-[72px]
+py-2
 ">
                 {/* Logo */}
                 {/* Logo */}
-<Link to="/" className="flex items-center shrink-0">
-    <img
-        src="/pillnow-logo.png"
-        alt="PillNow"
-      className="h-7 md:h-9 w-auto object-contain"
-    />
+<Link
+    to="/"
+    className="
+    flex items-center
+    shrink-0
+    "
+>
+    <h1
+        className="
+        text-2xl
+        md:text-3xl
+        font-bold
+        tracking-tight
+        "
+    >
+        <span className="text-orange-500">Pill</span>
+        <span className="text-zinc-900">Now</span>
+    </h1>
 </Link>
-
-                <div className="flex-1 flex items-center gap-3 md:gap-6">
+              <div className="
+flex-1
+flex
+items-center
+gap-2 md:gap-6
+min-w-0
+">
                     {/* Nav Links - Desktop */}
-                    <div className="hidden md:flex items-center gap-6 text-sm text-zinc-600">
-                        <Link to="/">Home</Link>
+                    <div className="hidden md:flex items-center gap-6 text-[16px] md:text-sm text-zinc-600">
+                      <Link
+    to="/"
+    className="
+    hover:text-orange-500
+    transition-colors
+    "
+>
+    Home
+</Link>
                         <Link to="/products">Products</Link>
                         <Link to="/deals" className="text-app-orange">
                             Deals
@@ -64,7 +91,13 @@ h-16 md:h-[72px]
                     {/* Search */}
                     {/* Search */}
 {/* Search Section */}
-<div className="flex-1 flex items-center justify-center">
+<div className="
+flex-1
+flex
+items-center
+justify-center
+min-w-0
+">
 
   {/* Desktop Search */}
   <form
@@ -155,7 +188,7 @@ h-16 md:h-[72px]
         className="
         flex-1
         px-3
-        py-3
+    h-11
         text-sm
         outline-none
         bg-transparent
@@ -166,8 +199,9 @@ h-16 md:h-[72px]
         type="submit"
         className="
         bg-orange-500
-        px-4
-        py-3
+       w-11
+h-11
+flex items-center justify-center
         text-white
       "
       >
@@ -180,9 +214,16 @@ h-16 md:h-[72px]
                     {/* Right Actions */}
                     <div className="flex items-center gap-3">
                         {/* Cart */}
-                        <button className="relative p-2 rounded-xl" onClick={() => setIsCartOpen(true)}>
+                        <button className="
+relative
+p-2
+rounded-xl
+hover:bg-orange-50
+transition-all
+" onClick={() => setIsCartOpen(true)}>
                             <ShoppingCartIcon className="size-5 text-zinc-900" />
-                            {cartCount > 0 && <span className="absolute -top-1 -right-1 size-4 bg-app-orange text-white text-[10px] rounded-full flex-center">{cartCount}</span>}
+                            {cartCount > 0 && <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px]
+px-1 bg-app-orange text-white text-[10px] rounded-full flex-center">{cartCount}</span>}
                         </button>
                         {/* User */}
                         <div className="relative">
@@ -203,14 +244,25 @@ transition-all
                                     <Link to="/login" className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-green-950 rounded-full hover:bg-green-950-light transition-colors">
                                         <UserIcon size={16} /> Sign In
                                     </Link>
-                                    {userMenuOpen ? <XIcon className="md:hidden" onClick={() => setUserMenuOpen(!userMenuOpen)} /> : <MenuIcon className="md:hidden size-5 text-zinc-700" onClick={() => setUserMenuOpen(!userMenuOpen)} />}
+                                    {userMenuOpen ? <XIcon
+    className="
+    md:hidden
+    size-5
+    text-zinc-700
+    shrink-0
+    " onClick={() => setUserMenuOpen(!userMenuOpen)} /> : <MenuIcon className="
+md:hidden
+size-5
+text-zinc-700
+shrink-0
+" onClick={() => setUserMenuOpen(!userMenuOpen)} />}
                                 </div>
                             )}
 
                             {userMenuOpen && (
                                 <>
                                     <div className="fixed inset-0 z-40" onClick={() => setUserMenuOpen(false)} />
-                                    <div className="absolute right-0 mt-2.5 w-56 bg-white rounded-xl shadow-lg border border-app-border py-2 z-50 animate-fade-in">
+                                    <div className="absolute right-0 top-full mt-3 w-64 bg-white rounded-xl shadow-lg border border-app-border py-2 z-50 animate-fade-in">
                                         {user && (
                                             <div className="px-4 py-2 border-b border-app-border">
                                                 <p className="text-sm font-medium text-zinc-900">{user?.name}</p>
@@ -219,19 +271,40 @@ transition-all
                                         )}
                                         <div onClick={() => setUserMenuOpen(false)}>
                                             {!user && (
-                                                <Link to="/login" className="dropdown-link">
+                                                <Link to="/login" className="
+flex items-center gap-3
+px-4 py-3
+text-sm
+text-zinc-700
+hover:bg-orange-50
+transition-all
+">
                                                     <UserIcon size={16} /> Sign In{" "}
                                                 </Link>
                                             )}
 
                                             {user && (
-                                                <Link to="/orders" className="dropdown-link">
+                                                <Link to="/orders" className="
+flex items-center gap-3
+px-4 py-3
+text-sm
+text-zinc-700
+hover:bg-orange-50
+transition-all
+">
                                                     <PackageIcon size={16} /> My Orders{" "}
                                                 </Link>
                                             )}
 
                                             {user && (
-                                                <Link to="/addresses" className="dropdown-link">
+                                                <Link to="/addresses" className="
+flex items-center gap-3
+px-4 py-3
+text-sm
+text-zinc-700
+hover:bg-orange-50
+transition-all
+">
                                                     <MapPinIcon size={16} /> Addresses{" "}
                                                 </Link>
                                             )}
@@ -243,8 +316,18 @@ transition-all
                                             <Link to="/deals" className="dropdown-link md:hidden">
                                                 <ArrowUpRightIcon size={16} /> Deals{" "}
                                             </Link>
-                                            {user?.isAdmin && (
-                                                <Link to="/admin/products" className="dropdown-link">
+                                            {user && user.isAdmin && (
+                                             <Link
+    to="/admin/products"
+    className="
+    flex items-center gap-3
+    px-4 py-3
+    text-sm
+    text-zinc-700
+    hover:bg-orange-50
+    transition-all
+    "
+> 
                                                     <ShieldIcon className="text-app-orange-dark" size={16} /> <span className="text-app-orange-dark">Admin Panel</span>{" "}
                                                 </Link>
                                             )}

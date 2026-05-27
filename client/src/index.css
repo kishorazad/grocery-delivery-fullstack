@@ -160,10 +160,6 @@ body,
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 .container-responsive {
   width: 100%;
@@ -178,4 +174,41 @@ img {
     padding-left: 24px;
     padding-right: 24px;
   }
+}
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #faf7f2;
+  font-family: Inter, sans-serif;
 }
