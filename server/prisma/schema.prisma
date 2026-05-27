@@ -64,49 +64,88 @@ model Category {
 }
 
 model Product {
-  id                    String   @id @default(uuid())
+    id                    String   @id @default(uuid())
 
-  name                  String
-  slug                  String   @unique
+    name                  String
+    slug                  String   @unique
 
-  shortDescription      String?
-  description           String?
+    description           String?  @default("")
+    composition           String?  @default("")
+    medicineType          String?  @default("")
+    manufacturer          String?  @default("")
+    primaryUse            String?  @default("")
 
-  price                 Float
-  mrp                   Float?
-  discountPercent       Int?
+    shortDescription      String?  @default("")
 
-  stock                 Int @default(0)
+    price                 Float
+    originalPrice         Float?   @default(0)
 
-  prescriptionRequired  Boolean @default(false)
+    mrp                   Float?   @default(0)
+    discountPercent       Int?     @default(0)
 
-  manufacturer          String?
-  marketer              String?
-  composition           String?
-  medicineType          String?
+    image                 String
+    imageUrl              String?  @default("")
+    imageUrls             String[]
 
-  uses                  String?
-  benefits              String?
-  sideEffects           String?
-  dosage                String?
-  howToUse              String?
-  howItWorks            String?
-  safetyAdvice          String?
-  quickTips             String?
-  warnings              String?
-  storage               String?
-  faq                   String?
-  substitutes           String?
+    category              String
 
-  imageUrl              String?
-  images                String[]
+    categoryId            String?
+    categoryRelation      Category? @relation(fields: [categoryId], references: [id])
 
-  categoryId            String?
-  category              Category? @relation(fields: [categoryId], references: [id])
+    prescriptionRequired  Boolean? @default(false)
 
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+    stock                 Int?     @default(0)
+
+    rating                Float?   @default(0)
+    reviewCount           Int?     @default(0)
+
+    productForm           String?  @default("")
+    packaging             String?  @default("")
+    packageInfo           String?  @default("")
+
+    introduction          String?  @default("")
+    benefits              String?  @default("")
+    useOf                 String?  @default("")
+
+    safetyAdvice          String?  @default("")
+    sideEffects           String?  @default("")
+    howToUse              String?  @default("")
+    storage               String?  @default("")
+    howItWorks            String?  @default("")
+
+    interaction           String?  @default("")
+    alcoholInteraction    String?  @default("")
+    pregnancyInteraction  String?  @default("")
+    lactationInteraction  String?  @default("")
+    drivingInteraction    String?  @default("")
+    kidneyInteraction     String?  @default("")
+    liverInteraction      String?  @default("")
+
+    factBox               String?  @default("")
+    qna                   String?  @default("")
+    faq                   String?  @default("")
+
+    substitutes           String?  @default("")
+    warnings              String?  @default("")
+    quickTips             String?  @default("")
+
+    manufacturerDetails   String?  @default("")
+    marketerDetails       String?  @default("")
+    manufacturerAddress   String?  @default("")
+
+    reference             String?  @default("")
+    countryOfOrigin       String?  @default("")
+    expiration            String?  @default("")
+
+    dosage                String?  @default("")
+    marketer              String?  @default("")
+
+    ifMiss                String?  @default("")
+
+    createdAt             DateTime @default(now())
+    updatedAt             DateTime @updatedAt
 }
+
 model Order {
   id              String @id @default(uuid())
 
