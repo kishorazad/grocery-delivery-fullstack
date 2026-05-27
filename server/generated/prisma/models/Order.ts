@@ -663,6 +663,10 @@ export type OrderUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
 }
 
+export type NullableBoolFieldUpdateOperationsInput = {
+  set?: boolean | null
+}
+
 export type OrderCreateNestedManyWithoutDeliveryPartnerInput = {
   create?: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryPartnerInput, Prisma.OrderUncheckedCreateWithoutDeliveryPartnerInput> | Prisma.OrderCreateWithoutDeliveryPartnerInput[] | Prisma.OrderUncheckedCreateWithoutDeliveryPartnerInput[]
   connectOrCreate?: Prisma.OrderCreateOrConnectWithoutDeliveryPartnerInput | Prisma.OrderCreateOrConnectWithoutDeliveryPartnerInput[]

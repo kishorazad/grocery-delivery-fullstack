@@ -386,6 +386,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   User: 'User',
   Address: 'Address',
+  Category: 'Category',
   Product: 'Product',
   Order: 'Order',
   DeliveryPartner: 'DeliveryPartner'
@@ -404,7 +405,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "address" | "product" | "order" | "deliveryPartner"
+    modelProps: "user" | "address" | "category" | "product" | "order" | "deliveryPartner"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -553,6 +554,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.AddressCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.AddressCountAggregateOutputType> | number
+        }
+      }
+    }
+    Category: {
+      payload: Prisma.$CategoryPayload<ExtArgs>
+      fields: Prisma.CategoryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CategoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CategoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>
+        }
+        findFirst: {
+          args: Prisma.CategoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CategoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>
+        }
+        findMany: {
+          args: Prisma.CategoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>[]
+        }
+        create: {
+          args: Prisma.CategoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>
+        }
+        createMany: {
+          args: Prisma.CategoryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CategoryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>[]
+        }
+        delete: {
+          args: Prisma.CategoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>
+        }
+        update: {
+          args: Prisma.CategoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>
+        }
+        deleteMany: {
+          args: Prisma.CategoryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CategoryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CategoryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>[]
+        }
+        upsert: {
+          args: Prisma.CategoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryPayload>
+        }
+        aggregate: {
+          args: Prisma.CategoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCategory>
+        }
+        groupBy: {
+          args: Prisma.CategoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CategoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryCountAggregateOutputType> | number
         }
       }
     }
@@ -822,6 +897,7 @@ export const UserScalarFieldEnum = {
   name: 'name',
   email: 'email',
   password: 'password',
+  role: 'role',
   phone: 'phone',
   avatar: 'avatar',
   createdAt: 'createdAt',
@@ -849,51 +925,48 @@ export const AddressScalarFieldEnum = {
 export type AddressScalarFieldEnum = (typeof AddressScalarFieldEnum)[keyof typeof AddressScalarFieldEnum]
 
 
+export const CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
 export const ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
   slug: 'slug',
+  shortDescription: 'shortDescription',
   description: 'description',
-  introduction: 'introduction',
+  price: 'price',
+  mrp: 'mrp',
+  discountPercent: 'discountPercent',
+  stock: 'stock',
+  prescriptionRequired: 'prescriptionRequired',
+  manufacturer: 'manufacturer',
+  marketer: 'marketer',
   composition: 'composition',
   medicineType: 'medicineType',
-  manufacturer: 'manufacturer',
-  manufacturerAddress: 'manufacturerAddress',
-  marketerDetails: 'marketerDetails',
-  manufacturerDetails: 'manufacturerDetails',
-  countryOfOrigin: 'countryOfOrigin',
-  primaryUse: 'primaryUse',
+  uses: 'uses',
   benefits: 'benefits',
-  useOf: 'useOf',
-  price: 'price',
-  originalPrice: 'originalPrice',
-  image: 'image',
-  imageUrls: 'imageUrls',
-  category: 'category',
-  prescriptionRequired: 'prescriptionRequired',
-  stock: 'stock',
-  rating: 'rating',
-  reviewCount: 'reviewCount',
-  productForm: 'productForm',
-  packaging: 'packaging',
-  packageInfo: 'packageInfo',
-  safetyAdvice: 'safetyAdvice',
   sideEffects: 'sideEffects',
+  dosage: 'dosage',
   howToUse: 'howToUse',
   howItWorks: 'howItWorks',
+  safetyAdvice: 'safetyAdvice',
+  quickTips: 'quickTips',
+  warnings: 'warnings',
   storage: 'storage',
-  factBox: 'factBox',
-  qna: 'qna',
-  interaction: 'interaction',
-  alcoholInteraction: 'alcoholInteraction',
-  pregnancyInteraction: 'pregnancyInteraction',
-  lactationInteraction: 'lactationInteraction',
-  drivingInteraction: 'drivingInteraction',
-  kidneyInteraction: 'kidneyInteraction',
-  liverInteraction: 'liverInteraction',
-  ifMiss: 'ifMiss',
-  expiration: 'expiration',
-  reference: 'reference',
+  faq: 'faq',
+  substitutes: 'substitutes',
+  imageUrl: 'imageUrl',
+  images: 'images',
+  categoryId: 'categoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1182,6 +1255,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   address?: Prisma.AddressOmit
+  category?: Prisma.CategoryOmit
   product?: Prisma.ProductOmit
   order?: Prisma.OrderOmit
   deliveryPartner?: Prisma.DeliveryPartnerOmit

@@ -28,64 +28,47 @@ export type AggregateProduct = {
 
 export type ProductAvgAggregateOutputType = {
   price: number | null
-  originalPrice: number | null
+  mrp: number | null
+  discountPercent: number | null
   stock: number | null
-  rating: number | null
-  reviewCount: number | null
 }
 
 export type ProductSumAggregateOutputType = {
   price: number | null
-  originalPrice: number | null
+  mrp: number | null
+  discountPercent: number | null
   stock: number | null
-  rating: number | null
-  reviewCount: number | null
 }
 
 export type ProductMinAggregateOutputType = {
   id: string | null
   name: string | null
   slug: string | null
+  shortDescription: string | null
   description: string | null
-  introduction: string | null
+  price: number | null
+  mrp: number | null
+  discountPercent: number | null
+  stock: number | null
+  prescriptionRequired: boolean | null
+  manufacturer: string | null
+  marketer: string | null
   composition: string | null
   medicineType: string | null
-  manufacturer: string | null
-  manufacturerAddress: string | null
-  marketerDetails: string | null
-  manufacturerDetails: string | null
-  countryOfOrigin: string | null
-  primaryUse: string | null
+  uses: string | null
   benefits: string | null
-  useOf: string | null
-  price: number | null
-  originalPrice: number | null
-  image: string | null
-  category: string | null
-  prescriptionRequired: boolean | null
-  stock: number | null
-  rating: number | null
-  reviewCount: number | null
-  productForm: string | null
-  packaging: string | null
-  packageInfo: string | null
-  safetyAdvice: string | null
   sideEffects: string | null
+  dosage: string | null
   howToUse: string | null
   howItWorks: string | null
+  safetyAdvice: string | null
+  quickTips: string | null
+  warnings: string | null
   storage: string | null
-  factBox: string | null
-  qna: string | null
-  interaction: string | null
-  alcoholInteraction: string | null
-  pregnancyInteraction: string | null
-  lactationInteraction: string | null
-  drivingInteraction: string | null
-  kidneyInteraction: string | null
-  liverInteraction: string | null
-  ifMiss: string | null
-  expiration: string | null
-  reference: string | null
+  faq: string | null
+  substitutes: string | null
+  imageUrl: string | null
+  categoryId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -94,46 +77,31 @@ export type ProductMaxAggregateOutputType = {
   id: string | null
   name: string | null
   slug: string | null
+  shortDescription: string | null
   description: string | null
-  introduction: string | null
+  price: number | null
+  mrp: number | null
+  discountPercent: number | null
+  stock: number | null
+  prescriptionRequired: boolean | null
+  manufacturer: string | null
+  marketer: string | null
   composition: string | null
   medicineType: string | null
-  manufacturer: string | null
-  manufacturerAddress: string | null
-  marketerDetails: string | null
-  manufacturerDetails: string | null
-  countryOfOrigin: string | null
-  primaryUse: string | null
+  uses: string | null
   benefits: string | null
-  useOf: string | null
-  price: number | null
-  originalPrice: number | null
-  image: string | null
-  category: string | null
-  prescriptionRequired: boolean | null
-  stock: number | null
-  rating: number | null
-  reviewCount: number | null
-  productForm: string | null
-  packaging: string | null
-  packageInfo: string | null
-  safetyAdvice: string | null
   sideEffects: string | null
+  dosage: string | null
   howToUse: string | null
   howItWorks: string | null
+  safetyAdvice: string | null
+  quickTips: string | null
+  warnings: string | null
   storage: string | null
-  factBox: string | null
-  qna: string | null
-  interaction: string | null
-  alcoholInteraction: string | null
-  pregnancyInteraction: string | null
-  lactationInteraction: string | null
-  drivingInteraction: string | null
-  kidneyInteraction: string | null
-  liverInteraction: string | null
-  ifMiss: string | null
-  expiration: string | null
-  reference: string | null
+  faq: string | null
+  substitutes: string | null
+  imageUrl: string | null
+  categoryId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -142,47 +110,32 @@ export type ProductCountAggregateOutputType = {
   id: number
   name: number
   slug: number
+  shortDescription: number
   description: number
-  introduction: number
+  price: number
+  mrp: number
+  discountPercent: number
+  stock: number
+  prescriptionRequired: number
+  manufacturer: number
+  marketer: number
   composition: number
   medicineType: number
-  manufacturer: number
-  manufacturerAddress: number
-  marketerDetails: number
-  manufacturerDetails: number
-  countryOfOrigin: number
-  primaryUse: number
+  uses: number
   benefits: number
-  useOf: number
-  price: number
-  originalPrice: number
-  image: number
-  imageUrls: number
-  category: number
-  prescriptionRequired: number
-  stock: number
-  rating: number
-  reviewCount: number
-  productForm: number
-  packaging: number
-  packageInfo: number
-  safetyAdvice: number
   sideEffects: number
+  dosage: number
   howToUse: number
   howItWorks: number
+  safetyAdvice: number
+  quickTips: number
+  warnings: number
   storage: number
-  factBox: number
-  qna: number
-  interaction: number
-  alcoholInteraction: number
-  pregnancyInteraction: number
-  lactationInteraction: number
-  drivingInteraction: number
-  kidneyInteraction: number
-  liverInteraction: number
-  ifMiss: number
-  expiration: number
-  reference: number
+  faq: number
+  substitutes: number
+  imageUrl: number
+  images: number
+  categoryId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -191,64 +144,47 @@ export type ProductCountAggregateOutputType = {
 
 export type ProductAvgAggregateInputType = {
   price?: true
-  originalPrice?: true
+  mrp?: true
+  discountPercent?: true
   stock?: true
-  rating?: true
-  reviewCount?: true
 }
 
 export type ProductSumAggregateInputType = {
   price?: true
-  originalPrice?: true
+  mrp?: true
+  discountPercent?: true
   stock?: true
-  rating?: true
-  reviewCount?: true
 }
 
 export type ProductMinAggregateInputType = {
   id?: true
   name?: true
   slug?: true
+  shortDescription?: true
   description?: true
-  introduction?: true
+  price?: true
+  mrp?: true
+  discountPercent?: true
+  stock?: true
+  prescriptionRequired?: true
+  manufacturer?: true
+  marketer?: true
   composition?: true
   medicineType?: true
-  manufacturer?: true
-  manufacturerAddress?: true
-  marketerDetails?: true
-  manufacturerDetails?: true
-  countryOfOrigin?: true
-  primaryUse?: true
+  uses?: true
   benefits?: true
-  useOf?: true
-  price?: true
-  originalPrice?: true
-  image?: true
-  category?: true
-  prescriptionRequired?: true
-  stock?: true
-  rating?: true
-  reviewCount?: true
-  productForm?: true
-  packaging?: true
-  packageInfo?: true
-  safetyAdvice?: true
   sideEffects?: true
+  dosage?: true
   howToUse?: true
   howItWorks?: true
+  safetyAdvice?: true
+  quickTips?: true
+  warnings?: true
   storage?: true
-  factBox?: true
-  qna?: true
-  interaction?: true
-  alcoholInteraction?: true
-  pregnancyInteraction?: true
-  lactationInteraction?: true
-  drivingInteraction?: true
-  kidneyInteraction?: true
-  liverInteraction?: true
-  ifMiss?: true
-  expiration?: true
-  reference?: true
+  faq?: true
+  substitutes?: true
+  imageUrl?: true
+  categoryId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -257,46 +193,31 @@ export type ProductMaxAggregateInputType = {
   id?: true
   name?: true
   slug?: true
+  shortDescription?: true
   description?: true
-  introduction?: true
+  price?: true
+  mrp?: true
+  discountPercent?: true
+  stock?: true
+  prescriptionRequired?: true
+  manufacturer?: true
+  marketer?: true
   composition?: true
   medicineType?: true
-  manufacturer?: true
-  manufacturerAddress?: true
-  marketerDetails?: true
-  manufacturerDetails?: true
-  countryOfOrigin?: true
-  primaryUse?: true
+  uses?: true
   benefits?: true
-  useOf?: true
-  price?: true
-  originalPrice?: true
-  image?: true
-  category?: true
-  prescriptionRequired?: true
-  stock?: true
-  rating?: true
-  reviewCount?: true
-  productForm?: true
-  packaging?: true
-  packageInfo?: true
-  safetyAdvice?: true
   sideEffects?: true
+  dosage?: true
   howToUse?: true
   howItWorks?: true
+  safetyAdvice?: true
+  quickTips?: true
+  warnings?: true
   storage?: true
-  factBox?: true
-  qna?: true
-  interaction?: true
-  alcoholInteraction?: true
-  pregnancyInteraction?: true
-  lactationInteraction?: true
-  drivingInteraction?: true
-  kidneyInteraction?: true
-  liverInteraction?: true
-  ifMiss?: true
-  expiration?: true
-  reference?: true
+  faq?: true
+  substitutes?: true
+  imageUrl?: true
+  categoryId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -305,47 +226,32 @@ export type ProductCountAggregateInputType = {
   id?: true
   name?: true
   slug?: true
+  shortDescription?: true
   description?: true
-  introduction?: true
+  price?: true
+  mrp?: true
+  discountPercent?: true
+  stock?: true
+  prescriptionRequired?: true
+  manufacturer?: true
+  marketer?: true
   composition?: true
   medicineType?: true
-  manufacturer?: true
-  manufacturerAddress?: true
-  marketerDetails?: true
-  manufacturerDetails?: true
-  countryOfOrigin?: true
-  primaryUse?: true
+  uses?: true
   benefits?: true
-  useOf?: true
-  price?: true
-  originalPrice?: true
-  image?: true
-  imageUrls?: true
-  category?: true
-  prescriptionRequired?: true
-  stock?: true
-  rating?: true
-  reviewCount?: true
-  productForm?: true
-  packaging?: true
-  packageInfo?: true
-  safetyAdvice?: true
   sideEffects?: true
+  dosage?: true
   howToUse?: true
   howItWorks?: true
+  safetyAdvice?: true
+  quickTips?: true
+  warnings?: true
   storage?: true
-  factBox?: true
-  qna?: true
-  interaction?: true
-  alcoholInteraction?: true
-  pregnancyInteraction?: true
-  lactationInteraction?: true
-  drivingInteraction?: true
-  kidneyInteraction?: true
-  liverInteraction?: true
-  ifMiss?: true
-  expiration?: true
-  reference?: true
+  faq?: true
+  substitutes?: true
+  imageUrl?: true
+  images?: true
+  categoryId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -441,47 +347,32 @@ export type ProductGroupByOutputType = {
   id: string
   name: string
   slug: string
+  shortDescription: string | null
   description: string | null
-  introduction: string | null
+  price: number
+  mrp: number | null
+  discountPercent: number | null
+  stock: number
+  prescriptionRequired: boolean
+  manufacturer: string | null
+  marketer: string | null
   composition: string | null
   medicineType: string | null
-  manufacturer: string | null
-  manufacturerAddress: string | null
-  marketerDetails: string | null
-  manufacturerDetails: string | null
-  countryOfOrigin: string | null
-  primaryUse: string | null
+  uses: string | null
   benefits: string | null
-  useOf: string | null
-  price: number
-  originalPrice: number | null
-  image: string
-  imageUrls: string[]
-  category: string
-  prescriptionRequired: boolean | null
-  stock: number | null
-  rating: number | null
-  reviewCount: number | null
-  productForm: string | null
-  packaging: string | null
-  packageInfo: string | null
-  safetyAdvice: string | null
   sideEffects: string | null
+  dosage: string | null
   howToUse: string | null
   howItWorks: string | null
+  safetyAdvice: string | null
+  quickTips: string | null
+  warnings: string | null
   storage: string | null
-  factBox: string | null
-  qna: string | null
-  interaction: string | null
-  alcoholInteraction: string | null
-  pregnancyInteraction: string | null
-  lactationInteraction: string | null
-  drivingInteraction: string | null
-  kidneyInteraction: string | null
-  liverInteraction: string | null
-  ifMiss: string | null
-  expiration: string | null
-  reference: string | null
+  faq: string | null
+  substitutes: string | null
+  imageUrl: string | null
+  images: string[]
+  categoryId: string | null
   createdAt: Date
   updatedAt: Date
   _count: ProductCountAggregateOutputType | null
@@ -513,98 +404,70 @@ export type ProductWhereInput = {
   id?: Prisma.StringFilter<"Product"> | string
   name?: Prisma.StringFilter<"Product"> | string
   slug?: Prisma.StringFilter<"Product"> | string
+  shortDescription?: Prisma.StringNullableFilter<"Product"> | string | null
   description?: Prisma.StringNullableFilter<"Product"> | string | null
-  introduction?: Prisma.StringNullableFilter<"Product"> | string | null
+  price?: Prisma.FloatFilter<"Product"> | number
+  mrp?: Prisma.FloatNullableFilter<"Product"> | number | null
+  discountPercent?: Prisma.IntNullableFilter<"Product"> | number | null
+  stock?: Prisma.IntFilter<"Product"> | number
+  prescriptionRequired?: Prisma.BoolFilter<"Product"> | boolean
+  manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
+  marketer?: Prisma.StringNullableFilter<"Product"> | string | null
   composition?: Prisma.StringNullableFilter<"Product"> | string | null
   medicineType?: Prisma.StringNullableFilter<"Product"> | string | null
-  manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
-  manufacturerAddress?: Prisma.StringNullableFilter<"Product"> | string | null
-  marketerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
-  manufacturerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
-  countryOfOrigin?: Prisma.StringNullableFilter<"Product"> | string | null
-  primaryUse?: Prisma.StringNullableFilter<"Product"> | string | null
+  uses?: Prisma.StringNullableFilter<"Product"> | string | null
   benefits?: Prisma.StringNullableFilter<"Product"> | string | null
-  useOf?: Prisma.StringNullableFilter<"Product"> | string | null
-  price?: Prisma.FloatFilter<"Product"> | number
-  originalPrice?: Prisma.FloatNullableFilter<"Product"> | number | null
-  image?: Prisma.StringFilter<"Product"> | string
-  imageUrls?: Prisma.StringNullableListFilter<"Product">
-  category?: Prisma.StringFilter<"Product"> | string
-  prescriptionRequired?: Prisma.BoolNullableFilter<"Product"> | boolean | null
-  stock?: Prisma.IntNullableFilter<"Product"> | number | null
-  rating?: Prisma.FloatNullableFilter<"Product"> | number | null
-  reviewCount?: Prisma.IntNullableFilter<"Product"> | number | null
-  productForm?: Prisma.StringNullableFilter<"Product"> | string | null
-  packaging?: Prisma.StringNullableFilter<"Product"> | string | null
-  packageInfo?: Prisma.StringNullableFilter<"Product"> | string | null
-  safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
   sideEffects?: Prisma.StringNullableFilter<"Product"> | string | null
+  dosage?: Prisma.StringNullableFilter<"Product"> | string | null
   howToUse?: Prisma.StringNullableFilter<"Product"> | string | null
   howItWorks?: Prisma.StringNullableFilter<"Product"> | string | null
+  safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
+  quickTips?: Prisma.StringNullableFilter<"Product"> | string | null
+  warnings?: Prisma.StringNullableFilter<"Product"> | string | null
   storage?: Prisma.StringNullableFilter<"Product"> | string | null
-  factBox?: Prisma.StringNullableFilter<"Product"> | string | null
-  qna?: Prisma.StringNullableFilter<"Product"> | string | null
-  interaction?: Prisma.StringNullableFilter<"Product"> | string | null
-  alcoholInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  pregnancyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  lactationInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  drivingInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  kidneyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  liverInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  ifMiss?: Prisma.StringNullableFilter<"Product"> | string | null
-  expiration?: Prisma.StringNullableFilter<"Product"> | string | null
-  reference?: Prisma.StringNullableFilter<"Product"> | string | null
+  faq?: Prisma.StringNullableFilter<"Product"> | string | null
+  substitutes?: Prisma.StringNullableFilter<"Product"> | string | null
+  imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
+  images?: Prisma.StringNullableListFilter<"Product">
+  categoryId?: Prisma.StringNullableFilter<"Product"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+  category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.CategoryWhereInput> | null
 }
 
 export type ProductOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  shortDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  introduction?: Prisma.SortOrderInput | Prisma.SortOrder
+  price?: Prisma.SortOrder
+  mrp?: Prisma.SortOrderInput | Prisma.SortOrder
+  discountPercent?: Prisma.SortOrderInput | Prisma.SortOrder
+  stock?: Prisma.SortOrder
+  prescriptionRequired?: Prisma.SortOrder
+  manufacturer?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketer?: Prisma.SortOrderInput | Prisma.SortOrder
   composition?: Prisma.SortOrderInput | Prisma.SortOrder
   medicineType?: Prisma.SortOrderInput | Prisma.SortOrder
-  manufacturer?: Prisma.SortOrderInput | Prisma.SortOrder
-  manufacturerAddress?: Prisma.SortOrderInput | Prisma.SortOrder
-  marketerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
-  manufacturerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
-  countryOfOrigin?: Prisma.SortOrderInput | Prisma.SortOrder
-  primaryUse?: Prisma.SortOrderInput | Prisma.SortOrder
+  uses?: Prisma.SortOrderInput | Prisma.SortOrder
   benefits?: Prisma.SortOrderInput | Prisma.SortOrder
-  useOf?: Prisma.SortOrderInput | Prisma.SortOrder
-  price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrderInput | Prisma.SortOrder
-  image?: Prisma.SortOrder
-  imageUrls?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  prescriptionRequired?: Prisma.SortOrderInput | Prisma.SortOrder
-  stock?: Prisma.SortOrderInput | Prisma.SortOrder
-  rating?: Prisma.SortOrderInput | Prisma.SortOrder
-  reviewCount?: Prisma.SortOrderInput | Prisma.SortOrder
-  productForm?: Prisma.SortOrderInput | Prisma.SortOrder
-  packaging?: Prisma.SortOrderInput | Prisma.SortOrder
-  packageInfo?: Prisma.SortOrderInput | Prisma.SortOrder
-  safetyAdvice?: Prisma.SortOrderInput | Prisma.SortOrder
   sideEffects?: Prisma.SortOrderInput | Prisma.SortOrder
+  dosage?: Prisma.SortOrderInput | Prisma.SortOrder
   howToUse?: Prisma.SortOrderInput | Prisma.SortOrder
   howItWorks?: Prisma.SortOrderInput | Prisma.SortOrder
+  safetyAdvice?: Prisma.SortOrderInput | Prisma.SortOrder
+  quickTips?: Prisma.SortOrderInput | Prisma.SortOrder
+  warnings?: Prisma.SortOrderInput | Prisma.SortOrder
   storage?: Prisma.SortOrderInput | Prisma.SortOrder
-  factBox?: Prisma.SortOrderInput | Prisma.SortOrder
-  qna?: Prisma.SortOrderInput | Prisma.SortOrder
-  interaction?: Prisma.SortOrderInput | Prisma.SortOrder
-  alcoholInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  pregnancyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  lactationInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  drivingInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  kidneyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  liverInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  ifMiss?: Prisma.SortOrderInput | Prisma.SortOrder
-  expiration?: Prisma.SortOrderInput | Prisma.SortOrder
-  reference?: Prisma.SortOrderInput | Prisma.SortOrder
+  faq?: Prisma.SortOrderInput | Prisma.SortOrder
+  substitutes?: Prisma.SortOrderInput | Prisma.SortOrder
+  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  images?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  category?: Prisma.CategoryOrderByWithRelationInput
 }
 
 export type ProductWhereUniqueInput = Prisma.AtLeast<{
@@ -614,96 +477,67 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProductWhereInput[]
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   name?: Prisma.StringFilter<"Product"> | string
+  shortDescription?: Prisma.StringNullableFilter<"Product"> | string | null
   description?: Prisma.StringNullableFilter<"Product"> | string | null
-  introduction?: Prisma.StringNullableFilter<"Product"> | string | null
+  price?: Prisma.FloatFilter<"Product"> | number
+  mrp?: Prisma.FloatNullableFilter<"Product"> | number | null
+  discountPercent?: Prisma.IntNullableFilter<"Product"> | number | null
+  stock?: Prisma.IntFilter<"Product"> | number
+  prescriptionRequired?: Prisma.BoolFilter<"Product"> | boolean
+  manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
+  marketer?: Prisma.StringNullableFilter<"Product"> | string | null
   composition?: Prisma.StringNullableFilter<"Product"> | string | null
   medicineType?: Prisma.StringNullableFilter<"Product"> | string | null
-  manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
-  manufacturerAddress?: Prisma.StringNullableFilter<"Product"> | string | null
-  marketerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
-  manufacturerDetails?: Prisma.StringNullableFilter<"Product"> | string | null
-  countryOfOrigin?: Prisma.StringNullableFilter<"Product"> | string | null
-  primaryUse?: Prisma.StringNullableFilter<"Product"> | string | null
+  uses?: Prisma.StringNullableFilter<"Product"> | string | null
   benefits?: Prisma.StringNullableFilter<"Product"> | string | null
-  useOf?: Prisma.StringNullableFilter<"Product"> | string | null
-  price?: Prisma.FloatFilter<"Product"> | number
-  originalPrice?: Prisma.FloatNullableFilter<"Product"> | number | null
-  image?: Prisma.StringFilter<"Product"> | string
-  imageUrls?: Prisma.StringNullableListFilter<"Product">
-  category?: Prisma.StringFilter<"Product"> | string
-  prescriptionRequired?: Prisma.BoolNullableFilter<"Product"> | boolean | null
-  stock?: Prisma.IntNullableFilter<"Product"> | number | null
-  rating?: Prisma.FloatNullableFilter<"Product"> | number | null
-  reviewCount?: Prisma.IntNullableFilter<"Product"> | number | null
-  productForm?: Prisma.StringNullableFilter<"Product"> | string | null
-  packaging?: Prisma.StringNullableFilter<"Product"> | string | null
-  packageInfo?: Prisma.StringNullableFilter<"Product"> | string | null
-  safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
   sideEffects?: Prisma.StringNullableFilter<"Product"> | string | null
+  dosage?: Prisma.StringNullableFilter<"Product"> | string | null
   howToUse?: Prisma.StringNullableFilter<"Product"> | string | null
   howItWorks?: Prisma.StringNullableFilter<"Product"> | string | null
+  safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
+  quickTips?: Prisma.StringNullableFilter<"Product"> | string | null
+  warnings?: Prisma.StringNullableFilter<"Product"> | string | null
   storage?: Prisma.StringNullableFilter<"Product"> | string | null
-  factBox?: Prisma.StringNullableFilter<"Product"> | string | null
-  qna?: Prisma.StringNullableFilter<"Product"> | string | null
-  interaction?: Prisma.StringNullableFilter<"Product"> | string | null
-  alcoholInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  pregnancyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  lactationInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  drivingInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  kidneyInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  liverInteraction?: Prisma.StringNullableFilter<"Product"> | string | null
-  ifMiss?: Prisma.StringNullableFilter<"Product"> | string | null
-  expiration?: Prisma.StringNullableFilter<"Product"> | string | null
-  reference?: Prisma.StringNullableFilter<"Product"> | string | null
+  faq?: Prisma.StringNullableFilter<"Product"> | string | null
+  substitutes?: Prisma.StringNullableFilter<"Product"> | string | null
+  imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
+  images?: Prisma.StringNullableListFilter<"Product">
+  categoryId?: Prisma.StringNullableFilter<"Product"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+  category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.CategoryWhereInput> | null
 }, "id" | "slug">
 
 export type ProductOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  shortDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  introduction?: Prisma.SortOrderInput | Prisma.SortOrder
+  price?: Prisma.SortOrder
+  mrp?: Prisma.SortOrderInput | Prisma.SortOrder
+  discountPercent?: Prisma.SortOrderInput | Prisma.SortOrder
+  stock?: Prisma.SortOrder
+  prescriptionRequired?: Prisma.SortOrder
+  manufacturer?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketer?: Prisma.SortOrderInput | Prisma.SortOrder
   composition?: Prisma.SortOrderInput | Prisma.SortOrder
   medicineType?: Prisma.SortOrderInput | Prisma.SortOrder
-  manufacturer?: Prisma.SortOrderInput | Prisma.SortOrder
-  manufacturerAddress?: Prisma.SortOrderInput | Prisma.SortOrder
-  marketerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
-  manufacturerDetails?: Prisma.SortOrderInput | Prisma.SortOrder
-  countryOfOrigin?: Prisma.SortOrderInput | Prisma.SortOrder
-  primaryUse?: Prisma.SortOrderInput | Prisma.SortOrder
+  uses?: Prisma.SortOrderInput | Prisma.SortOrder
   benefits?: Prisma.SortOrderInput | Prisma.SortOrder
-  useOf?: Prisma.SortOrderInput | Prisma.SortOrder
-  price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrderInput | Prisma.SortOrder
-  image?: Prisma.SortOrder
-  imageUrls?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  prescriptionRequired?: Prisma.SortOrderInput | Prisma.SortOrder
-  stock?: Prisma.SortOrderInput | Prisma.SortOrder
-  rating?: Prisma.SortOrderInput | Prisma.SortOrder
-  reviewCount?: Prisma.SortOrderInput | Prisma.SortOrder
-  productForm?: Prisma.SortOrderInput | Prisma.SortOrder
-  packaging?: Prisma.SortOrderInput | Prisma.SortOrder
-  packageInfo?: Prisma.SortOrderInput | Prisma.SortOrder
-  safetyAdvice?: Prisma.SortOrderInput | Prisma.SortOrder
   sideEffects?: Prisma.SortOrderInput | Prisma.SortOrder
+  dosage?: Prisma.SortOrderInput | Prisma.SortOrder
   howToUse?: Prisma.SortOrderInput | Prisma.SortOrder
   howItWorks?: Prisma.SortOrderInput | Prisma.SortOrder
+  safetyAdvice?: Prisma.SortOrderInput | Prisma.SortOrder
+  quickTips?: Prisma.SortOrderInput | Prisma.SortOrder
+  warnings?: Prisma.SortOrderInput | Prisma.SortOrder
   storage?: Prisma.SortOrderInput | Prisma.SortOrder
-  factBox?: Prisma.SortOrderInput | Prisma.SortOrder
-  qna?: Prisma.SortOrderInput | Prisma.SortOrder
-  interaction?: Prisma.SortOrderInput | Prisma.SortOrder
-  alcoholInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  pregnancyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  lactationInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  drivingInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  kidneyInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  liverInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
-  ifMiss?: Prisma.SortOrderInput | Prisma.SortOrder
-  expiration?: Prisma.SortOrderInput | Prisma.SortOrder
-  reference?: Prisma.SortOrderInput | Prisma.SortOrder
+  faq?: Prisma.SortOrderInput | Prisma.SortOrder
+  substitutes?: Prisma.SortOrderInput | Prisma.SortOrder
+  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  images?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProductCountOrderByAggregateInput
@@ -720,47 +554,32 @@ export type ProductScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Product"> | string
   name?: Prisma.StringWithAggregatesFilter<"Product"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Product"> | string
+  shortDescription?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  introduction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  price?: Prisma.FloatWithAggregatesFilter<"Product"> | number
+  mrp?: Prisma.FloatNullableWithAggregatesFilter<"Product"> | number | null
+  discountPercent?: Prisma.IntNullableWithAggregatesFilter<"Product"> | number | null
+  stock?: Prisma.IntWithAggregatesFilter<"Product"> | number
+  prescriptionRequired?: Prisma.BoolWithAggregatesFilter<"Product"> | boolean
+  manufacturer?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  marketer?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   composition?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   medicineType?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  manufacturer?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  manufacturerAddress?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  marketerDetails?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  manufacturerDetails?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  countryOfOrigin?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  primaryUse?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  uses?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   benefits?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  useOf?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  price?: Prisma.FloatWithAggregatesFilter<"Product"> | number
-  originalPrice?: Prisma.FloatNullableWithAggregatesFilter<"Product"> | number | null
-  image?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  imageUrls?: Prisma.StringNullableListFilter<"Product">
-  category?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  prescriptionRequired?: Prisma.BoolNullableWithAggregatesFilter<"Product"> | boolean | null
-  stock?: Prisma.IntNullableWithAggregatesFilter<"Product"> | number | null
-  rating?: Prisma.FloatNullableWithAggregatesFilter<"Product"> | number | null
-  reviewCount?: Prisma.IntNullableWithAggregatesFilter<"Product"> | number | null
-  productForm?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  packaging?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  packageInfo?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  safetyAdvice?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   sideEffects?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  dosage?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   howToUse?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   howItWorks?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  safetyAdvice?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  quickTips?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  warnings?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   storage?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  factBox?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  qna?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  interaction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  alcoholInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  pregnancyInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  lactationInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  drivingInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  kidneyInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  liverInteraction?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  ifMiss?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  expiration?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
-  reference?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  faq?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  substitutes?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  images?: Prisma.StringNullableListFilter<"Product">
+  categoryId?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
 }
@@ -769,96 +588,66 @@ export type ProductCreateInput = {
   id?: string
   name: string
   slug: string
+  shortDescription?: string | null
   description?: string | null
-  introduction?: string | null
+  price: number
+  mrp?: number | null
+  discountPercent?: number | null
+  stock?: number
+  prescriptionRequired?: boolean
+  manufacturer?: string | null
+  marketer?: string | null
   composition?: string | null
   medicineType?: string | null
-  manufacturer?: string | null
-  manufacturerAddress?: string | null
-  marketerDetails?: string | null
-  manufacturerDetails?: string | null
-  countryOfOrigin?: string | null
-  primaryUse?: string | null
+  uses?: string | null
   benefits?: string | null
-  useOf?: string | null
-  price: number
-  originalPrice?: number | null
-  image: string
-  imageUrls?: Prisma.ProductCreateimageUrlsInput | string[]
-  category: string
-  prescriptionRequired?: boolean | null
-  stock?: number | null
-  rating?: number | null
-  reviewCount?: number | null
-  productForm?: string | null
-  packaging?: string | null
-  packageInfo?: string | null
-  safetyAdvice?: string | null
   sideEffects?: string | null
+  dosage?: string | null
   howToUse?: string | null
   howItWorks?: string | null
+  safetyAdvice?: string | null
+  quickTips?: string | null
+  warnings?: string | null
   storage?: string | null
-  factBox?: string | null
-  qna?: string | null
-  interaction?: string | null
-  alcoholInteraction?: string | null
-  pregnancyInteraction?: string | null
-  lactationInteraction?: string | null
-  drivingInteraction?: string | null
-  kidneyInteraction?: string | null
-  liverInteraction?: string | null
-  ifMiss?: string | null
-  expiration?: string | null
-  reference?: string | null
+  faq?: string | null
+  substitutes?: string | null
+  imageUrl?: string | null
+  images?: Prisma.ProductCreateimagesInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
+  category?: Prisma.CategoryCreateNestedOneWithoutProductsInput
 }
 
 export type ProductUncheckedCreateInput = {
   id?: string
   name: string
   slug: string
+  shortDescription?: string | null
   description?: string | null
-  introduction?: string | null
+  price: number
+  mrp?: number | null
+  discountPercent?: number | null
+  stock?: number
+  prescriptionRequired?: boolean
+  manufacturer?: string | null
+  marketer?: string | null
   composition?: string | null
   medicineType?: string | null
-  manufacturer?: string | null
-  manufacturerAddress?: string | null
-  marketerDetails?: string | null
-  manufacturerDetails?: string | null
-  countryOfOrigin?: string | null
-  primaryUse?: string | null
+  uses?: string | null
   benefits?: string | null
-  useOf?: string | null
-  price: number
-  originalPrice?: number | null
-  image: string
-  imageUrls?: Prisma.ProductCreateimageUrlsInput | string[]
-  category: string
-  prescriptionRequired?: boolean | null
-  stock?: number | null
-  rating?: number | null
-  reviewCount?: number | null
-  productForm?: string | null
-  packaging?: string | null
-  packageInfo?: string | null
-  safetyAdvice?: string | null
   sideEffects?: string | null
+  dosage?: string | null
   howToUse?: string | null
   howItWorks?: string | null
+  safetyAdvice?: string | null
+  quickTips?: string | null
+  warnings?: string | null
   storage?: string | null
-  factBox?: string | null
-  qna?: string | null
-  interaction?: string | null
-  alcoholInteraction?: string | null
-  pregnancyInteraction?: string | null
-  lactationInteraction?: string | null
-  drivingInteraction?: string | null
-  kidneyInteraction?: string | null
-  liverInteraction?: string | null
-  ifMiss?: string | null
-  expiration?: string | null
-  reference?: string | null
+  faq?: string | null
+  substitutes?: string | null
+  imageUrl?: string | null
+  images?: Prisma.ProductCreateimagesInput | string[]
+  categoryId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -867,96 +656,66 @@ export type ProductUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
-  originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  image?: Prisma.StringFieldUpdateOperationsInput | string
-  imageUrls?: Prisma.ProductUpdateimageUrlsInput | string[]
-  category?: Prisma.StringFieldUpdateOperationsInput | string
-  prescriptionRequired?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  stock?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.CategoryUpdateOneWithoutProductsNestedInput
 }
 
 export type ProductUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
-  originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  image?: Prisma.StringFieldUpdateOperationsInput | string
-  imageUrls?: Prisma.ProductUpdateimageUrlsInput | string[]
-  category?: Prisma.StringFieldUpdateOperationsInput | string
-  prescriptionRequired?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  stock?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
+  categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -965,47 +724,32 @@ export type ProductCreateManyInput = {
   id?: string
   name: string
   slug: string
+  shortDescription?: string | null
   description?: string | null
-  introduction?: string | null
+  price: number
+  mrp?: number | null
+  discountPercent?: number | null
+  stock?: number
+  prescriptionRequired?: boolean
+  manufacturer?: string | null
+  marketer?: string | null
   composition?: string | null
   medicineType?: string | null
-  manufacturer?: string | null
-  manufacturerAddress?: string | null
-  marketerDetails?: string | null
-  manufacturerDetails?: string | null
-  countryOfOrigin?: string | null
-  primaryUse?: string | null
+  uses?: string | null
   benefits?: string | null
-  useOf?: string | null
-  price: number
-  originalPrice?: number | null
-  image: string
-  imageUrls?: Prisma.ProductCreateimageUrlsInput | string[]
-  category: string
-  prescriptionRequired?: boolean | null
-  stock?: number | null
-  rating?: number | null
-  reviewCount?: number | null
-  productForm?: string | null
-  packaging?: string | null
-  packageInfo?: string | null
-  safetyAdvice?: string | null
   sideEffects?: string | null
+  dosage?: string | null
   howToUse?: string | null
   howItWorks?: string | null
+  safetyAdvice?: string | null
+  quickTips?: string | null
+  warnings?: string | null
   storage?: string | null
-  factBox?: string | null
-  qna?: string | null
-  interaction?: string | null
-  alcoholInteraction?: string | null
-  pregnancyInteraction?: string | null
-  lactationInteraction?: string | null
-  drivingInteraction?: string | null
-  kidneyInteraction?: string | null
-  liverInteraction?: string | null
-  ifMiss?: string | null
-  expiration?: string | null
-  reference?: string | null
+  faq?: string | null
+  substitutes?: string | null
+  imageUrl?: string | null
+  images?: Prisma.ProductCreateimagesInput | string[]
+  categoryId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1014,47 +758,31 @@ export type ProductUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
-  originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  image?: Prisma.StringFieldUpdateOperationsInput | string
-  imageUrls?: Prisma.ProductUpdateimageUrlsInput | string[]
-  category?: Prisma.StringFieldUpdateOperationsInput | string
-  prescriptionRequired?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  stock?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1063,49 +791,44 @@ export type ProductUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  introduction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  marketerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  manufacturerDetails?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  countryOfOrigin?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  primaryUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  useOf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
-  originalPrice?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  image?: Prisma.StringFieldUpdateOperationsInput | string
-  imageUrls?: Prisma.ProductUpdateimageUrlsInput | string[]
-  category?: Prisma.StringFieldUpdateOperationsInput | string
-  prescriptionRequired?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  stock?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  reviewCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  productForm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packaging?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  packageInfo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  factBox?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qna?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  interaction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  alcoholInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  pregnancyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lactationInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  drivingInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  kidneyInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  liverInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ifMiss?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  expiration?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
+  categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ProductListRelationFilter = {
+  every?: Prisma.ProductWhereInput
+  some?: Prisma.ProductWhereInput
+  none?: Prisma.ProductWhereInput
+}
+
+export type ProductOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type StringNullableListFilter<$PrismaModel = never> = {
@@ -1120,103 +843,72 @@ export type ProductCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  shortDescription?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  introduction?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  mrp?: Prisma.SortOrder
+  discountPercent?: Prisma.SortOrder
+  stock?: Prisma.SortOrder
+  prescriptionRequired?: Prisma.SortOrder
+  manufacturer?: Prisma.SortOrder
+  marketer?: Prisma.SortOrder
   composition?: Prisma.SortOrder
   medicineType?: Prisma.SortOrder
-  manufacturer?: Prisma.SortOrder
-  manufacturerAddress?: Prisma.SortOrder
-  marketerDetails?: Prisma.SortOrder
-  manufacturerDetails?: Prisma.SortOrder
-  countryOfOrigin?: Prisma.SortOrder
-  primaryUse?: Prisma.SortOrder
+  uses?: Prisma.SortOrder
   benefits?: Prisma.SortOrder
-  useOf?: Prisma.SortOrder
-  price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrder
-  image?: Prisma.SortOrder
-  imageUrls?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  prescriptionRequired?: Prisma.SortOrder
-  stock?: Prisma.SortOrder
-  rating?: Prisma.SortOrder
-  reviewCount?: Prisma.SortOrder
-  productForm?: Prisma.SortOrder
-  packaging?: Prisma.SortOrder
-  packageInfo?: Prisma.SortOrder
-  safetyAdvice?: Prisma.SortOrder
   sideEffects?: Prisma.SortOrder
+  dosage?: Prisma.SortOrder
   howToUse?: Prisma.SortOrder
   howItWorks?: Prisma.SortOrder
+  safetyAdvice?: Prisma.SortOrder
+  quickTips?: Prisma.SortOrder
+  warnings?: Prisma.SortOrder
   storage?: Prisma.SortOrder
-  factBox?: Prisma.SortOrder
-  qna?: Prisma.SortOrder
-  interaction?: Prisma.SortOrder
-  alcoholInteraction?: Prisma.SortOrder
-  pregnancyInteraction?: Prisma.SortOrder
-  lactationInteraction?: Prisma.SortOrder
-  drivingInteraction?: Prisma.SortOrder
-  kidneyInteraction?: Prisma.SortOrder
-  liverInteraction?: Prisma.SortOrder
-  ifMiss?: Prisma.SortOrder
-  expiration?: Prisma.SortOrder
-  reference?: Prisma.SortOrder
+  faq?: Prisma.SortOrder
+  substitutes?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
+  images?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type ProductAvgOrderByAggregateInput = {
   price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrder
+  mrp?: Prisma.SortOrder
+  discountPercent?: Prisma.SortOrder
   stock?: Prisma.SortOrder
-  rating?: Prisma.SortOrder
-  reviewCount?: Prisma.SortOrder
 }
 
 export type ProductMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  shortDescription?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  introduction?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  mrp?: Prisma.SortOrder
+  discountPercent?: Prisma.SortOrder
+  stock?: Prisma.SortOrder
+  prescriptionRequired?: Prisma.SortOrder
+  manufacturer?: Prisma.SortOrder
+  marketer?: Prisma.SortOrder
   composition?: Prisma.SortOrder
   medicineType?: Prisma.SortOrder
-  manufacturer?: Prisma.SortOrder
-  manufacturerAddress?: Prisma.SortOrder
-  marketerDetails?: Prisma.SortOrder
-  manufacturerDetails?: Prisma.SortOrder
-  countryOfOrigin?: Prisma.SortOrder
-  primaryUse?: Prisma.SortOrder
+  uses?: Prisma.SortOrder
   benefits?: Prisma.SortOrder
-  useOf?: Prisma.SortOrder
-  price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrder
-  image?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  prescriptionRequired?: Prisma.SortOrder
-  stock?: Prisma.SortOrder
-  rating?: Prisma.SortOrder
-  reviewCount?: Prisma.SortOrder
-  productForm?: Prisma.SortOrder
-  packaging?: Prisma.SortOrder
-  packageInfo?: Prisma.SortOrder
-  safetyAdvice?: Prisma.SortOrder
   sideEffects?: Prisma.SortOrder
+  dosage?: Prisma.SortOrder
   howToUse?: Prisma.SortOrder
   howItWorks?: Prisma.SortOrder
+  safetyAdvice?: Prisma.SortOrder
+  quickTips?: Prisma.SortOrder
+  warnings?: Prisma.SortOrder
   storage?: Prisma.SortOrder
-  factBox?: Prisma.SortOrder
-  qna?: Prisma.SortOrder
-  interaction?: Prisma.SortOrder
-  alcoholInteraction?: Prisma.SortOrder
-  pregnancyInteraction?: Prisma.SortOrder
-  lactationInteraction?: Prisma.SortOrder
-  drivingInteraction?: Prisma.SortOrder
-  kidneyInteraction?: Prisma.SortOrder
-  liverInteraction?: Prisma.SortOrder
-  ifMiss?: Prisma.SortOrder
-  expiration?: Prisma.SortOrder
-  reference?: Prisma.SortOrder
+  faq?: Prisma.SortOrder
+  substitutes?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -1225,59 +917,85 @@ export type ProductMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
+  shortDescription?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  introduction?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  mrp?: Prisma.SortOrder
+  discountPercent?: Prisma.SortOrder
+  stock?: Prisma.SortOrder
+  prescriptionRequired?: Prisma.SortOrder
+  manufacturer?: Prisma.SortOrder
+  marketer?: Prisma.SortOrder
   composition?: Prisma.SortOrder
   medicineType?: Prisma.SortOrder
-  manufacturer?: Prisma.SortOrder
-  manufacturerAddress?: Prisma.SortOrder
-  marketerDetails?: Prisma.SortOrder
-  manufacturerDetails?: Prisma.SortOrder
-  countryOfOrigin?: Prisma.SortOrder
-  primaryUse?: Prisma.SortOrder
+  uses?: Prisma.SortOrder
   benefits?: Prisma.SortOrder
-  useOf?: Prisma.SortOrder
-  price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrder
-  image?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  prescriptionRequired?: Prisma.SortOrder
-  stock?: Prisma.SortOrder
-  rating?: Prisma.SortOrder
-  reviewCount?: Prisma.SortOrder
-  productForm?: Prisma.SortOrder
-  packaging?: Prisma.SortOrder
-  packageInfo?: Prisma.SortOrder
-  safetyAdvice?: Prisma.SortOrder
   sideEffects?: Prisma.SortOrder
+  dosage?: Prisma.SortOrder
   howToUse?: Prisma.SortOrder
   howItWorks?: Prisma.SortOrder
+  safetyAdvice?: Prisma.SortOrder
+  quickTips?: Prisma.SortOrder
+  warnings?: Prisma.SortOrder
   storage?: Prisma.SortOrder
-  factBox?: Prisma.SortOrder
-  qna?: Prisma.SortOrder
-  interaction?: Prisma.SortOrder
-  alcoholInteraction?: Prisma.SortOrder
-  pregnancyInteraction?: Prisma.SortOrder
-  lactationInteraction?: Prisma.SortOrder
-  drivingInteraction?: Prisma.SortOrder
-  kidneyInteraction?: Prisma.SortOrder
-  liverInteraction?: Prisma.SortOrder
-  ifMiss?: Prisma.SortOrder
-  expiration?: Prisma.SortOrder
-  reference?: Prisma.SortOrder
+  faq?: Prisma.SortOrder
+  substitutes?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type ProductSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
-  originalPrice?: Prisma.SortOrder
+  mrp?: Prisma.SortOrder
+  discountPercent?: Prisma.SortOrder
   stock?: Prisma.SortOrder
-  rating?: Prisma.SortOrder
-  reviewCount?: Prisma.SortOrder
 }
 
-export type ProductCreateimageUrlsInput = {
+export type ProductCreateNestedManyWithoutCategoryInput = {
+  create?: Prisma.XOR<Prisma.ProductCreateWithoutCategoryInput, Prisma.ProductUncheckedCreateWithoutCategoryInput> | Prisma.ProductCreateWithoutCategoryInput[] | Prisma.ProductUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.ProductCreateOrConnectWithoutCategoryInput | Prisma.ProductCreateOrConnectWithoutCategoryInput[]
+  createMany?: Prisma.ProductCreateManyCategoryInputEnvelope
+  connect?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+}
+
+export type ProductUncheckedCreateNestedManyWithoutCategoryInput = {
+  create?: Prisma.XOR<Prisma.ProductCreateWithoutCategoryInput, Prisma.ProductUncheckedCreateWithoutCategoryInput> | Prisma.ProductCreateWithoutCategoryInput[] | Prisma.ProductUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.ProductCreateOrConnectWithoutCategoryInput | Prisma.ProductCreateOrConnectWithoutCategoryInput[]
+  createMany?: Prisma.ProductCreateManyCategoryInputEnvelope
+  connect?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+}
+
+export type ProductUpdateManyWithoutCategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.ProductCreateWithoutCategoryInput, Prisma.ProductUncheckedCreateWithoutCategoryInput> | Prisma.ProductCreateWithoutCategoryInput[] | Prisma.ProductUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.ProductCreateOrConnectWithoutCategoryInput | Prisma.ProductCreateOrConnectWithoutCategoryInput[]
+  upsert?: Prisma.ProductUpsertWithWhereUniqueWithoutCategoryInput | Prisma.ProductUpsertWithWhereUniqueWithoutCategoryInput[]
+  createMany?: Prisma.ProductCreateManyCategoryInputEnvelope
+  set?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  disconnect?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  delete?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  connect?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  update?: Prisma.ProductUpdateWithWhereUniqueWithoutCategoryInput | Prisma.ProductUpdateWithWhereUniqueWithoutCategoryInput[]
+  updateMany?: Prisma.ProductUpdateManyWithWhereWithoutCategoryInput | Prisma.ProductUpdateManyWithWhereWithoutCategoryInput[]
+  deleteMany?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
+}
+
+export type ProductUncheckedUpdateManyWithoutCategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.ProductCreateWithoutCategoryInput, Prisma.ProductUncheckedCreateWithoutCategoryInput> | Prisma.ProductCreateWithoutCategoryInput[] | Prisma.ProductUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.ProductCreateOrConnectWithoutCategoryInput | Prisma.ProductCreateOrConnectWithoutCategoryInput[]
+  upsert?: Prisma.ProductUpsertWithWhereUniqueWithoutCategoryInput | Prisma.ProductUpsertWithWhereUniqueWithoutCategoryInput[]
+  createMany?: Prisma.ProductCreateManyCategoryInputEnvelope
+  set?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  disconnect?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  delete?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  connect?: Prisma.ProductWhereUniqueInput | Prisma.ProductWhereUniqueInput[]
+  update?: Prisma.ProductUpdateWithWhereUniqueWithoutCategoryInput | Prisma.ProductUpdateWithWhereUniqueWithoutCategoryInput[]
+  updateMany?: Prisma.ProductUpdateManyWithWhereWithoutCategoryInput | Prisma.ProductUpdateManyWithWhereWithoutCategoryInput[]
+  deleteMany?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
+}
+
+export type ProductCreateimagesInput = {
   set: string[]
 }
 
@@ -1289,15 +1007,6 @@ export type NullableFloatFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type ProductUpdateimageUrlsInput = {
-  set?: string[]
-  push?: string | string[]
-}
-
-export type NullableBoolFieldUpdateOperationsInput = {
-  set?: boolean | null
-}
-
 export type NullableIntFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
@@ -1306,254 +1015,467 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type ProductUpdateimagesInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type ProductCreateWithoutCategoryInput = {
+  id?: string
+  name: string
+  slug: string
+  shortDescription?: string | null
+  description?: string | null
+  price: number
+  mrp?: number | null
+  discountPercent?: number | null
+  stock?: number
+  prescriptionRequired?: boolean
+  manufacturer?: string | null
+  marketer?: string | null
+  composition?: string | null
+  medicineType?: string | null
+  uses?: string | null
+  benefits?: string | null
+  sideEffects?: string | null
+  dosage?: string | null
+  howToUse?: string | null
+  howItWorks?: string | null
+  safetyAdvice?: string | null
+  quickTips?: string | null
+  warnings?: string | null
+  storage?: string | null
+  faq?: string | null
+  substitutes?: string | null
+  imageUrl?: string | null
+  images?: Prisma.ProductCreateimagesInput | string[]
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ProductUncheckedCreateWithoutCategoryInput = {
+  id?: string
+  name: string
+  slug: string
+  shortDescription?: string | null
+  description?: string | null
+  price: number
+  mrp?: number | null
+  discountPercent?: number | null
+  stock?: number
+  prescriptionRequired?: boolean
+  manufacturer?: string | null
+  marketer?: string | null
+  composition?: string | null
+  medicineType?: string | null
+  uses?: string | null
+  benefits?: string | null
+  sideEffects?: string | null
+  dosage?: string | null
+  howToUse?: string | null
+  howItWorks?: string | null
+  safetyAdvice?: string | null
+  quickTips?: string | null
+  warnings?: string | null
+  storage?: string | null
+  faq?: string | null
+  substitutes?: string | null
+  imageUrl?: string | null
+  images?: Prisma.ProductCreateimagesInput | string[]
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ProductCreateOrConnectWithoutCategoryInput = {
+  where: Prisma.ProductWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProductCreateWithoutCategoryInput, Prisma.ProductUncheckedCreateWithoutCategoryInput>
+}
+
+export type ProductCreateManyCategoryInputEnvelope = {
+  data: Prisma.ProductCreateManyCategoryInput | Prisma.ProductCreateManyCategoryInput[]
+  skipDuplicates?: boolean
+}
+
+export type ProductUpsertWithWhereUniqueWithoutCategoryInput = {
+  where: Prisma.ProductWhereUniqueInput
+  update: Prisma.XOR<Prisma.ProductUpdateWithoutCategoryInput, Prisma.ProductUncheckedUpdateWithoutCategoryInput>
+  create: Prisma.XOR<Prisma.ProductCreateWithoutCategoryInput, Prisma.ProductUncheckedCreateWithoutCategoryInput>
+}
+
+export type ProductUpdateWithWhereUniqueWithoutCategoryInput = {
+  where: Prisma.ProductWhereUniqueInput
+  data: Prisma.XOR<Prisma.ProductUpdateWithoutCategoryInput, Prisma.ProductUncheckedUpdateWithoutCategoryInput>
+}
+
+export type ProductUpdateManyWithWhereWithoutCategoryInput = {
+  where: Prisma.ProductScalarWhereInput
+  data: Prisma.XOR<Prisma.ProductUpdateManyMutationInput, Prisma.ProductUncheckedUpdateManyWithoutCategoryInput>
+}
+
+export type ProductScalarWhereInput = {
+  AND?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
+  OR?: Prisma.ProductScalarWhereInput[]
+  NOT?: Prisma.ProductScalarWhereInput | Prisma.ProductScalarWhereInput[]
+  id?: Prisma.StringFilter<"Product"> | string
+  name?: Prisma.StringFilter<"Product"> | string
+  slug?: Prisma.StringFilter<"Product"> | string
+  shortDescription?: Prisma.StringNullableFilter<"Product"> | string | null
+  description?: Prisma.StringNullableFilter<"Product"> | string | null
+  price?: Prisma.FloatFilter<"Product"> | number
+  mrp?: Prisma.FloatNullableFilter<"Product"> | number | null
+  discountPercent?: Prisma.IntNullableFilter<"Product"> | number | null
+  stock?: Prisma.IntFilter<"Product"> | number
+  prescriptionRequired?: Prisma.BoolFilter<"Product"> | boolean
+  manufacturer?: Prisma.StringNullableFilter<"Product"> | string | null
+  marketer?: Prisma.StringNullableFilter<"Product"> | string | null
+  composition?: Prisma.StringNullableFilter<"Product"> | string | null
+  medicineType?: Prisma.StringNullableFilter<"Product"> | string | null
+  uses?: Prisma.StringNullableFilter<"Product"> | string | null
+  benefits?: Prisma.StringNullableFilter<"Product"> | string | null
+  sideEffects?: Prisma.StringNullableFilter<"Product"> | string | null
+  dosage?: Prisma.StringNullableFilter<"Product"> | string | null
+  howToUse?: Prisma.StringNullableFilter<"Product"> | string | null
+  howItWorks?: Prisma.StringNullableFilter<"Product"> | string | null
+  safetyAdvice?: Prisma.StringNullableFilter<"Product"> | string | null
+  quickTips?: Prisma.StringNullableFilter<"Product"> | string | null
+  warnings?: Prisma.StringNullableFilter<"Product"> | string | null
+  storage?: Prisma.StringNullableFilter<"Product"> | string | null
+  faq?: Prisma.StringNullableFilter<"Product"> | string | null
+  substitutes?: Prisma.StringNullableFilter<"Product"> | string | null
+  imageUrl?: Prisma.StringNullableFilter<"Product"> | string | null
+  images?: Prisma.StringNullableListFilter<"Product">
+  categoryId?: Prisma.StringNullableFilter<"Product"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Product"> | Date | string
+}
+
+export type ProductCreateManyCategoryInput = {
+  id?: string
+  name: string
+  slug: string
+  shortDescription?: string | null
+  description?: string | null
+  price: number
+  mrp?: number | null
+  discountPercent?: number | null
+  stock?: number
+  prescriptionRequired?: boolean
+  manufacturer?: string | null
+  marketer?: string | null
+  composition?: string | null
+  medicineType?: string | null
+  uses?: string | null
+  benefits?: string | null
+  sideEffects?: string | null
+  dosage?: string | null
+  howToUse?: string | null
+  howItWorks?: string | null
+  safetyAdvice?: string | null
+  quickTips?: string | null
+  warnings?: string | null
+  storage?: string | null
+  faq?: string | null
+  substitutes?: string | null
+  imageUrl?: string | null
+  images?: Prisma.ProductCreateimagesInput | string[]
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ProductUpdateWithoutCategoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ProductUncheckedUpdateWithoutCategoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ProductUncheckedUpdateManyWithoutCategoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  mrp?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  discountPercent?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stock?: Prisma.IntFieldUpdateOperationsInput | number
+  prescriptionRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  composition?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medicineType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uses?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  benefits?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sideEffects?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dosage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  howToUse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  howItWorks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  safetyAdvice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quickTips?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  warnings?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faq?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  substitutes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  images?: Prisma.ProductUpdateimagesInput | string[]
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 
 
 export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   slug?: boolean
+  shortDescription?: boolean
   description?: boolean
-  introduction?: boolean
+  price?: boolean
+  mrp?: boolean
+  discountPercent?: boolean
+  stock?: boolean
+  prescriptionRequired?: boolean
+  manufacturer?: boolean
+  marketer?: boolean
   composition?: boolean
   medicineType?: boolean
-  manufacturer?: boolean
-  manufacturerAddress?: boolean
-  marketerDetails?: boolean
-  manufacturerDetails?: boolean
-  countryOfOrigin?: boolean
-  primaryUse?: boolean
+  uses?: boolean
   benefits?: boolean
-  useOf?: boolean
-  price?: boolean
-  originalPrice?: boolean
-  image?: boolean
-  imageUrls?: boolean
-  category?: boolean
-  prescriptionRequired?: boolean
-  stock?: boolean
-  rating?: boolean
-  reviewCount?: boolean
-  productForm?: boolean
-  packaging?: boolean
-  packageInfo?: boolean
-  safetyAdvice?: boolean
   sideEffects?: boolean
+  dosage?: boolean
   howToUse?: boolean
   howItWorks?: boolean
+  safetyAdvice?: boolean
+  quickTips?: boolean
+  warnings?: boolean
   storage?: boolean
-  factBox?: boolean
-  qna?: boolean
-  interaction?: boolean
-  alcoholInteraction?: boolean
-  pregnancyInteraction?: boolean
-  lactationInteraction?: boolean
-  drivingInteraction?: boolean
-  kidneyInteraction?: boolean
-  liverInteraction?: boolean
-  ifMiss?: boolean
-  expiration?: boolean
-  reference?: boolean
+  faq?: boolean
+  substitutes?: boolean
+  imageUrl?: boolean
+  images?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
 export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   slug?: boolean
+  shortDescription?: boolean
   description?: boolean
-  introduction?: boolean
+  price?: boolean
+  mrp?: boolean
+  discountPercent?: boolean
+  stock?: boolean
+  prescriptionRequired?: boolean
+  manufacturer?: boolean
+  marketer?: boolean
   composition?: boolean
   medicineType?: boolean
-  manufacturer?: boolean
-  manufacturerAddress?: boolean
-  marketerDetails?: boolean
-  manufacturerDetails?: boolean
-  countryOfOrigin?: boolean
-  primaryUse?: boolean
+  uses?: boolean
   benefits?: boolean
-  useOf?: boolean
-  price?: boolean
-  originalPrice?: boolean
-  image?: boolean
-  imageUrls?: boolean
-  category?: boolean
-  prescriptionRequired?: boolean
-  stock?: boolean
-  rating?: boolean
-  reviewCount?: boolean
-  productForm?: boolean
-  packaging?: boolean
-  packageInfo?: boolean
-  safetyAdvice?: boolean
   sideEffects?: boolean
+  dosage?: boolean
   howToUse?: boolean
   howItWorks?: boolean
+  safetyAdvice?: boolean
+  quickTips?: boolean
+  warnings?: boolean
   storage?: boolean
-  factBox?: boolean
-  qna?: boolean
-  interaction?: boolean
-  alcoholInteraction?: boolean
-  pregnancyInteraction?: boolean
-  lactationInteraction?: boolean
-  drivingInteraction?: boolean
-  kidneyInteraction?: boolean
-  liverInteraction?: boolean
-  ifMiss?: boolean
-  expiration?: boolean
-  reference?: boolean
+  faq?: boolean
+  substitutes?: boolean
+  imageUrl?: boolean
+  images?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
 export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   slug?: boolean
+  shortDescription?: boolean
   description?: boolean
-  introduction?: boolean
+  price?: boolean
+  mrp?: boolean
+  discountPercent?: boolean
+  stock?: boolean
+  prescriptionRequired?: boolean
+  manufacturer?: boolean
+  marketer?: boolean
   composition?: boolean
   medicineType?: boolean
-  manufacturer?: boolean
-  manufacturerAddress?: boolean
-  marketerDetails?: boolean
-  manufacturerDetails?: boolean
-  countryOfOrigin?: boolean
-  primaryUse?: boolean
+  uses?: boolean
   benefits?: boolean
-  useOf?: boolean
-  price?: boolean
-  originalPrice?: boolean
-  image?: boolean
-  imageUrls?: boolean
-  category?: boolean
-  prescriptionRequired?: boolean
-  stock?: boolean
-  rating?: boolean
-  reviewCount?: boolean
-  productForm?: boolean
-  packaging?: boolean
-  packageInfo?: boolean
-  safetyAdvice?: boolean
   sideEffects?: boolean
+  dosage?: boolean
   howToUse?: boolean
   howItWorks?: boolean
+  safetyAdvice?: boolean
+  quickTips?: boolean
+  warnings?: boolean
   storage?: boolean
-  factBox?: boolean
-  qna?: boolean
-  interaction?: boolean
-  alcoholInteraction?: boolean
-  pregnancyInteraction?: boolean
-  lactationInteraction?: boolean
-  drivingInteraction?: boolean
-  kidneyInteraction?: boolean
-  liverInteraction?: boolean
-  ifMiss?: boolean
-  expiration?: boolean
-  reference?: boolean
+  faq?: boolean
+  substitutes?: boolean
+  imageUrl?: boolean
+  images?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
 export type ProductSelectScalar = {
   id?: boolean
   name?: boolean
   slug?: boolean
+  shortDescription?: boolean
   description?: boolean
-  introduction?: boolean
+  price?: boolean
+  mrp?: boolean
+  discountPercent?: boolean
+  stock?: boolean
+  prescriptionRequired?: boolean
+  manufacturer?: boolean
+  marketer?: boolean
   composition?: boolean
   medicineType?: boolean
-  manufacturer?: boolean
-  manufacturerAddress?: boolean
-  marketerDetails?: boolean
-  manufacturerDetails?: boolean
-  countryOfOrigin?: boolean
-  primaryUse?: boolean
+  uses?: boolean
   benefits?: boolean
-  useOf?: boolean
-  price?: boolean
-  originalPrice?: boolean
-  image?: boolean
-  imageUrls?: boolean
-  category?: boolean
-  prescriptionRequired?: boolean
-  stock?: boolean
-  rating?: boolean
-  reviewCount?: boolean
-  productForm?: boolean
-  packaging?: boolean
-  packageInfo?: boolean
-  safetyAdvice?: boolean
   sideEffects?: boolean
+  dosage?: boolean
   howToUse?: boolean
   howItWorks?: boolean
+  safetyAdvice?: boolean
+  quickTips?: boolean
+  warnings?: boolean
   storage?: boolean
-  factBox?: boolean
-  qna?: boolean
-  interaction?: boolean
-  alcoholInteraction?: boolean
-  pregnancyInteraction?: boolean
-  lactationInteraction?: boolean
-  drivingInteraction?: boolean
-  kidneyInteraction?: boolean
-  liverInteraction?: boolean
-  ifMiss?: boolean
-  expiration?: boolean
-  reference?: boolean
+  faq?: boolean
+  substitutes?: boolean
+  imageUrl?: boolean
+  images?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "introduction" | "composition" | "medicineType" | "manufacturer" | "manufacturerAddress" | "marketerDetails" | "manufacturerDetails" | "countryOfOrigin" | "primaryUse" | "benefits" | "useOf" | "price" | "originalPrice" | "image" | "imageUrls" | "category" | "prescriptionRequired" | "stock" | "rating" | "reviewCount" | "productForm" | "packaging" | "packageInfo" | "safetyAdvice" | "sideEffects" | "howToUse" | "howItWorks" | "storage" | "factBox" | "qna" | "interaction" | "alcoholInteraction" | "pregnancyInteraction" | "lactationInteraction" | "drivingInteraction" | "kidneyInteraction" | "liverInteraction" | "ifMiss" | "expiration" | "reference" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
+export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "shortDescription" | "description" | "price" | "mrp" | "discountPercent" | "stock" | "prescriptionRequired" | "manufacturer" | "marketer" | "composition" | "medicineType" | "uses" | "benefits" | "sideEffects" | "dosage" | "howToUse" | "howItWorks" | "safetyAdvice" | "quickTips" | "warnings" | "storage" | "faq" | "substitutes" | "imageUrl" | "images" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
+export type ProductInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
+}
+export type ProductIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
+}
+export type ProductIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
+}
 
 export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Product"
-  objects: {}
+  objects: {
+    category: Prisma.$CategoryPayload<ExtArgs> | null
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
     slug: string
+    shortDescription: string | null
     description: string | null
-    introduction: string | null
+    price: number
+    mrp: number | null
+    discountPercent: number | null
+    stock: number
+    prescriptionRequired: boolean
+    manufacturer: string | null
+    marketer: string | null
     composition: string | null
     medicineType: string | null
-    manufacturer: string | null
-    manufacturerAddress: string | null
-    marketerDetails: string | null
-    manufacturerDetails: string | null
-    countryOfOrigin: string | null
-    primaryUse: string | null
+    uses: string | null
     benefits: string | null
-    useOf: string | null
-    price: number
-    originalPrice: number | null
-    image: string
-    imageUrls: string[]
-    category: string
-    prescriptionRequired: boolean | null
-    stock: number | null
-    rating: number | null
-    reviewCount: number | null
-    productForm: string | null
-    packaging: string | null
-    packageInfo: string | null
-    safetyAdvice: string | null
     sideEffects: string | null
+    dosage: string | null
     howToUse: string | null
     howItWorks: string | null
+    safetyAdvice: string | null
+    quickTips: string | null
+    warnings: string | null
     storage: string | null
-    factBox: string | null
-    qna: string | null
-    interaction: string | null
-    alcoholInteraction: string | null
-    pregnancyInteraction: string | null
-    lactationInteraction: string | null
-    drivingInteraction: string | null
-    kidneyInteraction: string | null
-    liverInteraction: string | null
-    ifMiss: string | null
-    expiration: string | null
-    reference: string | null
+    faq: string | null
+    substitutes: string | null
+    imageUrl: string | null
+    images: string[]
+    categoryId: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["product"]>
@@ -1950,6 +1872,7 @@ readonly fields: ProductFieldRefs;
  */
 export interface Prisma__ProductClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  category<T extends Prisma.Product$categoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Product$categoryArgs<ExtArgs>>): Prisma.Prisma__CategoryClient<runtime.Types.Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1982,47 +1905,32 @@ export interface ProductFieldRefs {
   readonly id: Prisma.FieldRef<"Product", 'String'>
   readonly name: Prisma.FieldRef<"Product", 'String'>
   readonly slug: Prisma.FieldRef<"Product", 'String'>
+  readonly shortDescription: Prisma.FieldRef<"Product", 'String'>
   readonly description: Prisma.FieldRef<"Product", 'String'>
-  readonly introduction: Prisma.FieldRef<"Product", 'String'>
+  readonly price: Prisma.FieldRef<"Product", 'Float'>
+  readonly mrp: Prisma.FieldRef<"Product", 'Float'>
+  readonly discountPercent: Prisma.FieldRef<"Product", 'Int'>
+  readonly stock: Prisma.FieldRef<"Product", 'Int'>
+  readonly prescriptionRequired: Prisma.FieldRef<"Product", 'Boolean'>
+  readonly manufacturer: Prisma.FieldRef<"Product", 'String'>
+  readonly marketer: Prisma.FieldRef<"Product", 'String'>
   readonly composition: Prisma.FieldRef<"Product", 'String'>
   readonly medicineType: Prisma.FieldRef<"Product", 'String'>
-  readonly manufacturer: Prisma.FieldRef<"Product", 'String'>
-  readonly manufacturerAddress: Prisma.FieldRef<"Product", 'String'>
-  readonly marketerDetails: Prisma.FieldRef<"Product", 'String'>
-  readonly manufacturerDetails: Prisma.FieldRef<"Product", 'String'>
-  readonly countryOfOrigin: Prisma.FieldRef<"Product", 'String'>
-  readonly primaryUse: Prisma.FieldRef<"Product", 'String'>
+  readonly uses: Prisma.FieldRef<"Product", 'String'>
   readonly benefits: Prisma.FieldRef<"Product", 'String'>
-  readonly useOf: Prisma.FieldRef<"Product", 'String'>
-  readonly price: Prisma.FieldRef<"Product", 'Float'>
-  readonly originalPrice: Prisma.FieldRef<"Product", 'Float'>
-  readonly image: Prisma.FieldRef<"Product", 'String'>
-  readonly imageUrls: Prisma.FieldRef<"Product", 'String[]'>
-  readonly category: Prisma.FieldRef<"Product", 'String'>
-  readonly prescriptionRequired: Prisma.FieldRef<"Product", 'Boolean'>
-  readonly stock: Prisma.FieldRef<"Product", 'Int'>
-  readonly rating: Prisma.FieldRef<"Product", 'Float'>
-  readonly reviewCount: Prisma.FieldRef<"Product", 'Int'>
-  readonly productForm: Prisma.FieldRef<"Product", 'String'>
-  readonly packaging: Prisma.FieldRef<"Product", 'String'>
-  readonly packageInfo: Prisma.FieldRef<"Product", 'String'>
-  readonly safetyAdvice: Prisma.FieldRef<"Product", 'String'>
   readonly sideEffects: Prisma.FieldRef<"Product", 'String'>
+  readonly dosage: Prisma.FieldRef<"Product", 'String'>
   readonly howToUse: Prisma.FieldRef<"Product", 'String'>
   readonly howItWorks: Prisma.FieldRef<"Product", 'String'>
+  readonly safetyAdvice: Prisma.FieldRef<"Product", 'String'>
+  readonly quickTips: Prisma.FieldRef<"Product", 'String'>
+  readonly warnings: Prisma.FieldRef<"Product", 'String'>
   readonly storage: Prisma.FieldRef<"Product", 'String'>
-  readonly factBox: Prisma.FieldRef<"Product", 'String'>
-  readonly qna: Prisma.FieldRef<"Product", 'String'>
-  readonly interaction: Prisma.FieldRef<"Product", 'String'>
-  readonly alcoholInteraction: Prisma.FieldRef<"Product", 'String'>
-  readonly pregnancyInteraction: Prisma.FieldRef<"Product", 'String'>
-  readonly lactationInteraction: Prisma.FieldRef<"Product", 'String'>
-  readonly drivingInteraction: Prisma.FieldRef<"Product", 'String'>
-  readonly kidneyInteraction: Prisma.FieldRef<"Product", 'String'>
-  readonly liverInteraction: Prisma.FieldRef<"Product", 'String'>
-  readonly ifMiss: Prisma.FieldRef<"Product", 'String'>
-  readonly expiration: Prisma.FieldRef<"Product", 'String'>
-  readonly reference: Prisma.FieldRef<"Product", 'String'>
+  readonly faq: Prisma.FieldRef<"Product", 'String'>
+  readonly substitutes: Prisma.FieldRef<"Product", 'String'>
+  readonly imageUrl: Prisma.FieldRef<"Product", 'String'>
+  readonly images: Prisma.FieldRef<"Product", 'String[]'>
+  readonly categoryId: Prisma.FieldRef<"Product", 'String'>
   readonly createdAt: Prisma.FieldRef<"Product", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Product", 'DateTime'>
 }
@@ -2042,6 +1950,10 @@ export type ProductFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  /**
    * Filter, which Product to fetch.
    */
   where: Prisma.ProductWhereUniqueInput
@@ -2060,6 +1972,10 @@ export type ProductFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  /**
    * Filter, which Product to fetch.
    */
   where: Prisma.ProductWhereUniqueInput
@@ -2077,6 +1993,10 @@ export type ProductFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Product
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
   /**
    * Filter, which Product to fetch.
    */
@@ -2126,6 +2046,10 @@ export type ProductFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  /**
    * Filter, which Product to fetch.
    */
   where?: Prisma.ProductWhereInput
@@ -2173,6 +2097,10 @@ export type ProductFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Product
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
   /**
    * Filter, which Products to fetch.
    */
@@ -2222,6 +2150,10 @@ export type ProductCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  /**
    * The data needed to create a Product.
    */
   data: Prisma.XOR<Prisma.ProductCreateInput, Prisma.ProductUncheckedCreateInput>
@@ -2255,6 +2187,10 @@ export type ProductCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    */
   data: Prisma.ProductCreateManyInput | Prisma.ProductCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -2269,6 +2205,10 @@ export type ProductUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Product
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
   /**
    * The data needed to update a Product.
    */
@@ -2321,6 +2261,10 @@ export type ProductUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    * Limit how many Products to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -2335,6 +2279,10 @@ export type ProductUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Product
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
   /**
    * The filter to search for the Product to update in case it exists.
    */
@@ -2362,6 +2310,10 @@ export type ProductDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  /**
    * Filter which Product to delete.
    */
   where: Prisma.ProductWhereUniqueInput
@@ -2382,6 +2334,25 @@ export type ProductDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Product.category
+ */
+export type Product$categoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Category
+   */
+  select?: Prisma.CategorySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Category
+   */
+  omit?: Prisma.CategoryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CategoryInclude<ExtArgs> | null
+  where?: Prisma.CategoryWhereInput
+}
+
+/**
  * Product without action
  */
 export type ProductDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2393,4 +2364,8 @@ export type ProductDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Product
    */
   omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
 }

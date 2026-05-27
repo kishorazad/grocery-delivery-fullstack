@@ -10,6 +10,7 @@
  */
 export type * from './models/User.js'
 export type * from './models/Address.js'
+export type * from './models/Category.js'
 export type * from './models/Product.js'
 export type * from './models/Order.js'
 export type * from './models/DeliveryPartner.js'

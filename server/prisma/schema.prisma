@@ -7,142 +7,160 @@ datasource db {
     provider = "postgresql"
 }
 
+
 model User {
-    id        String    @id @default(uuid())
-    name      String
-    email     String    @unique
-    password  String
-    phone     String?   @default("")
-    avatar    String?   @default("")
-    addresses Address[]
-    orders    Order[]
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
+  id        String    @id @default(uuid())
+
+  name      String
+  email     String    @unique
+  password  String
+
+  role      String    @default("USER")
+
+  phone     String?   @default("")
+  avatar    String?   @default("")
+
+  addresses Address[]
+  orders    Order[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model Address {
-    id        String   @id @default(uuid())
-    userId    String
-    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-    label     String
-    address   String
-    city      String
-    state     String
-    zip       String
-    isDefault Boolean  @default(false)
-    lat       Float
-    lng       Float
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id        String   @id @default(uuid())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  label     String
+  address   String
+
+  city      String
+  state     String
+  zip       String
+
+  isDefault Boolean  @default(false)
+
+  lat       Float
+  lng       Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id          String    @id @default(uuid())
+
+  name        String
+  slug        String    @unique
+
+  image       String?
+
+  products    Product[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Product {
+  id                    String   @id @default(uuid())
 
-    id                    String   @id @default(uuid())
+  name                  String
+  slug                  String   @unique
 
-    name                  String
-    slug                  String   @unique
+  shortDescription      String?
+  description           String?
 
-    description           String?  @default("")
-    introduction          String?  @default("")
+  price                 Float
+  mrp                   Float?
+  discountPercent       Int?
 
-    composition           String?  @default("")
-    medicineType          String?  @default("")
+  stock                 Int @default(0)
 
-    manufacturer          String?  @default("")
-    manufacturerAddress   String?  @default("")
+  prescriptionRequired  Boolean @default(false)
 
-    marketerDetails       String?  @default("")
-    manufacturerDetails   String?  @default("")
+  manufacturer          String?
+  marketer              String?
+  composition           String?
+  medicineType          String?
 
-    countryOfOrigin       String?  @default("")
+  uses                  String?
+  benefits              String?
+  sideEffects           String?
+  dosage                String?
+  howToUse              String?
+  howItWorks            String?
+  safetyAdvice          String?
+  quickTips             String?
+  warnings              String?
+  storage               String?
+  faq                   String?
+  substitutes           String?
 
-    primaryUse            String?  @default("")
-    benefits              String?  @default("")
-    useOf                 String?  @default("")
+  imageUrl              String?
+  images                String[]
 
-    price                 Float
-    originalPrice         Float?   @default(0)
+  categoryId            String?
+  category              Category? @relation(fields: [categoryId], references: [id])
 
-    image                 String
-    imageUrls             String[]
-
-    category              String
-
-    prescriptionRequired  Boolean? @default(false)
-
-    stock                 Int?     @default(0)
-
-    rating                Float?   @default(0)
-    reviewCount           Int?     @default(0)
-
-    productForm           String?  @default("")
-    packaging             String?  @default("")
-    packageInfo           String?  @default("")
-
-    safetyAdvice          String?  @default("")
-    sideEffects           String?  @default("")
-
-    howToUse              String?  @default("")
-    howItWorks            String?  @default("")
-
-    storage               String?  @default("")
-
-    factBox               String?  @default("")
-    qna                   String?  @default("")
-
-    interaction           String?  @default("")
-
-    alcoholInteraction    String?  @default("")
-    pregnancyInteraction  String?  @default("")
-    lactationInteraction  String?  @default("")
-    drivingInteraction    String?  @default("")
-    kidneyInteraction     String?  @default("")
-    liverInteraction      String?  @default("")
-
-    ifMiss                String?  @default("")
-
-    expiration            String?  @default("")
-    reference             String?  @default("")
-
-    createdAt             DateTime @default(now())
-    updatedAt             DateTime @updatedAt
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
 }
-
 model Order {
-    id              String @id @default(uuid())
-    userId          String
-    user            User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-    items           Json
-    shippingAddress Json
-    paymentMethod   String @default("card")
-    subtotal        Float
-    deliveryFee     Float? @default(0)
-    tax             Float? @default(0)
-    total           Float
-    status          String @default("Placed")
-    statusHistory   Json
+  id              String @id @default(uuid())
 
-    deliveryPartnerId String?
-    deliveryPartner   DeliveryPartner? @relation(fields: [deliveryPartnerId], references: [id], onDelete: SetNull)
-    deliveryOtp       String?          @default("")
-    liveLocation      Json?
-    isPaid            Boolean?         @default(false)
+  userId          String
+  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  items           Json
+
+  shippingAddress Json
+
+  paymentMethod   String @default("card")
+
+  subtotal        Float
+  deliveryFee     Float? @default(0)
+  tax             Float? @default(0)
+
+  total           Float
+
+  status          String @default("Placed")
+
+  statusHistory   Json
+
+  deliveryPartnerId String?
+
+  deliveryPartner DeliveryPartner? @relation(fields: [deliveryPartnerId], references: [id], onDelete: SetNull)
+
+  deliveryOtp     String? @default("")
+
+  liveLocation    Json?
+
+  isPaid          Boolean? @default(false)
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
-
 model DeliveryPartner {
-    id          String   @id @default(uuid())
-    name        String
-    email       String   @unique
-    password    String
-    phone       String
-    avatar      String?  @default("")
-    vehicleType String?  @default("bike")
-    isActive    Boolean? @default(true)
-    orders      Order[]
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+  id          String   @id @default(uuid())
+
+  name        String
+
+  email       String   @unique
+
+  password    String
+
+  phone       String
+
+  avatar      String?  @default("")
+
+  vehicleType String?  @default("bike")
+
+  isActive    Boolean? @default(true)
+
+  orders      Order[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
