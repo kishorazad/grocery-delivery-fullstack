@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import * as XLSX from "xlsx";
+import cloudinary from "../config/cloudinary.js";
 
 import slugify from "slugify";
 
@@ -309,6 +310,47 @@ originalPrice:
             count: successCount,
             message:
                 "Medicines imported successfully",
+        });
+
+    } catch (error: any) {
+
+        console.log(error);
+
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+
+};
+
+
+export const uploadProductImage = async (
+    req: Request,
+    res: Response
+) => {
+
+    try {
+
+        if (!req.file) {
+
+            return res.status(400).json({
+                success: false,
+                message: "No image uploaded",
+            });
+        }
+
+        const result =
+            await cloudinary.uploader.upload(
+                req.file.path,
+                {
+                    folder: "pillnow/products",
+                }
+            );
+
+        return res.json({
+            success: true,
+            imageUrl: result.secure_url,
         });
 
     } catch (error: any) {
