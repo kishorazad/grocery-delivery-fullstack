@@ -3,7 +3,7 @@ import { prisma } from "../config/prisma.js";
 import { inngest } from "../inngest/index.js";
 import Stripe from "stripe";
 import transporter from "../config/nodemailer.js";
-import orderTemplate from "../templates/orderTemplate.js";
+import orderTemplate from "../templates/orderTemplate";
 import sendPush from "../utils/sendPush.js";
 
 // Create order
