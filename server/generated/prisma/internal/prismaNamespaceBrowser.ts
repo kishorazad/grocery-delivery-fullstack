@@ -83,6 +83,7 @@ export const UserScalarFieldEnum = {
   role: 'role',
   phone: 'phone',
   avatar: 'avatar',
+  fcmToken: 'fcmToken',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -197,6 +198,8 @@ export const OrderScalarFieldEnum = {
   statusHistory: 'statusHistory',
   deliveryPartnerId: 'deliveryPartnerId',
   deliveryOtp: 'deliveryOtp',
+  trackingNumber: 'trackingNumber',
+  estimatedDelivery: 'estimatedDelivery',
   liveLocation: 'liveLocation',
   isPaid: 'isPaid',
   createdAt: 'createdAt',

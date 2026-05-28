@@ -19,4 +19,12 @@ adminRouter.post(
     upload.single("file"),
     importMedicines
 );
+
+adminRouter.post(
+   "/upload-product-image",
+   auth,
+   upload.single("image"),
+   uploadProductImage
+);
+
 export default adminRouter;

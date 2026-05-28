@@ -20,6 +20,8 @@ model User {
   phone     String?   @default("")
   avatar    String?   @default("")
 
+  fcmToken String?
+
   addresses Address[]
   orders    Order[]
 
@@ -164,7 +166,9 @@ model Order {
 
   total           Float
 
-  status          String @default("Placed")
+  status          String @default("PLACED")
+
+  
 
   statusHistory   Json
 
@@ -173,6 +177,8 @@ model Order {
   deliveryPartner DeliveryPartner? @relation(fields: [deliveryPartnerId], references: [id], onDelete: SetNull)
 
   deliveryOtp     String? @default("")
+  trackingNumber     String?
+estimatedDelivery  DateTime?
 
   liveLocation    Json?
 
@@ -193,6 +199,7 @@ model DeliveryPartner {
   phone       String
 
   avatar      String?  @default("")
+
 
   vehicleType String?  @default("bike")
 

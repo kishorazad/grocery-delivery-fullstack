@@ -16,17 +16,26 @@ export default function AdminProductForm() {
     const [imageFile, setImageFile] = useState<File | null>(null);
 
     const [formData, setFormData] = useState({
-        name: "",
-        description: "",
-        price: "",
-        originalPrice: "",
-        image: "",
-        category: "",
-        unit: "",
-        stock: "",
-        isOrganic: false,
-    });
+    name: "",
 
+    description: "",
+
+    price: "",
+
+    originalPrice: "",
+
+    image: "",
+
+    imageUrls: [],
+
+    category: "",
+
+    unit: "",
+
+    stock: "",
+
+    isOrganic: false,
+});
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -34,16 +43,28 @@ export default function AdminProductForm() {
                     const { data: prodData } = await api.get(`/products/${id}`);
                     const p = prodData.product;
                     setFormData({
-                        name: p.name,
-                        description: p.description,
-                        price: p.price.toString(),
-                        originalPrice: p.originalPrice ? p.originalPrice.toString() : "",
-                        image: p.image,
-                        category: p.category,
-                        unit: p.unit,
-                        stock: p.stock.toString(),
-                        isOrganic: p.isOrganic,
-                    });
+    name: p.name,
+
+    description: p.description,
+
+    price: p.price.toString(),
+
+    originalPrice: p.originalPrice
+        ? p.originalPrice.toString()
+        : "",
+
+    image: p.image || "",
+
+    imageUrls: p.imageUrls || [],
+
+    category: p.category,
+
+    unit: p.unit,
+
+    stock: p.stock.toString(),
+
+    isOrganic: p.isOrganic,
+});
                 }
             } catch (error: any) {
                 toast.error(error.response?.data?.message || "Failed to load data");
@@ -61,11 +82,48 @@ export default function AdminProductForm() {
             let finalImageUrl = formData.image;
 
             if (imageFile) {
-                const formDataUpload = new FormData();
-                formDataUpload.append("image", imageFile);
-                const { data } = await api.post("/upload", formDataUpload);
-                finalImageUrl = data.url;
+
+    const formDataUpload = new FormData();
+
+    formDataUpload.append("image", imageFile);
+
+    try {
+
+        const { data } = await api.post(
+            "/admin/upload-product-image",
+            formDataUpload,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
             }
+        );
+
+        finalImageUrl = data.imageUrl;
+
+        setFormData((prev: any) => ({
+            ...prev,
+            image: data.imageUrl,
+            imageUrls: [
+                ...(prev.imageUrls || []),
+                data.imageUrl,
+            ],
+        }));
+
+        toast.success("Medicine image uploaded");
+
+    } catch (error: any) {
+
+        toast.error(
+            error?.response?.data?.message ||
+            "Image upload failed"
+        );
+
+        setSaving(false);
+
+        return;
+    }
+}
 
             if (!finalImageUrl) {
                 toast.error("Please upload a product image");
