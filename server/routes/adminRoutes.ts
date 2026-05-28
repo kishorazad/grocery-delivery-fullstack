@@ -1,8 +1,10 @@
 import express from "express";
 import auth from "../middleware/auth.js";
 import admin from "../middleware/admin.js";
-import { assignDeliveryPartner, createDeliveryPartner, getAdminStats, getDeliveryPartners, importMedicines, updateDeliveryPartner } from "../controllers/adminController.js";
+import { assignDeliveryPartner, createDeliveryPartner, getAdminStats, getDeliveryPartners, importMedicines, updateDeliveryPartner, uploadProductImage } from "../controllers/adminController.js";
 import upload from "../middleware/upload.js";
+
+
 
 const adminRouter = express.Router();
 
