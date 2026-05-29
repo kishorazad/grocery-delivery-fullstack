@@ -202,17 +202,24 @@ export const updateOrderStatus = async (
         // SEND EMAIL
         if (user?.email) {
 
-            await transporter.sendMail({
-                to: user.email,
+            await sendEmail({
 
-                subject: `PillNow Order ${status}`,
+    to: user.email,
 
-                html: orderTemplate({
-                    customerName: user.name || "",
-                    orderId: order.id,
-                    status,
-                }),
-            });
+    subject:
+        `PillNow Order ${status}`,
+
+    body: orderTemplate({
+
+        customerName:
+            user.name || "",
+
+        orderId:
+            order.id,
+
+        status,
+    }),
+});
         }
 
         // SEND PUSH NOTIFICATION
