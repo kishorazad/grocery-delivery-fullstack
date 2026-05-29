@@ -199,27 +199,75 @@ export const updateOrderStatus = async (
             },
         });
 
-        // SEND EMAIL
+        // SEND EMAIL        // SEND EMAIL
         if (user?.email) {
 
-            await sendEmail({
+            try {
 
-    to: user.email,
+                await sendEmail({
 
-    subject:
-        `PillNow Order ${status}`,
+                    to: user.email,
 
-    body: orderTemplate({
+                    subject:
+                        `PillNow Order ${status}`,
 
-        customerName:
-            user.name || "",
+                    body: orderTemplate({
 
-        orderId:
-            order.id,
+                        customerName:
+                            user.name || "",
 
-        status,
-    }),
-});
+                        orderId:
+                            order.id,
+
+                        status,
+                    }),
+                });
+
+                console.log(
+                    "EMAIL SENT"
+                );
+
+            } catch (error) {
+
+                console.log(
+                    "EMAIL ERROR"
+                );
+
+                console.log(error);
+            }
+        }
+
+        // SEND PUSH NOTIFICATION
+        if (user?.fcmToken) {
+
+            try {
+
+                await sendPush({
+
+                    token:
+                        user.fcmToken,
+
+                    title:
+                        "PillNow Order Update",
+
+                    body:
+                        `Your order is now ${status}`,
+                });
+
+                console.log(
+                    "PUSH SENT"
+                );
+
+            } catch (error) {
+
+                console.log(
+                    "PUSH ERROR"
+                );
+
+                console.log(error);
+            }
+        }
+
         }
 
         // SEND PUSH NOTIFICATION
