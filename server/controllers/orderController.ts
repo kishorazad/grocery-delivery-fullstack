@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import { inngest } from "../inngest/index.js";
 import Stripe from "stripe";
-import sendEmail from "../utils/sendEmail.js";
-import orderTemplate from "../templates/orderTemplate";
+
+import orderTemplate from "../templates/orderTemplate.js";
 import sendPush from "../utils/sendPush.js";
 
 // Create order
