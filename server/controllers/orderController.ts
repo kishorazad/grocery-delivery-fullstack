@@ -235,7 +235,7 @@ export const updateOrderStatus = async (
 
                 console.log(error);
             }
-        }
+        
 
         // SEND PUSH NOTIFICATION
         if (user?.fcmToken) {
