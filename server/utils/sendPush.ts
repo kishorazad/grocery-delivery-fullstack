@@ -1,4 +1,4 @@
-import admin from "../config/firebase.js";
+import admin from "../config/firebase";
 
 const sendPush = async ({
     token,
@@ -10,7 +10,9 @@ const sendPush = async ({
     body: string;
 }) => {
 
-    await admin.messaging().send({
+    console.log("PUSH TOKEN:", token);
+
+    const response = await admin.messaging().send({
         token,
 
         notification: {
@@ -18,6 +20,8 @@ const sendPush = async ({
             body,
         },
     });
+
+    console.log("PUSH RESPONSE:", response);
 };
 
 export default sendPush;
