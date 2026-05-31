@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import {
     getMessaging,
     onMessage,
+    getToken,
 } from "firebase/messaging";
 
 const firebaseConfig = {
@@ -33,7 +34,43 @@ const app =
 export const messaging =
     getMessaging(app);
 
-// CLIENT POPUP NOTIFICATION
+// GENERATE FCM TOKEN
+export const generateToken =
+    async () => {
+
+        const permission =
+            await Notification.requestPermission();
+
+        if (
+            permission !== "granted"
+        ) {
+
+            console.log(
+                "Notification permission denied"
+            );
+
+            return null;
+        }
+
+        const token =
+            await getToken(
+                messaging,
+                {
+                    vapidKey:
+                        import.meta.env
+                            .VITE_FIREBASE_VAPID_KEY,
+                }
+            );
+
+        console.log(
+            "FCM TOKEN:",
+            token
+        );
+
+        return token;
+    };
+
+// CLIENT WEBSITE POPUP NOTIFICATION
 onMessage(
     messaging,
     (payload) => {

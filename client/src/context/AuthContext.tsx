@@ -3,6 +3,7 @@ import type { User } from "../types";
 import { useNavigate } from "react-router-dom";
 import api from "../config/api";
 import toast from "react-hot-toast";
+import { generateToken } from "../firebase";
 
 interface AuthContextType {
     user: User | null;
@@ -42,6 +43,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             localStorage.setItem("auth_token", data.token);
             localStorage.setItem("auth_user", JSON.stringify(data.user));
             toast.success("Login successful");
+            const fcmToken = await generateToken();
+            if (fcmToken) {
+                await api.post(
+                    "/users/fcm-token",
+                    { token: fcmToken },
+                );
+            }
             navigate("/");
         } catch (error: any) {
             toast.error(error?.response?.data?.message || error?.message);
@@ -56,6 +64,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             localStorage.setItem("auth_token", data.token);
             localStorage.setItem("auth_user", JSON.stringify(data.user));
             toast.success("Registration successful");
+            const fcmToken = await generateToken();
+            if (fcmToken) {
+                await api.post(
+                    "/users/fcm-token",
+                    { token: fcmToken },
+                );
+            }
             navigate("/");
         } catch (error: any) {
             toast.error(error?.response?.data?.message || error?.message);
