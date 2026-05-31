@@ -33,6 +33,7 @@ const app =
 export const messaging =
     getMessaging(app);
 
+// CLIENT POPUP NOTIFICATION
 onMessage(
     messaging,
     (payload) => {
@@ -47,6 +48,9 @@ onMessage(
             {
                 body:
                     payload.notification?.body,
+
+                icon:
+                    "/logo.png",
             }
         );
     }
