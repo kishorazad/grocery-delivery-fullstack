@@ -90,11 +90,10 @@ const App = () => {
                     return;
                 }
 
-                await api.post(
-                    "/users/save-fcm",
-                    { token }
-                );
-
+               await api.post(
+    "/auth/fcm-token",
+    { token }
+);
                 console.log(
                     "FCM token saved"
                 );
