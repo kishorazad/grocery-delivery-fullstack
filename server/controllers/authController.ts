@@ -205,15 +205,15 @@ async (
 
     try {
 
-        console.log(
-            "BODY:",
-            req.body
-        );
-
         const {
             token,
             email,
         } = req.body;
+
+        console.log(
+            "FCM BODY:",
+            req.body
+        );
 
         await prisma.user.update({
             where: {
