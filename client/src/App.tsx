@@ -36,7 +36,7 @@ import Addresses from "./pages/Addresses";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import AdminLayout from "./pages/admin/AdminLayout";
-
+import SendNotification from "./pages/admin/SendNotification";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
 import AdminProducts from "./pages/admin/AdminProducts";
@@ -207,7 +207,10 @@ const App = () => {
                         index
                         element={<AdminDashboard />}
                     />
-
+<Route
+    path="/admin/send-notification"
+    element={<SendNotification />}
+/>
                     <Route
                         path="products"
                         element={<AdminProducts />}
