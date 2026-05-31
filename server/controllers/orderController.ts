@@ -271,16 +271,7 @@ export const updateOrderStatus = async (
         }
 
         // SEND PUSH NOTIFICATION
-        if (user?.fcmToken) {
-
-            await sendPush({
-                token: user.fcmToken,
-
-                title: "PillNow Order Update",
-
-                body: `Your order is now ${status}`,
-            });
-        }
+       
 
         res.json({
             order: updatedOrder,
