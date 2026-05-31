@@ -88,6 +88,9 @@ onMessage(
 
                 icon:
                     "/logo.png",
+
+                image:
+                    payload.notification?.image,
             }
         );
     }

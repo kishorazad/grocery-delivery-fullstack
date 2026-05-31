@@ -3,7 +3,7 @@ import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import * as XLSX from "xlsx";
 import cloudinary from "../config/cloudinary.js";
-
+import sendBulkPush from "../utils/sendBulkPush.js";
 import slugify from "slugify";
 
 // get admin dashboard data
@@ -324,6 +324,67 @@ originalPrice:
 
 };
 
+
+export const sendNotificationToAll =
+async (
+    req,
+    res
+) => {
+
+    try {
+
+        const {
+            title,
+            body,
+            image,
+        } = req.body;
+
+        const users =
+            await prisma.user.findMany({
+                where: {
+                    fcmToken: {
+                        not: null,
+                    },
+                },
+            });
+
+        const tokens =
+            users
+                .map(
+                    (u) => u.fcmToken
+                )
+                .filter(Boolean);
+
+        if (!tokens.length) {
+
+            return res.status(400).json({
+                message:
+                    "No FCM tokens found",
+            });
+        }
+
+        await sendBulkPush({
+            tokens,
+            title,
+            body,
+            image,
+        });
+
+        res.json({
+            success: true,
+            message:
+                "Notification sent successfully",
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            success: false,
+        });
+    }
+};
 
 export const uploadProductImage = async (
     req: Request,

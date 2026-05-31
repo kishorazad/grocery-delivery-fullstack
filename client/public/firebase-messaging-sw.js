@@ -15,28 +15,29 @@ firebase.initializeApp({
     appId: "YOUR_APP_ID",
 });
 
-const messaging = firebase.messaging();
+const messaging =
+    firebase.messaging();
 
-messaging.onBackgroundMessage(function(payload) {
+messaging.onBackgroundMessage(
+    function(payload) {
 
-    console.log(
-        "[firebase-messaging-sw.js] Received background message ",
-        payload
-    );
+        console.log(
+            "Background Message:",
+            payload
+        );
 
-    const notificationTitle =
-        payload.notification.title;
+        self.registration.showNotification(
+            payload.notification.title,
+            {
+                body:
+                    payload.notification.body,
 
-    const notificationOptions = {
-        body:
-            payload.notification.body,
+                icon:
+                    "/logo.png",
 
-        icon:
-            "/logo.png",
-    };
-
-    self.registration.showNotification(
-        notificationTitle,
-        notificationOptions
-    );
-});
+                image:
+                    payload.notification.image,
+            }
+        );
+    }
+);

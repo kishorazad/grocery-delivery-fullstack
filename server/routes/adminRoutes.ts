@@ -1,7 +1,7 @@
 import express from "express";
 import auth from "../middleware/auth.js";
 import admin from "../middleware/admin.js";
-import { assignDeliveryPartner, createDeliveryPartner, getAdminStats, getDeliveryPartners, importMedicines, updateDeliveryPartner, uploadProductImage } from "../controllers/adminController.js";
+import { assignDeliveryPartner, createDeliveryPartner, getAdminStats, getDeliveryPartners, importMedicines, updateDeliveryPartner, uploadProductImage, sendNotificationToAll } from "../controllers/adminController.js";
 import upload from "../middleware/upload.js";
 
 
@@ -27,6 +27,11 @@ adminRouter.post(
    auth,
    upload.single("image"),
    uploadProductImage
+);
+
+adminRouter.post(
+    "/send-notification",
+    sendNotificationToAll
 );
 
 export default adminRouter;
