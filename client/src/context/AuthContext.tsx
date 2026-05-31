@@ -145,6 +145,7 @@ export function AuthProvider({
                     {
                         token:
                             fcmToken,
+                            email,
                     }
                 );
             }
@@ -214,6 +215,7 @@ export function AuthProvider({
                     {
                         token:
                             fcmToken,
+                            email,
                     }
                 );
             }

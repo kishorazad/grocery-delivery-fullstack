@@ -197,6 +197,7 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
+
 export const saveFcmToken =
 async (
     req: Request,
@@ -205,14 +206,19 @@ async (
 
     try {
 
+        const {
+            token,
+            email,
+        } = req.body;
+
         await prisma.user.update({
             where: {
-                id: req.user.id,
+                email,
             },
 
             data: {
                 fcmToken:
-                    req.body.token,
+                    token,
             },
         });
 
