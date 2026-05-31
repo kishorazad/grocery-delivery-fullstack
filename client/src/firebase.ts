@@ -1,7 +1,9 @@
-
 import { initializeApp } from "firebase/app";
 
-import { getMessaging } from "firebase/messaging";
+import {
+    getMessaging,
+    onMessage,
+} from "firebase/messaging";
 
 const firebaseConfig = {
 
@@ -25,7 +27,27 @@ const firebaseConfig = {
         import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
 export const messaging =
     getMessaging(app);
+
+onMessage(
+    messaging,
+    (payload) => {
+
+        console.log(
+            "Foreground Message:",
+            payload
+        );
+
+        new Notification(
+            payload.notification?.title || "PillNow",
+            {
+                body:
+                    payload.notification?.body,
+            }
+        );
+    }
+);
