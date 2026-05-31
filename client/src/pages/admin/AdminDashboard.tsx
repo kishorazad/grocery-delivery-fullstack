@@ -5,6 +5,7 @@ import Loading from "../../components/Loading";
 import { statusColors } from "../../assets/assets";
 import api from "../../config/api";
 import { UploadCloudIcon } from "lucide-react";
+import { BellIcon } from "lucide-react";
 
 interface Stats {
     totalOrders: number;
@@ -119,6 +120,73 @@ export default function AdminDashboard() {
     >
         <UploadCloudIcon className="size-4" />
         Upload Medicines
+    </Link>
+
+</div>
+{/* Send Notifications */}
+<div className="bg-white rounded-2xl border border-app-border p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+
+    <div className="flex items-start gap-4">
+
+        <div
+            className="
+                size-14
+                rounded-2xl
+                bg-blue-100
+                text-blue-600
+                flex-center
+                shrink-0
+            "
+        >
+            <BellIcon className="size-7" />
+        </div>
+
+        <div>
+
+            <h2
+                className="
+                    text-xl
+                    font-semibold
+                    text-zinc-900
+                "
+            >
+                Send Notifications
+            </h2>
+
+            <p
+                className="
+                    text-sm
+                    text-zinc-500
+                    mt-1
+                "
+            >
+                Send offers, products,
+                and updates to all customers
+            </p>
+
+        </div>
+    </div>
+
+    <Link
+        to="/admin/send-notification"
+        className="
+            bg-blue-600
+            hover:bg-blue-700
+            text-white
+            px-6
+            py-3
+            rounded-xl
+            text-sm
+            font-medium
+            transition
+            flex
+            items-center
+            gap-2
+            shrink-0
+        "
+    >
+        <BellIcon className="size-4" />
+        Send Notification
     </Link>
 
 </div>

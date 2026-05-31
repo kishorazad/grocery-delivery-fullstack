@@ -42,7 +42,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 
 import AdminProductForm from "./pages/admin/AdminProductForm";
-
+import SendNotification from "./pages/admin/SendNotification";
 import AdminOrders from "./pages/admin/AdminOrders";
 
 import AdminDeliveryPartners from "./pages/admin/AdminDeliveryPartners";
