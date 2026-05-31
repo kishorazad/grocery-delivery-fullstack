@@ -197,3 +197,35 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
+export const saveFcmToken =
+async (
+    req: Request,
+    res: Response
+) => {
+
+    try {
+
+        await prisma.user.update({
+            where: {
+                id: req.user.id,
+            },
+
+            data: {
+                fcmToken:
+                    req.body.token,
+            },
+        });
+
+        res.json({
+            success: true,
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            success: false,
+        });
+    }
+};
