@@ -45,11 +45,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             toast.success("Login successful");
             const fcmToken = await generateToken();
             if (fcmToken) {
-                await api.post(
-                    "/users/fcm-token",
-                    { token: fcmToken },
-                );
-            }
+                await api.put(
+    "/auth/fcm-token",
+    {
+        token: fcmToken,
+    }
+);
             navigate("/");
         } catch (error: any) {
             toast.error(error?.response?.data?.message || error?.message);
@@ -67,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             const fcmToken = await generateToken();
             if (fcmToken) {
                 await api.post(
-                    "/users/fcm-token",
+                    "/auth/fcm-token",
                     { token: fcmToken },
                 );
             }
