@@ -4,7 +4,7 @@ import {
    register,
    sendOtp,    verifyOtp,saveFcmToken
 } from "../controllers/authController.js";
-
+import { protect } from "../middleware/authMiddleware.js";
 const authRouter = express.Router();
 
 authRouter.post("/register", register);
@@ -13,7 +13,9 @@ authRouter.post("/send-otp", sendOtp);
 authRouter.post("/verify-otp", verifyOtp);
 authRouter.put(
     "/fcm-token",
+    protect,
     saveFcmToken
 );
+
 
 export default authRouter;
