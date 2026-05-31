@@ -197,7 +197,6 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
-
 export const saveFcmToken =
 async (
     req: Request,
@@ -205,6 +204,11 @@ async (
 ) => {
 
     try {
+
+        console.log(
+            "BODY:",
+            req.body
+        );
 
         const {
             token,
@@ -222,13 +226,20 @@ async (
             },
         });
 
+        console.log(
+            "FCM TOKEN SAVED"
+        );
+
         res.json({
             success: true,
         });
 
     } catch (error) {
 
-        console.log(error);
+        console.log(
+            "FCM SAVE ERROR:",
+            error
+        );
 
         res.status(500).json({
             success: false,
