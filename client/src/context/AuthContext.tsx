@@ -140,10 +140,9 @@ export function AuthProvider({
 
             // SAVE TOKEN TO DATABASE
             if (fcmToken) {
-
-                await saveFcmToken(
-    fcmToken,
-    data.user.email
+await saveFcmToken(
+    token,
+    currentUser.email
 );
 }   
 
@@ -206,10 +205,9 @@ export function AuthProvider({
 
             // SAVE TOKEN TO DATABASE
             if (fcmToken) {
-
-               await saveFcmToken(
-    fcmToken,
-    data.user.email
+await saveFcmToken(
+    token,
+    currentUser.email
 );
             }
 
