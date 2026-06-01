@@ -337,7 +337,7 @@ async (
         const {
             title,
             body,
-            image,
+           
         } = req.body;
 
         const users =
@@ -368,7 +368,7 @@ async (
             tokens,
             title,
             body,
-            image,
+            
         });
 
         res.json({
