@@ -12,7 +12,7 @@ authRouter.post("/register", register);
 authRouter.post("/login", login);
 authRouter.post("/send-otp", sendOtp);
 authRouter.post("/verify-otp", verifyOtp);
-authRouter.put(
+authRouter.post(
     "/fcm-token",
   
     saveFcmToken
