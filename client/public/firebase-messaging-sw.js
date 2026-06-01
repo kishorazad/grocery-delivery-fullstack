@@ -7,37 +7,42 @@ importScripts(
 );
 
 firebase.initializeApp({
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
+
+  apiKey: "AIzaSyDvkT7FQ0Q3fZa-LNCeBzSaef2XC_2u8Cg",
+
+  authDomain: "pradeep-af09d.firebaseapp.com",
+
+  projectId: "pradeep-af09d",
+
+  storageBucket: "pradeep-af09d.appspot.com",
+
+  messagingSenderId: "158647624674",
+
+  appId: "1:158647624674:web:5971aa52a49650996b0fbb",
 });
 
-const messaging =
-    firebase.messaging();
+const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(
-    function(payload) {
+  function (payload) {
 
-        console.log(
-            "Background Message:",
-            payload
-        );
+    console.log(
+      "Background Message:",
+      payload
+    );
 
-        self.registration.showNotification(
-            payload.notification.title,
-            {
-                body:
-                    payload.notification.body,
+    self.registration.showNotification(
+      payload.notification.title,
+      {
+        body:
+          payload.notification.body,
 
-                icon:
-                    "/logo.png",
+        icon:
+          "/logo.png",
 
-                image:
-                    payload.notification.image,
-            }
-        );
-    }
+        image:
+          payload.notification.image,
+      }
+    );
+  }
 );

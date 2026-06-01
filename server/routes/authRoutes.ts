@@ -5,6 +5,7 @@ import {
    sendOtp,    verifyOtp,saveFcmToken
 } from "../controllers/authController.js";
 
+
 const authRouter = express.Router();
 
 authRouter.post("/register", register);
