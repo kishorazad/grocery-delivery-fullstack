@@ -130,31 +130,27 @@ export function AuthProvider({
             );
 
             // GENERATE FCM TOKEN
-            const fcmToken =
-                await generateToken();
+ 
+// GENERATE FCM TOKEN
+const fcmToken =
+    await generateToken();
 
-            console.log(
-                "FCM TOKEN:",
-                fcmToken
-            );
+console.log(
+    "FCM TOKEN:",
+    fcmToken
+);
 
-            // SAVE TOKEN TO DATABASE
-    if (
+// SAVE TOKEN TO DATABASE
+if (
     fcmToken &&
     data.user?.email
-) 
-
-if (
-   fcmToken &&
-   data.user?.email
-){
+) {
 
     await saveFcmToken(
         fcmToken,
         data.user.email
     );
-}  
-
+}
             navigate("/");
 
         } catch (error: any) {
@@ -204,25 +200,20 @@ if (
             );
 
             // GENERATE FCM TOKEN
-            const fcmToken =
-                await generateToken();
 
-            console.log(
-                "FCM TOKEN:",
-                fcmToken
-            );
+const fcmToken =
+    await generateToken();
 
-            // SAVE TOKEN TO DATABASE
-           if (
+console.log(
+    "FCM TOKEN:",
+    fcmToken
+);
+
+// SAVE TOKEN TO DATABASE
+if (
     fcmToken &&
     data.user?.email
-) 
-if (
-   fcmToken &&
-   data.user?.email
-)
-
-{
+) {
 
     await saveFcmToken(
         fcmToken,
