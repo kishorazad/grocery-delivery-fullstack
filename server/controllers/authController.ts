@@ -197,11 +197,17 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
-export const saveFcmToken = async (req, res) => {
+import { Request, Response } from "express";
+
+export const saveFcmToken = async (
+    req: Request,
+    res: Response
+) => {
 
     try {
 
         const { token, email } = req.body;
+         console.log("BODY:", req.body);
 
         if (!token || !email) {
 
@@ -223,13 +229,14 @@ export const saveFcmToken = async (req, res) => {
 
         res.json({
             success: true,
+             message: "FCM token saved"
         });
 
-    } catch (error) {
+  } catch (error: any) {
 
         console.log(error);
 
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             error: error.message,
         });

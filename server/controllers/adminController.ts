@@ -6,6 +6,7 @@ import cloudinary from "../config/cloudinary.js";
 import sendBulkPush from "../utils/sendBulkPush.js";
 import slugify from "slugify";
 
+
 // get admin dashboard data
 export const getAdminStats = async (req: Request, res: Response) => {
     const [totalOrders, totalUsers, totalProducts, outOfStock, totalPartners, recentOrders] = await Promise.all([
@@ -327,8 +328,8 @@ originalPrice:
 
 export const sendNotificationToAll =
 async (
-    req,
-    res
+   req: Request,
+   res: Response
 ) => {
 
     try {
@@ -353,7 +354,7 @@ async (
                 .map(
                     (u) => u.fcmToken
                 )
-                .filter(Boolean);
+                .filter((token): token is string =>token !== null);
 
         if (!tokens.length) {
 

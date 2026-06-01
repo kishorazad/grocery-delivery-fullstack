@@ -26,13 +26,14 @@ const sendPush = async ({
                 title,
                 body,
                 image,
+                
             },
 
             webpush: {
                 notification: {
                     title,
                     body,
-                    image,
+                  image,
                     icon:
                         "/logo.png",
                 },

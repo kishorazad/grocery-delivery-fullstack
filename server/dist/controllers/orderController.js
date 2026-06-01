@@ -1,6 +1,8 @@
 import { prisma } from "../config/prisma.js";
 import { inngest } from "../inngest/index.js";
 import Stripe from "stripe";
+import orderTemplate from "../templates/orderTemplate.js";
+import sendPush from "../utils/sendPush.js";
 // Create order
 // POST /api/orders
 export const createOrder = async (req, res) => {
@@ -120,18 +122,87 @@ export const getOrder = async (req, res) => {
 // Update order status (admin)
 // PUT /api/orders/:id/status
 export const updateOrderStatus = async (req, res) => {
-    const { status, note } = req.body;
-    const order = await prisma.order.findUnique({ where: { id: req.params.id } });
-    if (!order) {
-        return res.status(404).json({ message: "Order not found" });
+    try {
+        const { status, note } = req.body;
+        const order = await prisma.order.findUnique({
+            where: {
+                id: req.params.id,
+            },
+        });
+        if (!order) {
+            return res.status(404).json({
+                message: "Order not found",
+            });
+        }
+        const history = (Array.isArray(order.statusHistory)
+            ? order.statusHistory
+            : []);
+        history.push({
+            status,
+            note: note ||
+                `Order ${status.toLowerCase()}`,
+            timestamp: new Date(),
+        });
+        const updatedOrder = await prisma.order.update({
+            where: {
+                id: req.params.id,
+            },
+            data: {
+                status,
+                statusHistory: history,
+            },
+        });
+        // FIND USER
+        const user = await prisma.user.findUnique({
+            where: {
+                id: order.userId,
+            },
+        });
+        // SEND EMAIL        // SEND EMAIL
+        if (user?.email) {
+            try {
+                await sendEmail({
+                    to: user.email,
+                    subject: `PillNow Order ${status}`,
+                    body: orderTemplate({
+                        customerName: user.name || "",
+                        orderId: order.id,
+                        status,
+                    }),
+                });
+                console.log("EMAIL SENT");
+            }
+            catch (error) {
+                console.log("EMAIL ERROR");
+                console.log(error);
+            }
+            // SEND PUSH NOTIFICATION
+            if (user?.fcmToken) {
+                try {
+                    await sendPush({
+                        token: user.fcmToken,
+                        title: "PillNow Order Update",
+                        body: `Your order is now ${status}`,
+                    });
+                    console.log("PUSH SENT");
+                }
+                catch (error) {
+                    console.log("PUSH ERROR");
+                    console.log(error);
+                }
+            }
+        }
+        // SEND PUSH NOTIFICATION
+        res.json({
+            order: updatedOrder,
+        });
     }
-    const history = (Array.isArray(order.statusHistory) ? order.statusHistory : []);
-    history.push({ status, note: note || `Order ${status.toLowerCase()}`, timestamp: new Date() });
-    const updatedOrder = await prisma.order.update({
-        where: { id: req.params.id },
-        data: { status, statusHistory: history },
-    });
-    res.json({ order: updatedOrder });
+    catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "Failed to update order status",
+        });
+    }
 };
 // Get all orders (admin)
 // GET /api/orders/all

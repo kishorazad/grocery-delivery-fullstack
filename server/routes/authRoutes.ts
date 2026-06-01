@@ -14,8 +14,7 @@ authRouter.post("/send-otp", sendOtp);
 authRouter.post("/verify-otp", verifyOtp);
 authRouter.post(
     "/fcm-token",
-  
-    saveFcmToken
+  saveFcmToken
 );
 
 

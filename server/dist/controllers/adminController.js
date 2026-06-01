@@ -1,6 +1,8 @@
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import * as XLSX from "xlsx";
+import cloudinary from "../config/cloudinary.js";
+import sendBulkPush from "../utils/sendBulkPush.js";
 import slugify from "slugify";
 // get admin dashboard data
 export const getAdminStats = async (req, res) => {
@@ -102,6 +104,7 @@ export const importMedicines = async (req, res) => {
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         const medicines = XLSX.utils.sheet_to_json(sheet);
+        console.log(medicines[0]);
         console.log(`Found ${medicines.length} medicines`);
         let successCount = 0;
         for (const item of medicines) {
@@ -110,6 +113,7 @@ export const importMedicines = async (req, res) => {
                     .split("|")
                     .map((url) => url.trim())
                 : [];
+            console.log(item);
             try {
                 const product = await prisma.product.create({
                     data: {
@@ -127,8 +131,12 @@ export const importMedicines = async (req, res) => {
                         manufacturer: item["Marketer"] ||
                             "",
                         primaryUse: item["primary_use"] || "",
-                        price: Number(item["MRP"]) || 0,
-                        originalPrice: Number(item["MRP"]) || 0,
+                        price: Number(item["MRP"] ||
+                            item["Price"] ||
+                            0),
+                        originalPrice: Number(item["MRP"] ||
+                            item["Price"] ||
+                            0),
                         image: imageUrls[0] ||
                             "https://via.placeholder.com/300",
                         imageUrls,
@@ -136,7 +144,10 @@ export const importMedicines = async (req, res) => {
                             "medicine",
                         prescriptionRequired: String(item["prescription_required"]).toLowerCase() ===
                             "yes",
-                        stock: 100,
+                        stock: Number(item["Qty"] ||
+                            item["qty"] ||
+                            item["Stock"] ||
+                            item["stock"]) || 100,
                         rating: 4.5,
                         reviewCount: 10,
                         productForm: item["Product Form"] || "",
@@ -161,6 +172,66 @@ export const importMedicines = async (req, res) => {
             success: true,
             count: successCount,
             message: "Medicines imported successfully",
+        });
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+export const sendNotificationToAll = async (req, res) => {
+    try {
+        const { title, body, image, } = req.body;
+        const users = await prisma.user.findMany({
+            where: {
+                fcmToken: {
+                    not: null,
+                },
+            },
+        });
+        const tokens = users
+            .map((u) => u.fcmToken)
+            .filter((token) => token !== null);
+        if (!tokens.length) {
+            return res.status(400).json({
+                message: "No FCM tokens found",
+            });
+        }
+        await sendBulkPush({
+            tokens,
+            title,
+            body,
+            image,
+        });
+        res.json({
+            success: true,
+            message: "Notification sent successfully",
+        });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({
+            success: false,
+        });
+    }
+};
+export const uploadProductImage = async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: "No image uploaded",
+            });
+        }
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: "pillnow/products",
+        });
+        return res.json({
+            success: true,
+            imageUrl: result.secure_url,
         });
     }
     catch (error) {
