@@ -1,7 +1,6 @@
 import api from "../config/api";
 
-export const saveFcmToken =
-async (
+const saveFcmToken = async (
     token: string,
     email: string
 ) => {
@@ -9,7 +8,7 @@ async (
     try {
 
         const response =
-            await api.put(
+            await api.post(
                 "/auth/fcm-token",
                 {
                     token,
@@ -30,3 +29,5 @@ async (
         );
     }
 };
+
+export default saveFcmToken;

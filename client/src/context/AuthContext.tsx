@@ -5,7 +5,7 @@ import {
     useState,
     type ReactNode,
 } from "react";
-
+import saveFcmToken from "../utils/saveFcmToken";
 import type { User } from "../types";
 
 import { useNavigate } from "react-router-dom";
@@ -141,15 +141,11 @@ export function AuthProvider({
             // SAVE TOKEN TO DATABASE
             if (fcmToken) {
 
-                await api.post(
-                    "/auth/fcm-token",
-                    {
-                        token:
-                            fcmToken,
-                            email: data.user.email,
-                    }
-                );
-            }
+                await saveFcmToken(
+    fcmToken,
+    data.user.email
+);
+}   
 
             navigate("/");
 
@@ -211,14 +207,10 @@ export function AuthProvider({
             // SAVE TOKEN TO DATABASE
             if (fcmToken) {
 
-                await api.post(
-                    "/auth/fcm-token",
-                    {
-                        token:
-                            fcmToken,
-                            email: data.user.email,
-                    }
-                );
+               await saveFcmToken(
+    fcmToken,
+    data.user.email
+);
             }
 
             navigate("/");
