@@ -1,4 +1,4 @@
-import api from "../config/api";
+import axios from "axios";
 
 const saveFcmToken = async (
     token: string,
@@ -8,8 +8,8 @@ const saveFcmToken = async (
     try {
 
         const response =
-            await api.post(
-                "/auth/fcm-token",
+            await axios.post(
+                `${import.meta.env.VITE_API_URL}/api/auth/fcm-token`,
                 {
                     token,
                     email,
@@ -17,14 +17,14 @@ const saveFcmToken = async (
             );
 
         console.log(
-            "FCM TOKEN SAVED:",
+            "FCM TOKEN SAVED",
             response.data
         );
 
     } catch (error) {
 
         console.log(
-            "FCM SAVE ERROR:",
+            "FCM SAVE ERROR",
             error
         );
     }

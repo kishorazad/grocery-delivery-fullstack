@@ -52,15 +52,17 @@ export const generateToken =
             return null;
         }
 
-        const token =
-            await getToken(
-                messaging,
-                {
-                    vapidKey:
-                        import.meta.env
-                            .VITE_FIREBASE_VAPID_KEY,
-                }
-            );
+        const token = await getToken(
+    messaging,
+    {
+        vapidKey:
+            import.meta.env
+                .VITE_FIREBASE_VAPID_KEY,
+
+        serviceWorkerRegistration:
+            await navigator.serviceWorker.ready,
+    }
+);
 
         console.log(
             "FCM TOKEN:",
