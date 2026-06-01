@@ -142,7 +142,12 @@ export function AuthProvider({
     if (
     fcmToken &&
     data.user?.email
-) {
+) 
+
+if (
+   fcmToken &&
+   data.user?.email
+){
 
     await saveFcmToken(
         fcmToken,
@@ -211,7 +216,13 @@ export function AuthProvider({
            if (
     fcmToken &&
     data.user?.email
-) {
+) 
+if (
+   fcmToken &&
+   data.user?.email
+)
+
+{
 
     await saveFcmToken(
         fcmToken,
