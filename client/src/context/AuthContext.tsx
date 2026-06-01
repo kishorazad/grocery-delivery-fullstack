@@ -139,12 +139,16 @@ export function AuthProvider({
             );
 
             // SAVE TOKEN TO DATABASE
-            if (fcmToken) {
-await saveFcmToken(
-    token,
-    currentUser.email
-);
-}   
+    if (
+    fcmToken &&
+    data.user?.email
+) {
+
+    await saveFcmToken(
+        fcmToken,
+        data.user.email
+    );
+}  
 
             navigate("/");
 
@@ -204,12 +208,16 @@ await saveFcmToken(
             );
 
             // SAVE TOKEN TO DATABASE
-            if (fcmToken) {
-await saveFcmToken(
-    token,
-    currentUser.email
-);
-            }
+           if (
+    fcmToken &&
+    data.user?.email
+) {
+
+    await saveFcmToken(
+        fcmToken,
+        data.user.email
+    );
+}
 
             navigate("/");
 
