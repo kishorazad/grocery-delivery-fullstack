@@ -141,12 +141,12 @@ export function AuthProvider({
             // SAVE TOKEN TO DATABASE
             if (fcmToken) {
 
-                await api.put(
+                await api.post(
                     "/auth/fcm-token",
                     {
                         token:
                             fcmToken,
-                            email,
+                            email: data.user.email,
                     }
                 );
             }
@@ -211,12 +211,12 @@ export function AuthProvider({
             // SAVE TOKEN TO DATABASE
             if (fcmToken) {
 
-                await api.put(
+                await api.post(
                     "/auth/fcm-token",
                     {
                         token:
                             fcmToken,
-                            email,
+                            email: data.user.email,
                     }
                 );
             }

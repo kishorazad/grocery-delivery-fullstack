@@ -197,21 +197,19 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
-
-export const saveFcmToken =
-async (
-    req,
-    res
-) => {
+export const saveFcmToken = async (req, res) => {
 
     try {
 
-        const {
-            token,
-            email,
-        } = req.body;
+        const { token, email } = req.body;
 
-        console.log(req.body);
+        if (!token || !email) {
+
+            return res.status(400).json({
+                success: false,
+                message: "Token and email required"
+            });
+        }
 
         await prisma.user.update({
             where: {
@@ -219,8 +217,7 @@ async (
             },
 
             data: {
-                fcmToken:
-                    token,
+                fcmToken: token,
             },
         });
 
@@ -234,6 +231,7 @@ async (
 
         res.status(500).json({
             success: false,
+            error: error.message,
         });
     }
 };
