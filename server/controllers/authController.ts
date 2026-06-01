@@ -197,7 +197,7 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
-import { Request, Response } from "express";
+
 
 export const saveFcmToken = async (
     req: Request,
