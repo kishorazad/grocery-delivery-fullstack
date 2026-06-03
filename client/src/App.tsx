@@ -1,11 +1,15 @@
 
 import { useEffect } from "react";
 
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 import { Route, Routes } from "react-router-dom";
 
-import { getToken } from "firebase/messaging";
+
+import {
+    getToken,
+    onMessage
+} from "firebase/messaging";
 
 import { messaging } from "./firebase";
 
@@ -112,10 +116,23 @@ await api.post(
                 );
             }
         };
+saveFcmToken();
 
-        saveFcmToken();
+onMessage(messaging, (payload) => {
 
-    }, []);
+    console.log(
+        "Foreground Notification:",
+        payload
+    );
+
+    toast.success(
+        payload.notification?.title ||
+        "New Notification"
+    );
+
+});
+
+}, []);
 
     return (
         <>
