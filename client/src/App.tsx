@@ -120,15 +120,19 @@ saveFcmToken();
 
 onMessage(messaging, (payload) => {
 
-    console.log(
-        "Foreground Notification:",
-        payload
-    );
+    toast.custom((t) => (
+        <div className="bg-white shadow-lg rounded-xl p-4 border w-80">
 
-    toast.success(
-        payload.notification?.title ||
-        "New Notification"
-    );
+            <h3 className="font-semibold">
+                {payload.notification?.title}
+            </h3>
+
+            <p className="text-sm text-gray-600">
+                {payload.notification?.body}
+            </p>
+
+        </div>
+    ));
 
 });
 
