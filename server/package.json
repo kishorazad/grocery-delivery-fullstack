@@ -24,6 +24,7 @@
         "csv-parser": "^3.2.1",
         "dotenv": "^17.4.2",
         "express": "^5.2.1",
+        "express-rate-limit": "^8.5.2",
         "firebase-admin": "^13.10.0",
         "inngest": "^4.2.4",
         "jsonwebtoken": "^9.0.3",

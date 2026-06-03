@@ -52,6 +52,18 @@ export const createOrder = async (req, res) => {
             statusHistory: [{ status: "Placed", note: "Order placed successfully", timestamp: new Date() }],
         },
     });
+    const user = await prisma.user.findUnique({
+        where: {
+            id: req.user.id,
+        },
+    });
+    if (user?.fcmToken) {
+        await sendPush({
+            token: user.fcmToken,
+            title: "🎉 Order Confirmed",
+            body: `Your order #${order.id.slice(0, 8)} has been placed successfully`,
+        });
+    }
     if (paymentMethod === "card") {
         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
         // create session
@@ -182,7 +194,15 @@ export const updateOrderStatus = async (req, res) => {
                     await sendPush({
                         token: user.fcmToken,
                         title: "PillNow Order Update",
-                        body: `Your order is now ${status}`,
+                        body: status === "CONFIRMED"
+                            ? "✅ Your order has been accepted"
+                            : status === "OUT_FOR_DELIVERY"
+                                ? "🚚 Your order is out for delivery"
+                                : status === "DELIVERED"
+                                    ? "📦 Your order has been delivered"
+                                    : status === "CANCELLED"
+                                        ? "❌ Your order has been cancelled"
+                                        : `Your order is now ${status}`,
                     });
                     console.log("PUSH SENT");
                 }

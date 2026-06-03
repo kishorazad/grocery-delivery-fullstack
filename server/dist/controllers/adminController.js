@@ -184,7 +184,7 @@ export const importMedicines = async (req, res) => {
 };
 export const sendNotificationToAll = async (req, res) => {
     try {
-        const { title, body, image, } = req.body;
+        const { title, body, } = req.body;
         const users = await prisma.user.findMany({
             where: {
                 fcmToken: {
@@ -204,7 +204,6 @@ export const sendNotificationToAll = async (req, res) => {
             tokens,
             title,
             body,
-            image,
         });
         res.json({
             success: true,

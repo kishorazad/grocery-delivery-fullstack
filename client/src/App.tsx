@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import { Route, Routes } from "react-router-dom";
-
+import Notifications from "./pages/Notifications";
 
 import {
     getToken,
@@ -217,7 +217,10 @@ onMessage(messaging, (payload) => {
                             path="addresses"
                             element={<Addresses />}
                         />
-
+<Route
+        path="notifications"
+        element={<Notifications />}
+    />
                     </Route>
 
                 </Route>
@@ -234,9 +237,9 @@ onMessage(messaging, (payload) => {
                         element={<AdminDashboard />}
                     />
 <Route
-    path="/admin/send-notification"
+    path="send-notification"
     element={<SendNotification />}
-/>
+ />
                     <Route
                         path="products"
                         element={<AdminProducts />}

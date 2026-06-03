@@ -1,6 +1,7 @@
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
 import sendEmail from "../config/nodemailer.js";
 const otpStore = {};
 // Generate JWT token
@@ -68,7 +69,11 @@ export const sendOtp = async (req, res) => {
         // Generate OTP
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         // Save OTP
-        otpStore[email] = otp;
+        otpStore[email] = {
+            otp,
+            expiresAt: Date.now() +
+                5 * 60 * 1000,
+        };
         await sendEmail({
             to: email,
             subject: "Your OTP Code",
@@ -109,12 +114,23 @@ export const verifyOtp = async (req, res) => {
             });
         }
         // TEST OTP
-        if (otpStore[email] !== otp) {
+        const otpData = otpStore[email];
+        if (!otpData ||
+            otpData.otp !== otp) {
             return res.status(400).json({
                 success: false,
-                message: "Invalid OTP"
+                message: "Invalid OTP",
             });
         }
+        if (Date.now() >
+            otpData.expiresAt) {
+            delete otpStore[email];
+            return res.status(400).json({
+                success: false,
+                message: "OTP expired",
+            });
+        }
+        delete otpStore[email];
         let user = await prisma.user.findUnique({
             where: {
                 email: email.toLowerCase()
@@ -126,7 +142,7 @@ export const verifyOtp = async (req, res) => {
                 data: {
                     name: email.split("@")[0],
                     email: email.toLowerCase(),
-                    password: await bcrypt.hash("otp-user", 10)
+                    password: await bcrypt.hash(crypto.randomUUID(), 10)
                 }
             });
         }
@@ -150,15 +166,15 @@ export const verifyOtp = async (req, res) => {
 };
 export const saveFcmToken = async (req, res) => {
     try {
-        const { token, email } = req.body;
-        console.log("BODY:", req.body);
-        if (!token || !email) {
+        const { token, email, } = req.body;
+        if (!token ||
+            !email) {
             return res.status(400).json({
                 success: false,
-                message: "Token and email required"
+                message: "Token and email required",
             });
         }
-        await prisma.user.update({
+        const updatedUser = await prisma.user.update({
             where: {
                 email,
             },
@@ -166,16 +182,16 @@ export const saveFcmToken = async (req, res) => {
                 fcmToken: token,
             },
         });
-        res.json({
+        return res.json({
             success: true,
-            message: "FCM token saved"
+            message: "FCM token saved",
         });
     }
     catch (error) {
-        console.log(error);
+        console.log("FCM SAVE ERROR:", error);
         return res.status(500).json({
             success: false,
-            error: error.message,
+            message: "Internal server error",
         });
     }
 };

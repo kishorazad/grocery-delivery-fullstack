@@ -2,10 +2,17 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
 
 import sendEmail from "../config/nodemailer.js";
 
-const otpStore: Record<string, string> = {};
+const otpStore: Record<
+    string,
+    {
+        otp: string;
+        expiresAt: number;
+    }
+> = {};
 
 // Generate JWT token
 const generateToken = (id: string) => {
@@ -95,8 +102,12 @@ export const sendOtp = async (req: Request, res: Response) => {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
         // Save OTP
-       otpStore[email] = otp;
-
+      otpStore[email] = {
+    otp,
+    expiresAt:
+        Date.now() +
+        5 * 60 * 1000,
+};
 await sendEmail({
             to: email,
             subject: "Your OTP Code",
@@ -147,13 +158,31 @@ export const verifyOtp = async (req: Request, res: Response) => {
         }
 
         // TEST OTP
-        if (otpStore[email] !== otp) {
+       const otpData =
+    otpStore[email];
 
-            return res.status(400).json({
-                success: false,
-                message: "Invalid OTP"
-            });
-        }
+if (
+    !otpData ||
+    otpData.otp !== otp
+) {
+    return res.status(400).json({
+        success: false,
+        message: "Invalid OTP",
+    });
+}
+
+if (
+    Date.now() >
+    otpData.expiresAt
+) {
+    delete otpStore[email];
+
+    return res.status(400).json({
+        success: false,
+        message: "OTP expired",
+    });
+}
+        delete otpStore[email];
 
         let user = await prisma.user.findUnique({
             where: {
@@ -168,7 +197,10 @@ export const verifyOtp = async (req: Request, res: Response) => {
                 data: {
                     name: email.split("@")[0],
                     email: email.toLowerCase(),
-                    password: await bcrypt.hash("otp-user", 10)
+                    password: await bcrypt.hash(
+    crypto.randomUUID(),
+    10
+)
                 }
             });
         }
@@ -209,10 +241,7 @@ export const saveFcmToken = async (
             email,
         } = req.body;
 
-        console.log(
-            "BODY:",
-            req.body
-        );
+  
 
         if (
             !token ||
@@ -236,12 +265,13 @@ export const saveFcmToken = async (
                 },
             });
 
-        return res.json({
-            success: true,
-            message:
-                "FCM token saved",
-            user: updatedUser,
-        });
+   
+
+return res.json({
+    success: true,
+    message: "FCM token saved",
+   
+});
 
     } catch (error) {
 

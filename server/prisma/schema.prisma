@@ -213,8 +213,10 @@ model DeliveryPartner {
 
 model Notification {
   id        String   @id @default(uuid())
+  userId    String?
   title     String
   body      String
   image     String?
+  isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
 }
