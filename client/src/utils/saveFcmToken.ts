@@ -6,10 +6,14 @@ const saveFcmToken = async (
 ) => {
 
     try {
-
+  console.log(
+            "SENDING:",
+            token,
+            email
+        );
         const response =
             await axios.post(
-                `${import.meta.env.VITE_BASE_URL}/api/auth/fcm-token`,
+                `${import.meta.env.VITE_BASE_URL}/auth/fcm-token`,
                 {
                     token,
                     email,
