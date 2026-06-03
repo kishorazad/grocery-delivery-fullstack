@@ -120,7 +120,7 @@ saveFcmToken();
 
 onMessage(messaging, (payload) => {
 
-    toast.custom((t) => (
+    toast.custom(() => (
         <div className="bg-white shadow-lg rounded-xl p-4 border w-80">
 
             <h3 className="font-semibold">
