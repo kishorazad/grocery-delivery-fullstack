@@ -197,8 +197,6 @@ export const verifyOtp = async (req: Request, res: Response) => {
         });
     }
 };
-
-
 export const saveFcmToken = async (
     req: Request,
     res: Response
@@ -206,39 +204,56 @@ export const saveFcmToken = async (
 
     try {
 
-        const { token, email } = req.body;
-         console.log("BODY:", req.body);
+        const {
+            token,
+            email,
+        } = req.body;
 
-        if (!token || !email) {
+        console.log(
+            "BODY:",
+            req.body
+        );
+
+        if (
+            !token ||
+            !email
+        ) {
 
             return res.status(400).json({
                 success: false,
-                message: "Token and email required"
+                message:
+                    "Token and email required",
             });
         }
 
-        await prisma.user.update({
-            where: {
-                email,
-            },
+        const updatedUser =
+            await prisma.user.update({
+                where: {
+                    email,
+                },
+                data: {
+                    fcmToken: token,
+                },
+            });
 
-            data: {
-                fcmToken: token,
-            },
-        });
-
-        res.json({
+        return res.json({
             success: true,
-             message: "FCM token saved"
+            message:
+                "FCM token saved",
+            user: updatedUser,
         });
 
-  } catch (error: any) {
+    } catch (error) {
 
-        console.log(error);
+        console.log(
+            "FCM SAVE ERROR:",
+            error
+        );
 
         return res.status(500).json({
             success: false,
-            error: error.message,
+            message:
+                "Internal server error",
         });
     }
 };
