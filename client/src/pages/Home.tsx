@@ -10,38 +10,30 @@ import UploadPrescription from "../components/Home/UploadPrescription";
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="bg-[#f8f9fa] min-h-screen">
 
-            {/* Hero Banner */}
             <Hero />
 
-            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 space-y-6">
+            <div className="max-w-7xl mx-auto px-3 md:px-6 space-y-6 py-4">
 
-                {/* Upload Prescription */}
                 <UploadPrescription />
 
-                {/* Buy Again */}
                 <PreviouslyBought />
 
-                {/* Recent Orders */}
                 <PastOrders />
 
-                {/* Categories */}
                 <HomeCategories />
 
-                {/* Trending Products */}
                 <PopularProducts />
 
-                {/* Trust Features */}
                 <Features />
 
-                {/* App Download */}
                 <AppPromoBanner />
 
-                {/* Newsletter */}
                 <Newsletter />
 
             </div>
+
         </div>
     );
 };

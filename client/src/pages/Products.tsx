@@ -28,7 +28,7 @@ const Products = () => {
         try {
             const params = new URLSearchParams();
             if (category) params.set("category", category);
-            if (sort) params.set("sort", sort);
+          
             if (sort) params.set("sort", sort);
             if (maxPrice) params.set("maxPrice", maxPrice);
             params.set("page", String(page));
@@ -67,8 +67,8 @@ if (search) params.set("search", search);
     }, [category, sort, page, minPrice, maxPrice,search]);
 
     return (
-        <div className="min-h-screen bg-app-cream">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="min-h-screen bg-slate-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-6">
                 {/* Breadcrumb */}
                 <nav className="flex items-center gap-2 text-sm text-app-text-light mb-6">
                     <Link to="/" className="hover:text-app-green transition-colors">
@@ -94,14 +94,29 @@ if (search) params.set("search", search);
         placeholder="Search medicines..."
         value={search}
         onChange={(e) => updateFilter("search", e.target.value)}
-        className="w-full md:w-80 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-green-600"
-    />
+className="
+w-full
+md:w-[420px]
+px-5
+py-4
+rounded-2xl
+bg-white
+shadow-sm
+border
+border-orange-100
+focus:border-orange-500
+focus:ring-2
+focus:ring-orange-100
+outline-none
+"    />
 </div>
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
                             <div><h1 className="text-2xl font-bold text-slate-800">
                                 {activeCategory ? activeCategory.name : "All Products"}</h1>
-                                <p className="text-sm text-slate-500 mt-1">{products.length} products found</p>
+                                <p className="text-sm text-slate-500 mt-1">
+    Showing {products.length} medicines & healthcare products
+</p>
                             </div>
 
                             <div className="flex flex-col lg:items-center gap-3">
@@ -131,12 +146,19 @@ if (search) params.set("search", search);
                             <div className="text-center py-16">
                                 <p className="text-lg font-semibold text-app-green mb-2">No medicines found</p>
                                 <p className="text-sm text-app-text-light mb-4">Try searching another medicine or healthcare product</p>
-                                <button onClick={clearFilters} className="px-5 py-2 text-sm font-medium bg-app-green text-white rounded-xl hover:bg-app-green-light transition-colors">
+                                <button onClick={clearFilters} className="px-5 py-2 text-sm font-medium bg-orange-500 text-white shadow-md rounded-xl hover:bg-app-green-light transition-colors">
                                     Clear Filters
                                 </button>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8">{products.map((product) => (
+                            <div className="
+grid
+grid-cols-2
+sm:grid-cols-3
+lg:grid-cols-4
+gap-4
+md:gap-6
+">{products.map((product) => (
     <ProductCard
         key={product.id}
         product={product}
@@ -154,7 +176,7 @@ if (search) params.set("search", search);
                                             updateFilter("page", String(i + 1));
                                             scrollTo(0, 0);
                                         }}
-                                        className={`size-9 rounded-lg text-sm font-medium transition-colors ${page === i + 1 ? "bg-app-green text-white" : "bg-white text-app-text-light hover:bg-slate-50"}`}
+                                        className={`size-9 rounded-lg text-sm font-medium transition-colors ${page === i + 1 ? "bg-orange-500 text-white shadow-md" : "bg-white text-app-text-light hover:bg-slate-50"}`}
                                     >
                                         {i + 1}
                                     </button>
@@ -164,6 +186,50 @@ if (search) params.set("search", search);
                     </main>
                 </div>
             </div>
+
+            <div
+    className="
+    lg:hidden
+    fixed
+    bottom-0
+    left-0
+    right-0
+    bg-white
+    border-t
+    p-3
+    flex
+    gap-3
+    z-40
+    "
+>
+    <button
+        onClick={() => setMobileFiltersOpen(true)}
+        className="
+        flex-1
+        bg-orange-500
+        text-white
+        py-3
+        rounded-xl
+        font-semibold
+        "
+    >
+        Filters
+    </button>
+
+    <button
+        className="
+        flex-1
+        border
+        border-orange-500
+        text-orange-500
+        py-3
+        rounded-xl
+        font-semibold
+        "
+    >
+        Sort
+    </button>
+</div>
 
             {/* Mobile Filters Modal */}
             {mobileFiltersOpen && (
