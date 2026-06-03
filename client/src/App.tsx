@@ -89,10 +89,16 @@ const App = () => {
                 if (!token) {
                     return;
                 }
+const savedUser = JSON.parse(
+    localStorage.getItem("auth_user") || "{}"
+);
 
-               await api.post(
+await api.post(
     "/auth/fcm-token",
-    { token }
+    {
+        token,
+        email: savedUser.email,
+    }
 );
                 console.log(
                     "FCM token saved"
