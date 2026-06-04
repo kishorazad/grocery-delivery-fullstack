@@ -9,7 +9,7 @@ import PastOrders from "./PastOrders";
 import UploadPrescription from "../components/Home/UploadPrescription";
 
 // New Sections
-import QuickServices from "../components/Home/QuickServices";
+import QuickServices from "../components/QuickServices";
 import HealthcareEssentials from "../components/Home/HealthcareEssentials";
 import FeaturedBrands from "../components/Home/FeaturedBrands";
 import EmergencyServices from "../components/Home/EmergencyServices";

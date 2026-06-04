@@ -4,9 +4,6 @@ import {
     FlaskConical,
     Stethoscope
 } from "lucide-react";
-import HealthcareEssentials from "../components/Home/HealthcareEssentials";
-import FeaturedBrands from "../components/Home/FeaturedBrands";
-import EmergencyServices from "../components/Home/EmergencyServices";   
 
 const services = [
     {
