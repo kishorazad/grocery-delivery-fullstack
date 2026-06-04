@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
+import { BellIcon } from "lucide-react";
 
 const Navbar = () => {
     const { user, logout } = useAuth();
@@ -45,6 +46,15 @@ min-h-[64px] md:min-h-[72px]
 py-2
 ">
                 {/* Logo */}
+                <div className="hidden md:block">
+    <p className="text-xs text-gray-500">
+        Delivering To
+    </p>
+
+    <p className="text-sm font-semibold">
+        Mumbai 400001
+    </p>
+</div>
                 {/* Logo */}
 <Link
     to="/"
@@ -160,6 +170,20 @@ min-w-0
   </form>
 
   {/* Mobile Search */}
+  <div className="md:hidden mt-3">
+    <button
+        className="
+        w-full
+        bg-orange-500
+        text-white
+        py-3
+        rounded-2xl
+        font-semibold
+        "
+    >
+        📄 Upload Prescription
+    </button>
+</div>
   <form
     onSubmit={handleSearch}
     className="flex md:hidden w-full"
@@ -212,6 +236,18 @@ flex items-center justify-center
 
 </div>
                     {/* Right Actions */}
+                    <Link
+    to="/notifications"
+    className="
+    relative
+    p-2
+    rounded-xl
+    hover:bg-orange-50
+    transition-all
+    "
+>
+    🔔
+</Link>
                     <div className="flex items-center gap-3">
                         {/* Cart */}
                         <button className="
@@ -223,7 +259,7 @@ transition-all
 " onClick={() => setIsCartOpen(true)}>
                             <ShoppingCartIcon className="size-5 text-zinc-900" />
                             {cartCount > 0 && <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px]
-px-1 bg-app-orange text-white text-[10px] rounded-full flex-center">{cartCount}</span>}
+px-1 bg-orange-500 text-white text-[10px] rounded-full shadow-md flex-center">{cartCount}</span>}
                         </button>
                         {/* User */}
                         <div className="relative">
@@ -236,12 +272,12 @@ rounded-xl
 hover:bg-orange-50
 transition-all
 ">
-                                    <div className="size-7 rounded-full bg-green-950 text-white flex-center">{user.name.charAt(0).toUpperCase()}</div>
+                                    <div className="size-7 rounded-full shadow-md bg-green-950 text-white flex-center">{user.name.charAt(0).toUpperCase()}</div>
                                     <ChevronDownIcon className="size-3 text-zinc-500" />
                                 </button>
                             ) : (
                                 <div className="flex-center gap-2">
-                                    <Link to="/login" className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-green-950 rounded-full hover:bg-green-950-light transition-colors">
+                                    <Link to="/login" className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-green-950 rounded-full shadow-md hover:bg-green-950-light transition-colors">
                                         <UserIcon size={16} /> Sign In
                                     </Link>
                                     {userMenuOpen ? <XIcon

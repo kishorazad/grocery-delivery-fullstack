@@ -15,7 +15,7 @@ const UploadPrescription = () => {
 
                 <div>
                     <h2 className="font-bold text-xl">
-                        Upload Prescription
+                      📄 Upload Prescription
                     </h2>
 
                     <p className="text-sm mt-1 opacity-90">
@@ -23,20 +23,24 @@ const UploadPrescription = () => {
                     </p>
                 </div>
 
-                <button className="
-                    bg-white
-                    text-orange-600
-                    px-5
-                    py-2
-                    rounded-xl
-                    font-semibold
-                    flex
-                    items-center
-                    gap-2
-                ">
-                    <Upload size={18} />
-                    Upload
-                </button>
+               <button
+    className="
+    bg-orange-500
+    hover:bg-orange-600
+    text-white
+    px-5
+    py-3
+    rounded-2xl
+    font-semibold
+    flex
+    items-center
+    gap-2
+    transition-all
+    "
+>
+    <Upload size={18} />
+    Upload Prescription
+</button>
 
             </div>
         </div>

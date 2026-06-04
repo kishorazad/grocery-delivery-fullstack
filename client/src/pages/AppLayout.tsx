@@ -6,10 +6,18 @@ import CartSidebar from "../components/CartSidebar";
 
 const AppLayout = () => {
     return (
-        <div className="min-h-screen bg-[#fafaf9] flex flex-col overflow-x-hidden">
+       <div className="
+min-h-screen
+bg-slate-50
+flex
+flex-col
+overflow-x-hidden
+">
             
             {/* Top Offer Banner */}
-            <Banner />
+           <div className="hidden lg:block">
+    <Banner />
+</div>
 
             {/* Sticky Navbar */}
             <Navbar />
@@ -25,14 +33,14 @@ const AppLayout = () => {
                 <div
                     className="
                     w-full
-                    max-w-[1400px]
+                 max-w-[1440px]
                     mx-auto
                     px-3
                     sm:px-4
                     md:px-6
                     lg:px-8
-                    py-4
-                    md:py-6
+                    py-3
+                   md:py-5
                     "
                 >
                     <Outlet />

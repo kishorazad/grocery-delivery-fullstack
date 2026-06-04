@@ -42,13 +42,14 @@ const ProductCard = ({ product }: Props) => {
             }
             className="
                 bg-white
-                rounded-3xl
+               rounded-[28px]
                 border
-                border-slate-200
+               border-orange-100
                 overflow-hidden
                 shadow-sm
 hover:shadow-lg
-                hover:-translate-y-1
+               hover:-translate-y-2
+hover:shadow-xl
                 transition-all
                 duration-300
                 cursor-pointer
@@ -56,8 +57,25 @@ hover:shadow-lg
             "
         >
             {/* Image */}
-            <div className="relative bg-orange-50 aspect-square overflow-hidden">
-
+           
+            <div className="relativebg-gradient-to-b from-orange-50 to-white aspect-square overflow-hidden">
+ <button
+    className="
+    absolute
+    top-3
+    right-3
+    w-8
+    h-8
+    rounded-full
+    bg-white
+    shadow-md
+    flex
+    items-center
+    justify-center
+    "
+>
+    ❤️
+</button>
                 <img
                     src={product.image}
                     alt={product.name}
@@ -91,6 +109,23 @@ hover:shadow-lg
                         </span>
                     </div>
                 )}
+
+                {product.rating >= 4.7 && (
+    <div className="absolute bottom-3 left-3">
+        <span
+            className="
+            bg-green-600
+            text-white
+            text-[10px]
+            px-2
+            py-1
+            rounded-full
+            "
+        >
+            Bestseller
+        </span>
+    </div>
+)}
 
                 {/* Prescription Badge */}
                 {product.prescriptionRequired && (
@@ -157,36 +192,73 @@ hover:shadow-lg
                 )}
 
                 {/* Rating */}
-                <div className="flex items-center gap-1 mt-3">
+         <div
+    className="
+    flex
+    items-center
+    gap-1
+    bg-green-600
+    text-white
+    px-2
+    py-1
+    rounded-md
+"
+>
 
                     <Star className="size-3.5 fill-yellow-400 text-yellow-400" />
 
-                    <span className="text-xs font-medium text-slate-700">
+           <span className="text-[11px] text-white font-medium">
                         {product.rating || 4.5}
                     </span>
 
-                    <span className="text-xs text-slate-400">
+                   <span className="text-[11px] text-green-100">
                         ({product.reviewCount || 10})
                     </span>
 
                 </div>
 
                 {/* Safety */}
-                <div className="flex items-center gap-1 mt-2 text-orange-500 text-orange-600
- bg-orange-50
- px-2
- py-1
- rounded-lg
- w-fit">
+               <div className="flex flex-wrap gap-2 mt-2">
 
-                    <ShieldCheck className="size-3.5" />
+    <div
+        className="
+        flex
+        items-center
+        gap-1
+        text-orange-600
+        bg-orange-50
+        px-2
+        py-1
+        rounded-lg
+        "
+    >
+        <ShieldCheck className="size-3.5" />
 
-                    <span className="text-[11px] font-medium">
-                        Genuine Medicine
-                    </span>
+        <span className="text-[11px] font-medium">
+            Genuine Medicine
+        </span>
+    </div>
 
-                </div>
+    <div
+        className="
+        flex
+        items-center
+        gap-1
+        text-green-700
+        bg-green-50
+        px-2
+        py-1
+        rounded-lg
+        "
+    >
+        🚚
 
+        <span className="text-[11px] font-medium">
+            Free Delivery
+        </span>
+    </div>
+
+</div>
                 {/* Price + Cart */}
                 <div className="flex items-center justify-between mt-4">
 

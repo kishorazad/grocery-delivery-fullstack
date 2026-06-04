@@ -8,28 +8,55 @@ import PreviouslyBought from "../components/Home/PreviouslyBought";
 import PastOrders from "./PastOrders";
 import UploadPrescription from "../components/Home/UploadPrescription";
 
+// New Sections
+import QuickServices from "../components/Home/QuickServices";
+import HealthcareEssentials from "../components/Home/HealthcareEssentials";
+import FeaturedBrands from "../components/Home/FeaturedBrands";
+import EmergencyServices from "../components/Home/EmergencyServices";
+
 const Home = () => {
     return (
-        <div className="bg-[#f8f9fa] min-h-screen">
+        <div className="bg-slate-50 min-h-screen">
 
+            {/* Hero Banner */}
             <Hero />
 
-            <div className="max-w-7xl mx-auto px-3 md:px-6 space-y-6 py-4">
+            <div className="max-w-7xl mx-auto px-3 md:px-6 py-4 space-y-8">
 
+                {/* MedaDock Style Quick Actions */}
+                <QuickServices />
+
+                {/* PillNow Core Feature */}
                 <UploadPrescription />
 
-                <PreviouslyBought />
-
-                <PastOrders />
-
+                {/* PillNow Categories */}
                 <HomeCategories />
 
+                {/* Personalized */}
+                <PreviouslyBought />
+
+                {/* Orders */}
+                <PastOrders />
+
+                {/* Trending */}
                 <PopularProducts />
 
+                {/* Healthcare Essentials */}
+                <HealthcareEssentials />
+
+                {/* Featured Brands */}
+                <FeaturedBrands />
+
+                {/* Emergency Services */}
+                <EmergencyServices />
+
+                {/* Trust Section */}
                 <Features />
 
+                {/* Download App */}
                 <AppPromoBanner />
 
+                {/* Newsletter */}
                 <Newsletter />
 
             </div>
