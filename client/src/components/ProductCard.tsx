@@ -42,11 +42,12 @@ const ProductCard = ({ product }: Props) => {
             }
             className="
                 bg-white
-                rounded-2xl
+                rounded-3xl
                 border
                 border-slate-200
                 overflow-hidden
-                hover:shadow-xl
+                shadow-sm
+hover:shadow-lg
                 hover:-translate-y-1
                 transition-all
                 duration-300
@@ -55,7 +56,7 @@ const ProductCard = ({ product }: Props) => {
             "
         >
             {/* Image */}
-            <div className="relative bg-slate-50 aspect-square overflow-hidden">
+            <div className="relative bg-orange-50 aspect-square overflow-hidden">
 
                 <img
                     src={product.image}
@@ -77,7 +78,7 @@ const ProductCard = ({ product }: Props) => {
                     <div className="absolute top-3 left-3">
                         <span
                             className="
-                                bg-green-600
+                               bg-orange-500
                                 text-white
                                 text-[10px]
                                 font-bold
@@ -171,7 +172,12 @@ const ProductCard = ({ product }: Props) => {
                 </div>
 
                 {/* Safety */}
-                <div className="flex items-center gap-1 mt-2 text-green-600">
+                <div className="flex items-center gap-1 mt-2 text-orange-500 text-orange-600
+ bg-orange-50
+ px-2
+ py-1
+ rounded-lg
+ w-fit">
 
                     <ShieldCheck className="size-3.5" />
 
@@ -222,20 +228,23 @@ const ProductCard = ({ product }: Props) => {
                             addToCart(product);
                         }}
                         className="
-                            size-10
-                            rounded-full
-                            bg-green-600
+                           h-10
+ px-4
+ rounded-xl
+                           
+                           bg-orange-500
                             text-white
                             flex
                             items-center
                             justify-center
-                            hover:bg-green-700
+                             gap-1
+                            hover:bg-orange-600
                             transition-all
                             active:scale-95
                             shadow-md
                         "
                     >
-                        <Plus className="size-5" />
+                        <Plus className="size-4" /> Add
                     </button>
 
                 </div>
